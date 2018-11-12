@@ -1,0 +1,98 @@
+.padding-right-45{
+	padding-right: 45px;
+}
+.nav-tabs.nav-justified > li a{
+    background-color: white;
+    border: none;
+
+  }
+  .nav-tabs.nav-justified > .active > a, .nav-tabs.nav-justified > .active > a:hover, .nav-tabs.nav-justified > .active > a:focus{
+    color: #660033;
+    border-bottom: #660033;
+  }
+  .nav-tabs.nav-justified{
+        border-bottom: 1px solid #ccc;
+  }
+  .nav-tabs.nav-justified > .active{
+   /*  border-bottom: 1px solid #660033;*/
+  }
+.nav-tabs.nav-justified > li > a:hover{
+  background: white !important;
+}
+.nav-tabs.nav-justified > .active > a.clssthongtinkhachhang, 
+.nav-tabs.nav-justified > .active > a.clssthongtinkhachhang:hover, 
+.nav-tabs.nav-justified > .active > a.clssthongtinkhachhang:focus{
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 149px;
+    border-bottom: 1px solid #660033;
+  }
+.nav-tabs.nav-justified > .active > a.clssghichu, 
+.nav-tabs.nav-justified > .active > a.clssghichu:hover, 
+.nav-tabs.nav-justified > .active > a.clssghichu:focus{
+   padding-left: 0px;
+    padding-right: 0px;
+    width: 56px;
+    border-bottom: 1px solid #660033;
+  }
+.nav-tabs.nav-justified > .active > a.clssbaogom, 
+.nav-tabs.nav-justified > .active > a.clssbaogom:hover, 
+.nav-tabs.nav-justified > .active > a.clssbaogom:focus{
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 67px;
+    border-bottom: 1px solid #660033;
+  }
+.nav-tabs.nav-justified > .active > a.clssthongtinhkhac, 
+.nav-tabs.nav-justified > .active > a.clssthongtinhkhac:hover, 
+.nav-tabs.nav-justified > .active > a.clssthongtinhkhac:focus{
+    padding-left: 0px;
+    padding-right: 0px;
+    border-bottom: 1px solid #660033;
+    width: 104px;
+  }
+.nav-tabs.nav-justified > .active > a.clssluy, 
+.nav-tabs.nav-justified > .active > a.clssluy:hover, 
+.nav-tabs.nav-justified > .active > a.clssluy:focus{
+       padding-left: 0px;
+    padding-right: 0px;
+    border-bottom: 1px solid #660033;
+    width: 46px;
+  }
+  .border-1px{
+    border: 1px solid #ccc;
+  }
+  .margin-bottom-10{
+    margin-bottom: 10px;
+  }
+  .no-padding-left{
+  	padding-left: 0px;
+  }
+  .no-padding-right{
+  	padding-right: 0px;
+  }
+  .margin-bottom-none{
+  	margin-bottom: 0px;
+  }
+  .no-padding{
+  	padding-left: 0px;
+  	padding-right: 0px;
+  }
+  .width-90{
+  	width: 90px;
+  }
+   .width-45{
+  	width: 45px;
+  }
+  .padding-bottom-210{
+  	   padding-bottom: 210px
+  }
+  .clss-footer{
+  	height: 40px;line-height: 40px;margin-bottom: 30px
+  }
+  .padding-left-38-mobile{
+  	padding-left: 38px;
+  }
+  .margin-left-37{
+  	margin-left: 37px;
+  }

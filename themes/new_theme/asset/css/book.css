@@ -1,0 +1,173 @@
+.nav-tabs-book{
+	text-transform: unset !important;
+}
+.nav-tabs-book > li{
+	width: 220px;
+}
+.nav-tabs-book li.active{
+	background: transparent !important;
+}
+.nav-tabs-book > li.active > a, .nav-tabs-book > li.active > a:hover, .nav-tabs-book > li.active > a:focus,.nav-tabs-book > li.active > a:visited
+{
+	color: #660033 !important;
+	border-bottom: 3px solid #660033;
+}
+.nav-tabs-book > li.active > a
+{
+	color: #660033;
+	border-bottom: 3px solid #660033;
+	text-transform: unset !important;
+	
+}
+.nav-tabs-book > li > a{
+font-size: 15px;
+    padding-left: 0px;
+}
+.nav-tabs-book li.phuongthuc{
+	text-align: right;
+}
+.nav-tabs-book li.phuongthuc a.phuongthuca{
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-right: 0px;
+}
+
+.nav-tabs-book li a.xuathoadon{
+	padding-right: 0px;
+    margin-right: 0px;
+    text-align: center;
+}
+.content-visa-item{
+	border: 1px solid #ccc;
+    width: 300px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #a9a9a9;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.content-visa-item-xuat-hoa-don{
+	
+	border: 1px solid #ccc;
+    width: 300px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #a9a9a9;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.info-hoa-don{
+	margin-top: 20px;
+}
+.clss-xuat{
+	margin-bottom: 10px;
+	color: #a9a9a9;
+}
+.conten-vanphong{
+	    border: 1px solid #ccc;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #a9a9a9;
+}
+.margin-bottom-10{
+	margin-bottom: 10px;
+}
+.info-hotel h1{
+font-size: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.info-time-book{
+	border: 1px solid #ccc;
+	margin-top: 10px;
+	margin-right: 10px;
+	height: 100px;
+	padding-top: 12px;
+}
+.info-people{
+	border: 1px solid #ccc;
+	margin-top: 10px;
+	padding-top: 12px;
+	padding-bottom: : 12px;
+
+}
+.cl-grey{
+	 color: #a9a9a9;
+}
+.clss-content-book{
+	border: 1px solid #ccc;
+}
+.content-item-text,.content-giam-gia{
+	border-left: 1px solid #ccc;
+	border-right:  1px solid #ccc;
+	border-bottom:  1px solid #ccc;
+}
+.cl-tim{
+	color: #660033;
+}
+.button-tim{
+	background: #660033;
+	color: white;
+	width: 100%;
+	padding: 5px;
+	border: none;
+}
+.clss-tongthanhtoan{
+	border-top:   1px solid #ccc;
+	border-bottom:  1px solid #ccc;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+.clss-finish{
+padding-bottom: 10px;
+	padding-top: 10px;
+}
+.padding-top-10{
+	padding-top: 10px;
+}
+.content-checkout{
+	width: 53%;
+	float: left;
+}
+.info-people{
+	width: 44.8%;
+	float: left;
+}
+.cotent-huyphong{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border: 1px solid #ccc;
+	color: #a9a9a9;
+}
+.line-book{
+	border-top: 1px solid #cccc;
+   
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+.nav-tabs-book-combox li{
+	width: 155px;
+}
+.nav-tabs-book .thongtinbooking{
+    width: 121px;
+    padding-right: 0px;
+}
+.nav-tabs-book .xuathoadon{
+	    width: 143px;
+}
+.nav-tabs-book .phuongthuca
+{
+	    width: 161px;
+}
+.nav-tabs-book .donphongduaban{
+	width: 80px;
+    padding-right: 0px;
+}
+.nav-tabs-book .dieukienhuy{
+	padding-right: 0px;
+	    width: 95px;
+}
+.nav-tabs-book  .dieukiensudung{
+	width: 139px;
+}
+.cotent-huyphong div span{
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}

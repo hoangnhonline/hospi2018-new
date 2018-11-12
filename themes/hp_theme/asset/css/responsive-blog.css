@@ -1,0 +1,988 @@
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+   .class-button-baimoi{
+    left: 9px;
+   }
+   .cat-line:after{
+    margin-top: 1px;
+   }
+   .nav-tabs{
+    border: none;
+   }
+   .cau-hoi-mobile{
+        margin-top: 70px;
+    padding-left: 0px;
+    padding-right: 0px;
+   }
+   .block-news-anh-video{
+    padding-left: 15px;
+    padding-right: 15px;
+   }
+   .block-news-anh-video .nav-tabs li.cate-news a{
+      font-size: 12px;
+      text-transform: none;
+      padding-right: 8px;
+     
+      padding-left: 13px;
+   }
+   .block-news-anh-video .nav-tabs li{
+      padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+   }
+   .block-news-anh-video .nav-tabs li.icon{
+    margin-top: 2px;
+   }
+   .nav-tabs li.icon a{
+      padding-right: 2px;
+      padding-left: 2px;
+      padding-top: 3px;
+      padding-bottom: 3px;
+   }
+   .block-news-anh-video .listinews .newshot{
+    /*width: 101px;*/
+   }
+  
+   .block-news-anh-video .list-news ul .news-style-list{
+    width: 172px;
+   }
+   .block-news-anh-video .list-news ul .news-style-list .image{
+    width: 38px;
+   }
+   .block-news-anh-video .list-news ul .news-style-list .info{
+    width: 124px;
+   }
+   .block-news-anh-video .news-style .info h2{
+    margin-top: 10px;
+    font-size: 12px;
+   }
+
+   .block-news-khuyen-mai{
+    margin-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+   }
+   .block-news-khuyen-mai .nav-tabs li.cate-news  a{
+      font-size: 12px;
+      text-transform: none;
+      padding-left: 13px;
+      padding-right: 8px;
+   }
+    .block-news-anh-video .nav-tabs li.icon{
+    margin-top: 2px;
+   }
+   .block-news-khuyen-mai .nav-tabs li{
+      padding-left: 0px;
+    padding-right: 0px;
+     padding-bottom: 0px;
+   }
+   .block-news-khuyen-mai .listinews .newshot{
+    width: 288px;
+    margin-bottom: 15px;
+   }
+    .block-news-khuyen-mai .listinews .newshot img{
+       width: 95px;
+      float: left;
+   }
+    .block-news-khuyen-mai .listinews .newshot .info{
+          width: 185px;
+      float: left;
+    margin-left: 8px;
+   }
+   .block-news-khuyen-mai .listinews .list-news{
+    width: 290px;
+   }
+   .block-news-khuyen-mai .list-news ul .news-style-list{
+    width: 290px;
+   }
+   .block-news-khuyen-mai .list-news ul .news-style-list .image{
+    width: 95px;
+   }
+   .block-news-khuyen-mai .list-news ul .news-style-list .info{
+    width: 185px;
+   }
+   .block-news-khuyen-mai .news-style .info h2{
+     margin-top: 0px;
+    font-size: 12px
+   }
+   .block-news-am-thuc{
+      margin-top: 15px;
+      padding-left: 15px;
+      padding-right: 15px;
+   }
+   .block-news-am-thuc .nav-tabs li.cate-news a{
+      font-size: 12px;
+      text-transform: none;
+      padding-left: 13px;
+      padding-right: 8px;
+   }
+    .block-news-anh-video .nav-tabs li.icon{
+    margin-top: 2px;
+   }
+   .block-news-am-thuc .nav-tabs li{
+      padding-left: 0px;
+      padding-right: 0px;
+       padding-bottom: 0px;
+   }
+   .block-news-am-thuc .listinews .newshot{
+    
+    margin-bottom: 15px;
+   }
+   .block-news-diem-den{
+    margin-top: 15px;
+      padding-left: 15px;
+      padding-right: 15px;
+   }
+   .block-news-diem-den .nav-tabs li.cate-news a{
+      font-size: 12px;
+      text-transform: none;
+      padding-left: 13px;
+      padding-right: 8px;
+   }
+    .block-news-anh-video .nav-tabs li.icon{
+    margin-top: 2px;
+   }
+   .block-news-diem-den .nav-tabs li{
+      padding-left: 0px;
+       padding-bottom: 0px;
+      padding-right: 0px;
+   }
+   .block-news-khach-san-va-resort{
+     padding-left: 0px;
+    padding-right: 0px;
+
+   }
+   .block-news-khach-san-va-resort .nav-tabs li.cate-news a{
+      font-size: 13px;
+      text-transform: none;
+      padding-left: 13px;
+      padding-right: 12px;
+   }
+     .block-news-khach-san-va-resort .nav-tabs li.icon{
+    margin-top: 2px;
+   }
+   .block-news-khach-san-va-resort{
+     padding-left: 15px;
+    padding-right: 15px;
+   }
+   .block-news-khach-san-va-resort .nav-tabs li{
+      padding-left: 0px;
+    padding-right: 0px;
+    
+   }
+   .block-news-khach-san-va-resort .listinews .newshot{
+    width: 288px;
+    margin-bottom: 15px;
+   }
+    .block-news-khach-san-va-resort .listinews .newshot img{
+       width: 95px;
+      float: left;
+   }
+    .block-news-khach-san-va-resort .listinews .newshot .info{
+          width: 185px;
+      float: left;
+    margin-left: 8px;
+   }
+   .block-news-khach-san-va-resort .listinews .list-news{
+    width: 290px;
+   }
+   .block-news-khach-san-va-resort .list-news ul .news-style-list{
+    width: 290px;
+   }
+   .block-news-khach-san-va-resort .list-news ul .news-style-list .image{
+    width: 95px;
+   }
+   .block-news-khach-san-va-resort .list-news ul .news-style-list .info{
+    width: 185px;
+   }
+   .block-news-khach-san-va-resort .news-style .info h2{
+    margin-top: 0px;
+    font-size: 12px;
+   }
+   /* footer*/
+   .list-social{
+     position: relative;
+   }
+   .youtube{
+      position: absolute;
+      left: -24px;
+      padding: 5px;
+      width: 90px;
+   }
+   .facebook{
+      position: absolute;
+      left: 72px;
+      padding: 5px;
+      width: 94px;
+   }
+   .google{
+        position: absolute;
+      right: -26px;
+      padding: 5px;
+      width: 100px;
+   }
+   .ketnoi{
+    width: 100%;
+    margin-bottom: 10px;
+   }
+   .main-blog{
+    margin-bottom: -90px;
+   }
+   .footerblog{
+    margin-top: 75px;
+   }
+   /*trang con*/
+   .nav-tabs-black li.cate-news-black a{
+    padding-right: 7px;
+    padding-left: 13px;
+    padding-bottom: 0px;
+    color: #00cccc;
+   }
+   .nav-tabs-black li.active a{
+    color: white;
+   }
+   
+   .nav-tabs-black li.active{
+    background: #00cccc !important
+   }
+   .cat-line-black:after{
+    border-top: 1px solid #00cccc;
+   }
+   .nav-tabs-black li.icon{
+     background: #00cccc;
+   }
+   .block-adv-blog{
+    margin-bottom: 15px;
+   }
+   .line-white{
+    top: 64%;
+    left: 4%;
+   }
+   .caption{
+        width: 265px;
+      left: 10px;
+      top: 56%;
+
+   }
+   .caption h2{
+    font-size: 15px;
+   }
+   .line-white-child{
+    bottom: 26%;
+    left: 4%;
+   }
+   .caption-child{
+    width: 267px;
+    bottom: -1%;
+    left: 4%;
+   }
+   .caption-child h2{
+    font-size: 15px;
+   }
+   .no-padding-right-mobile{
+    padding-right: 0px;
+   }
+   .no-padding-left-mobile{
+    padding-left: 0px;
+   }
+   .no-margin-bottom-mobile{
+    margin-bottom: 0px;
+   }
+   .block-news-anh-video .listinews .newshot-blog{
+    width: 128px;
+   }
+   .block-news-anh-video .listinews .newshot-blog-details{
+    width: 100%;
+    /*padding-right: 15px !important;*/
+  }
+  .block-news-anh-video .listinews .newshot-blog-details h2{
+    font-size: 18px;
+  }
+  .margin-top-6-mobile{
+    margin-top: 6px;
+  }
+  .font-size-7-mobile{
+    font-size: 7px;
+  }
+  .item-tim{
+        font-size: 8px;
+    padding-left: 15px;
+    padding-right: 0px;
+  }
+  .ads-news-content img{
+    max-width: 82px;
+  }
+  .ads-news,.ads-news-content{
+    height: 62px;
+    margin-top: 5px;
+  }
+  .combo-desc{
+    margin-top: 0px;
+    height: 26px;
+  }
+  .combo-desc p{
+        margin-top: 3px;
+    margin-bottom: 0px;
+    font-size: 8px;
+  }
+  .ads-news .combo-desc p{
+     font-size: 8px;
+  }
+  .combo-prices{
+        font-size: 10px;
+  }
+  .prices-desc-gia{
+        font-size: 10px;
+  }
+  .ads-news i.nesttsts{
+        width: 15px;
+    height: 15px;
+    font-size: 14px;
+  }
+  .secondary.col-md-3.go-left{
+    margin-top: 30px;
+  }
+  .ads-images{
+    margin-top: 30px;
+    width: 346px;
+  }
+  .ads-images img{
+    width: 345px;
+  }
+  .top-baimoi li a{
+    font-size: 11px;
+  }
+  .lastest-news:before, .cate-news:before, .popular-post:before, .secondary .panel-heading.go-text-right:before
+  {
+    background-image: none;
+  }
+   .img-logo-mobile{
+        text-align: center;
+      vertical-align: middle;
+    margin-left: 35px;
+  }
+  .center-mobile{
+    text-align: center;
+  }
+  .padding-left-8-mobile{
+    padding-left: 8px !important;
+  }
+  .secondary-blog,.best-choise .featured{
+    margin-top: 15px;
+  }
+  .padding-left-15-mobile{
+    padding-right: 15px;
+  }
+  .margin-bottom-15-mobile{
+    margin-bottom: 15px !important;
+  }
+  .margin-top-30-mobile{
+     margin-top: 15px !important;
+  }
+  .block-news-anh-video .listinews .img-left{
+    padding-right: 0px;
+    width: 144px;
+  }
+  .block-news-anh-video .listinews .img-right img
+  {
+    height: 130px;
+  }
+   .margin-top-15-mobile{
+     margin-top: 15px !important;
+  }
+  .margin-top-am-10-mobile{
+    margin-top: -10px;
+  }
+}
+
+
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+    
+
+}
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+   
+
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+    .class-button-baimoi{
+    left: 9px;
+   }
+   .cau-hoi-mobile{
+        margin-top: 70px;
+    padding-left: 0px;
+    padding-right: 0px;
+   }
+   .block-news-anh-video{
+    padding-left: 15px;
+    padding-right: 15px;
+   }
+   .block-news-anh-video .nav-tabs li a{
+      font-size: 13px;
+      text-transform: none;
+      padding-left: 13px;
+      padding-right: 12px;
+   }
+   .block-news-anh-video .nav-tabs li{
+      padding-left: 0px;
+    padding-right: 0px;
+   }
+   .block-news-anh-video .listinews .newshot{
+   /* width: 101px;*/
+   }
+ 
+   .block-news-anh-video .list-news ul .news-style-list{
+    width: 172px;
+   }
+   .block-news-anh-video .list-news ul .news-style-list .image{
+    width: 38px;
+   }
+   .block-news-anh-video .list-news ul .news-style-list .info{
+    width: 124px;
+   }
+   .block-news-anh-video .news-style .info h2{
+    margin-top: 10px;
+    font-size: 12px;
+   }
+   .block-news-khuyen-mai{
+    margin-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+   }
+   .block-news-khuyen-mai .nav-tabs li a{
+      font-size: 13px;
+      text-transform: none;
+      padding-left: 13px;
+      padding-right: 12px;
+   }
+   .block-news-khuyen-mai .nav-tabs li{
+      padding-left: 0px;
+    padding-right: 0px;
+   }
+   .block-news-khuyen-mai .listinews .newshot{
+    width: 288px;
+    margin-bottom: 15px;
+   }
+    .block-news-khuyen-mai .listinews .newshot img{
+       width: 95px;
+      float: left;
+   }
+    .block-news-khuyen-mai .listinews .newshot .info{
+          width: 185px;
+      float: left;
+    margin-left: 8px;
+   }
+   .block-news-khuyen-mai .listinews .list-news{
+    width: 290px;
+   }
+   .block-news-khuyen-mai .list-news ul .news-style-list{
+    width: 290px;
+   }
+   .block-news-khuyen-mai .list-news ul .news-style-list .image{
+    width: 95px;
+   }
+   .block-news-khuyen-mai .list-news ul .news-style-list .info{
+    width: 185px;
+   }
+   .block-news-khuyen-mai .news-style .info h2{
+    margin-top: 0px;
+    font-size: 12px
+   }
+   .block-news-am-thuc{
+      margin-top: 15px;
+      padding-left: 15px;
+      padding-right: 15px;
+   }
+   .block-news-am-thuc .nav-tabs li a{
+      font-size: 13px;
+      text-transform: none;
+      padding-left: 13px;
+      padding-right: 12px;
+   }
+   .block-news-am-thuc .nav-tabs li{
+      padding-left: 0px;
+    padding-right: 0px;
+   }
+   .block-news-am-thuc .listinews .newshot{
+    
+    margin-bottom: 15px;
+   }
+   .block-news-diem-den{
+    margin-top: 15px;
+      padding-left: 15px;
+      padding-right: 15px;
+   }
+   .block-news-diem-den .nav-tabs li a{
+      font-size: 13px;
+      text-transform: none;
+      padding-left: 13px;
+      padding-right: 12px;
+   }
+   .block-news-diem-den .nav-tabs li{
+      padding-left: 0px;
+    padding-right: 0px;
+   }
+   .block-news-khach-san-va-resort{
+     padding-left: 0px;
+    padding-right: 0px;
+   }
+   .block-news-khach-san-va-resort .nav-tabs li a{
+      font-size: 13px;
+      text-transform: none;
+      padding-left: 13px;
+      padding-right: 12px;
+   }
+   .block-news-khach-san-va-resort .nav-tabs li{
+      padding-left: 0px;
+    padding-right: 0px;
+   }
+   .block-news-khach-san-va-resort .listinews .newshot{
+    width: 288px;
+    margin-bottom: 15px;
+   }
+    .block-news-khach-san-va-resort .listinews .newshot img{
+       width: 95px;
+      float: left;
+   }
+    .block-news-khach-san-va-resort .listinews .newshot .info{
+          width: 185px;
+      float: left;
+    margin-left: 8px;
+   }
+   .block-news-khach-san-va-resort .listinews .list-news{
+    width: 290px;
+   }
+   .block-news-khach-san-va-resort .list-news ul .news-style-list{
+    width: 290px;
+   }
+   .block-news-khach-san-va-resort .list-news ul .news-style-list .image{
+    width: 95px;
+   }
+   .block-news-khach-san-va-resort .list-news ul .news-style-list .info{
+    width: 185px;
+   }
+   .block-news-khach-san-va-resort .news-style .info h2{
+    margin-top: 0px;
+    font-size: 12px;
+   }
+   /* footer*/
+   .list-social{
+     position: relative;
+   }
+   .youtube{
+      position: absolute;
+      left: -24px;
+      padding: 5px;
+      width: 90px;
+   }
+   .facebook{
+      position: absolute;
+      left: 100px;
+      padding: 5px;
+      width: 94px;
+   }
+   .google{
+        position: absolute;
+      right: -26px;
+      padding: 5px;
+      width: 100px;
+   }
+   .ketnoi{
+    width: 100%;
+    margin-bottom: 10px;
+   }
+   .main-blog{
+    margin-bottom: -90px;
+   }
+   .footerblog{
+      margin-top: 75px;
+   }
+   .block-news-anh-video .listinews .img-left{
+      width: 170px;
+    padding-right: 0px;
+   }
+   .block-news-anh-video .listinews .img-right{
+     width: 156px;
+   }
+   .block-news-anh-video .listinews .img-right img{
+    width: 156px;
+    height: 154px;
+   }
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) { 
+     
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+    
+}
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+     .block-news-anh-video .listinews .img-left{
+      width: 190px;
+    padding-right: 0px;
+   }
+   .block-news-anh-video .listinews .img-right{
+     width: 177px;
+   }
+   .block-news-anh-video .listinews .img-right img{
+    width: 177px;
+    height: 172px;
+   }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+    .facebook{
+      left: 116px;
+    }
+    .img-logo-mobile{
+          margin-left: 66px;
+    }
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+     
+
+}
+
+/* ----------- iPhone X ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+ 
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+ 
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+ 
+}
+
+/* ----------- Galaxy S3 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) {
+ 
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) 
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) 
+  and (orientation: landscape) {
+ 
+}
+
+/* ----------- Galaxy S4, S5 and Note 3 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+ 
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+ 
+}
+
+/* ----------- Galaxy S6 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) {
+    .block-news-anh-video .list-news ul .news-style-list{
+      width: 213px;
+    }
+  .block-news-anh-video .list-news ul .news-style-list .info
+  {
+    width: 167px;
+  }
+  .block-news-khuyen-mai .listinews .newshot{
+        width: 328px;
+  }
+  .block-news-khuyen-mai .listinews .newshot .info{
+        width: 225px;
+  }
+  .block-news-khuyen-mai .list-news ul .news-style-list{
+    width: 328px;
+  }
+  .block-news-khuyen-mai .list-news ul .news-style-list .info{
+        width: 225px;
+  }
+  .facebook{
+    left: 91px;
+  }
+  .img-logo-mobile{
+        text-align: center;
+      vertical-align: middle;
+    margin-left: 35px;
+  }
+  .block-news-anh-video .listinews .newshot-blog{
+    width: 150px;
+  }
+  .img-left{
+        padding-right: 0px;
+    width: 162px !important;
+    padding-left: 0px;
+  }
+  .img-left img{
+    height: 145px;
+  }
+  .img-right img{
+     height: 145px;
+  }
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) 
+  and (orientation: portrait) {
+ 
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) 
+  and (orientation: landscape) {
+ 
+}
+
+/* ----------- Google Pixel ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+ 
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+ 
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+ 
+}
+
+/* ----------- Google Pixel XL ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) {
+ 
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) 
+  and (orientation: portrait) {
+ 
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) 
+  and (orientation: landscape) {
+ 
+}
+
+/* ----------- HTC One ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+
+}
+/* ----------- Windows Phone ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 480px) 
+  and (device-height: 800px) {
+
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 480px) 
+  and (device-height: 800px)  
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 480px) 
+  and (device-height: 800px) 
+  and (orientation: landscape) {
+
+}

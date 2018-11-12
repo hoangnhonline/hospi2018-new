@@ -1,0 +1,23 @@
+RewriteEngine on
+RewriteCond $1 !^(index\.php|images|public|assets|uploads|themes|install|updates|asset|mob|robots\.txt)
+RewriteRule ^(.*)$ index.php?/$1 [QSA,L]
+
+# 1 WEEK
+<FilesMatch "\.(jpg|jpeg|png|gif|swf|css|woff|js)$">
+   Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
+
+# 1 YEAR
+<FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav)$">
+Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+
+# 3 HOUR
+<FilesMatch "\.(txt|xml)$">
+Header set Cache-Control "max-age=10800"
+</FilesMatch>
+
+# NEVER CACHE - notice the extra directives
+<FilesMatch "\.(html|htm|php|cgi|pl)$">
+Header set Cache-Control "max-age=0, private, no-store, no-cache, must-revalidate"
+</FilesMatch>

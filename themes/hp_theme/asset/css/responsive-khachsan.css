@@ -1,0 +1,670 @@
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+    .navbar-default .navbar-toggle{
+      border-color:transparent;
+    }
+    .block-md-item button{
+
+      background: linear-gradient(to bottom, #fdfdfd 0%,#e8e8e8 71%);
+      height: 45px;
+      line-height: 45px;
+      border: 1px solid #f0f0f0;
+      
+    }
+    .collapsebtn span.collapsearrow,.collapsebtn.collapsed span.collapsearrow{
+          margin-top: 15px;
+    }
+    .block-module .block-md-item{
+      margin-bottom: 15px;
+    }
+    .pagecontainer{
+      margin-top: -15px;
+    }
+    .no-padding-left{
+      padding-left: 0px;
+    }
+    .padding-left-4{
+      padding-left: 4px;
+    }
+    .order-khachsan{
+      position: relative;
+    }
+    .order-khachsan select{
+          height: 42px;
+    
+        position: absolute;
+        top: -7px;
+        right: -14px;
+        border: 1px solid #603;
+        left: 4px;
+    }
+    .block-md-item{
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    .row-eq-height{
+      display: block;
+    }
+    .itemlabel3 {
+      max-height: 190px;
+      height: 190px;
+    }
+    .review {
+      width: auto;
+    }
+    .item-book-hotels{
+
+      position: relative;
+      padding-top: 14px;
+      top: 10px;
+          height: 63px;
+    /* background: red; */
+    margin-right: -10px;
+    border: 1px solid #cccccc;
+    border-right: none;
+    border-left: none;
+    margin-left: -10px;
+   
+    }
+    .item-gia-tot{
+      position: absolute;
+      top: 6px;
+      font-size: 9px;
+      height: 48px;
+      margin-left: 17px;
+
+    }
+    .item-like{
+      font-size: 16px;
+      padding-top: 17px;
+      padding-right: 0px;
+      padding-left: 0px;
+      position: absolute;
+      left: 103px;
+      top: 4px;
+    }
+    .item-xem-ngay{
+        padding-left: 0px;
+        position: absolute;
+        right: -7px;
+    top: 13px;
+    }
+    .price-include{
+      font-size: 11px;
+    }
+   .itemlabel-info li.deal-hotel:before{
+      color: red;
+    }
+    .itemlabel-info li.deal-hotel a:after
+    {
+       background: #ff9595;
+    }
+    .itemlabel-info li.deal-hotel span{
+      color: red;
+    }
+    .btn-action2{
+      font-size: 13px;
+    }
+    .line-right{
+      border-right: 1px solid #ccc;
+      width: 1px;
+      height: 61px;
+      left: 118px;
+      position: absolute;
+      top: 0px;
+    }
+    .line-right-tow{
+      border-right: 1px solid #ccc;
+      width: 1px;
+      height: 61px;
+      right:  94px;
+      position: absolute;
+      top: 0px;
+    }
+    .tour-image{
+      position: relative;
+    }
+    .icon-best{
+      position: absolute;
+    top: 9px;
+    z-index: 999;
+    right: 9px;
+    }
+    .block-search-hotel-hd {
+         background: linear-gradient(to bottom, #fdfdfd 0%,#e8e8e8 71%);
+    height: 45px;
+    line-height: 45px;
+    
+    border-bottom: 0px;
+        border: 1px solid #f0f0f0;
+    margin-left: 5px;
+    margin-right: 5px;
+    }
+    .block-search-hotel-hd h3 {
+         margin-top: 15px;
+    font-size: 16px;
+    color: #660033;
+    font-family: 'AndesRoundedBold';
+    margin-left: 0px;
+  }
+  .block-search-hotel-hd button.none-border{
+    border: none;
+    background: transparent;
+  }
+  .listing-search{
+    border-bottom:none;
+    background:transparent;
+  }
+  .collapsebtn h3 span.collapsearrow, .collapsebtn.collapsed h3 span.collapsearrow{
+    margin-top: 0px;
+  }
+  .icon-left-sao{
+        position: absolute;
+    
+    z-index: 99;
+  }
+  .autoSuggest{
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .autoSuggest input
+  {
+    height: 44px;
+  }
+  #collapse_menu{
+    border: 1px solid #ccc;
+    border-top: none;;
+    margin-top: -4px;
+        height: 315px;
+  }
+  .input-calendar-hotel{
+     padding-left: 5px;
+    padding-right: 5px;
+  }
+  .input-calendar-hotel input,.input-calendar-hotel select{
+    height: 44px;
+  }
+  .input-calendar-hotel button{
+    padding: 12px;
+  }
+  .check-box-khuyenmian{
+    margin-top: -23px;
+    position: relative;
+    height: 30px;
+  }
+  .check-box-khuyenmian span{
+        margin-top: -5px;
+    position: absolute;
+    top: 7px;
+    left: 24px;
+    font-size: 12px;
+  }
+  .why-img{
+        margin-bottom: -5px;
+  }
+  .no-padding-mobile-left{
+    padding-left: 0px;
+  }
+  .block-newsletter_footer{
+        margin-top: -47px;
+  }
+  .block-newsletter_footer .input{
+    text-align: center;
+  }
+  #footer{
+      margin-top: 15px;
+    }
+    #carousel-widget{
+      padding-left: 5px;
+    padding-right: 5px;
+    }
+    .itemlabel-info li.best-choise a{
+      color: #ffcc00;
+    }
+    .itemlabel-info li.best-choise:before
+    {
+      color: #ffcc00;
+    }
+    .itemlabel-info li.best-choise a:after
+    {
+      background: #ffe395;
+    }
+    .ma-giam-gia{
+      margin-top: -10px;
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+    .ma-giam-gia input{
+      height: 44px;
+    }
+    .dpd2 +div{
+          left: -78px !important;
+    }
+    .dpd2 +div.datepicker:before{
+      left: 190px;
+    }
+    .dpd2 +div.datepicker:after{
+      left: 190px;
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+
+}
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+    .order-khachsan select{
+      left: -24px;
+    width: 198px;
+    }
+    .line-right{
+      left: 143px;
+    }
+    .item-like{
+      left: 124px;
+    }
+    .line-right-tow{
+      left: 218px;
+    }
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) { 
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+
+}
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+    .order-khachsan select{
+      left: -43px;
+      right: 14px;
+      width: 236px;
+    }
+    .line-right{
+          left: 160px;
+    }
+    .item-like{
+      left: 145px;
+    }
+    .line-right-tow{
+          right: 114px;
+    }
+    .item-xem-ngay{
+      right: -13px;
+    }
+    #footer{
+      margin-top: 15px;
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+
+}
+
+/* ----------- iPhone X ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+    .order-khachsan select{
+      left: -24px;
+    width: 198px;
+    }
+    .line-right{
+      left: 143px;
+    }
+    .item-like{
+      left: 124px;
+    }
+    .line-right-tow{
+      left: 218px;
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+    .order-khachsan select{
+      left: -24px;
+    width: 198px;
+    }
+    .line-right{
+      left: 143px;
+    }
+    .item-like{
+      left: 124px;
+    }
+    .line-right-tow{
+      left: 218px;
+    }
+
+}
+
+/* ----------- Galaxy S3 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) {
+
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) 
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) 
+  and (orientation: landscape) {
+
+}
+
+/* ----------- Galaxy S4, S5 and Note 3 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+
+}
+
+/* ----------- Galaxy S6 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) {
+    .order-khachsan select{
+      left: -17px;
+    width: 182px;
+    }
+    .line-right{
+      left: 140px;
+    }
+    .item-like{
+          left: 120px;
+    }
+    .line-right-tow{
+      right: 107px;
+    }
+
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) 
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) 
+  and (orientation: landscape) {
+
+}
+
+/* ----------- Google Pixel ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+
+}
+
+/* ----------- Google Pixel XL ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) {
+
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) 
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) 
+  and (orientation: landscape) {
+
+}
+
+/* ----------- HTC One ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+
+}
+/* ----------- Windows Phone ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 480px) 
+  and (device-height: 800px) {
+
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 480px) 
+  and (device-height: 800px)  
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 480px) 
+  and (device-height: 800px) 
+  and (orientation: landscape) {
+
+}

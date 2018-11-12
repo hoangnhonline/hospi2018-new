@@ -1,0 +1,1383 @@
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+    .logo-mobile{
+      display: flex;
+      justify-content: center;
+    }
+    .navbar-custom .navbar-header{
+      border-bottom:0px !important;
+    }
+    .no-padding-mobile{
+       padding-right: 0px;
+        padding-left: 0px;
+    }
+    .menu-section{
+      display: block;
+      height: 31px;
+          background: #fff;
+    }
+    .slicknav_menu{
+          display: block;
+       height: 35px;
+    line-height: 35px;
+    text-decoration: none;
+      background-color: #e5e5e5;
+      border: 1px solid #DDD;
+      position: relative;
+    }
+    .icon-bar{
+      position: absolute;
+      left: 8px;
+    }
+    .icon-1
+    {
+    top: 23px;
+    }
+     .icon-2
+    {
+          top: 11px;
+    }
+     .icon-3
+    {
+          top: 4px;
+    }
+    .slicknav_menutxt{
+          margin-left: 35px;
+          position: absolute;
+          top: 0px;
+
+    }
+    .icon-down-menu{
+          float: right;
+        margin-right: 5px;
+       
+        font-size: 18px;
+    }
+    .main-title{
+      font-size: 20px;
+    }
+    .block-newsletter_footer{
+        margin-top: 8px;
+    }
+    .newsletter_footer{
+          font-size: 20px;
+    }
+    .block-newsletter_footer .input{
+      text-align: center;
+    }
+    .block-newsletter_footer .btncustom{
+      width: 110px;
+      height: 35px;
+    }
+    .fccustom2{
+          height: 32px;
+    }
+    .footerbg{
+      margin-top: 25px;
+      padding-bottom: 0px;
+    }
+    .clearfix a{
+     /*text-align: center;*/
+         /* margin-top: 15px !important;
+        margin-bottom: 15px !important;*/
+    }
+    .list-enj li:first-child{
+        height: 33px;
+        background: linear-gradient(to bottom, #fdfdfd 0%,#e8e8e8 71%);
+        line-height: 33px;
+        position: relative;
+        padding-left: 38px;
+        margin-left: 4px;
+    }
+    .list-enj li:nth-child(2){
+        height: 33px;
+        background: linear-gradient(to bottom, #fdfdfd 0%,#e8e8e8 71%);
+        line-height: 33px;
+        position: relative;
+        margin-top: 0px;
+        font-size: 14px;
+        margin-left: 4px;
+    }
+    .list-enj li:nth-child(3){
+        height: 33px;
+        background: linear-gradient(to left, #d0d0d0 0%,#d1d1d1 81%);
+        line-height: 33px;
+        position: relative;
+        margin-top: 0px;
+        border-top: 1px solid white;
+        font-size: 14px;
+        margin-left: 4px;
+    }
+    .list-enj li:nth-child(4){
+        height: 33px;
+        background: linear-gradient(to left, #bababa 0%,#b5b5b5 81%);
+        line-height: 33px;
+        position: relative;
+        margin-top: 0px;
+        border-top: 1px solid white;
+         font-size: 14px;
+         margin-left: 4px;
+    }
+    .list-enj li:first-child span{
+          position: absolute;
+      top: 7px;
+    }
+    .list-enj li:first-child span i{
+          position: absolute;
+      
+    }
+    .list-enj a i{
+        margin-right: 10px;
+    font-weight: bold;
+    font-size: 17px;
+    margin-left: 8px;
+    }
+    .featured-fampaigns{
+          margin-top: 3px;
+    }
+    .banner-ads{
+          margin-top: -12px;
+    }
+    .block-check-sale input[type='checkbox']{
+          border: 1px solid black;
+    /* color: red; */
+    opacity: 1;
+    background: white;
+    width: 17px;
+    }
+    .slicknav_nav{
+      position: absolute;
+      top: 28px;
+      border: 1px solid #ddd;
+      width: 100.7%;
+      list-style: none;
+      height: auto;
+      margin-left: -1px;
+      background: #f1f1f1;
+     
+    }
+    .slicknav_nav a{
+      color: #888;
+    }
+    .slicknav_nav li{
+      border-top: 1px solid #cccccc;
+      /*height: 35px;*/
+    line-height: 35px;
+    }
+    .slicknav_nav li a i{
+      padding-left: 8px;
+      padding-right: 8px;
+      color: #660033;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .slicknav_nav,.menu-child{
+      display: none;
+    }
+    .menu-child{
+          margin-left: 27px;
+          list-style: none;
+    }
+    .menu-child li a{
+      color: #660033;
+    }
+    .block-user{
+       float: left;
+    }
+    .block-user .block-content{
+      height: auto;
+      float: left;
+      padding-left: 8px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+    .item-contact div{
+      line-height: 22px;
+    }
+    .item-contact{
+         margin-left: 23px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      font-size: 13px;
+      color: #660033;
+    }
+    .number-mobile{
+      font-weight: bold;
+      font-size: 14px;
+    }
+    /* fix lan 2*/
+    .featured-fampaigns{
+          margin-bottom: 15px;
+    }
+    .block-search-hotel-hd{
+          background: linear-gradient(to bottom, #fdfdfd 0%,#e8e8e8 71%);
+        height: 35px;
+        line-height: 35px;
+        border: 1px solid #ccc;
+    border-bottom: 0px;
+    }
+    .block-search-hotel-hd h3{
+      margin-bottom: 0px;
+      vertical-align: middle;
+      justify-content: center;
+      line-height: 35px;
+      text-align: center;
+      font-weight: bold;
+      /*font-family: 'Open Sans' !important;*/
+    }
+    .img-banner{
+      margin-bottom: 15px;
+    }
+    .RTL_Bar{
+      border: 1px solid #ccc;
+    }
+    .margin-left-right-mobile-5{
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    .margin-left-mobile-5{
+        margin-left: 5px;
+    }
+    .margin-right-mobile-5{
+        margin-right: 5px;
+    }
+    .form-control{
+      padding-left: 5px;
+    }
+    .datepicker.dropdown-menu{
+      left: -53px !important;
+    }
+    .datepicker:after{
+      left: 69px !important;
+    }
+    .datepicker:before{
+      left: 68px !important;
+    }
+     .why-img{
+      margin-bottom: 15px;
+    }
+     .dpd2 +div{
+          left: -78px !important;
+    }
+    .dpd2 +div.datepicker:before{
+      left: 190px;
+    }
+    .dpd2 +div.datepicker:after{
+      left: 190px;
+    }
+    .no-margin-top-mobile{
+      margin-top: 0px;
+    }
+    #datphongdoan .dpd1 +div.datepicker{
+      margin-left: 40px
+    }
+    .dpd1 +div.datepicker{
+      margin-left: 65px
+    }
+    .modal-dialog,
+    .modal-content {
+        /* 80% of window height */
+        height: 500px;
+    }
+
+    .modal-body {
+        /* 100% = dialog height, 120px = header + footer */
+        max-height: calc(100% - 120px) !important;
+        overflow-y: scroll !important;
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+    .logo-mobile{
+      display: flex;
+      justify-content: center;
+    }
+    .navbar-custom .navbar-header{
+      border-bottom:0px !important;
+    }
+    .no-padding-mobile{
+       padding-right: 0px;
+        padding-left: 0px;
+    }
+    .menu-section{
+      display: block;
+      height: 31px;
+          background: #fff;
+    }
+    .slicknav_menu{
+          display: block;
+       height: 35px;
+    line-height: 35px;
+    text-decoration: none;
+      background-color: #e5e5e5;
+      border: 1px solid #DDD;
+      position: relative;
+    }
+    .icon-bar{
+      position: absolute;
+      left: 8px;
+    }
+    .icon-1
+    {
+    top: 23px;
+    }
+     .icon-2
+    {
+          top: 11px;
+    }
+     .icon-3
+    {
+          top: 4px;
+    }
+    .slicknav_menutxt{
+          margin-left: 35px;
+          position: absolute;
+          top: 0px;
+
+    }
+    .icon-down-menu{
+          float: right;
+        margin-right: 5px;
+       
+        font-size: 18px;
+    }
+    .main-title{
+      font-size: 20px;
+    }
+    .block-newsletter_footer{
+        margin-top: 8px;
+    }
+    .newsletter_footer{
+          font-size: 20px;
+    }
+    .block-newsletter_footer .input{
+      text-align: center;
+    }
+    .block-newsletter_footer .btncustom{
+      width: 110px;
+      height: 35px;
+    }
+    .fccustom2{
+          height: 32px;
+    }
+    .footerbg{
+      margin-top: 25px;
+      padding-bottom: 0px;
+    }
+    .clearfix a{
+      /*text-align: center;*/
+         /* margin-top: 15px !important;
+        margin-bottom: 15px !important;*/
+    }
+    .list-enj li:first-child{
+        height: 33px;
+        background: linear-gradient(to bottom, #fdfdfd 0%,#e8e8e8 71%);
+        line-height: 33px;
+        position: relative;
+        padding-left: 38px;
+        margin-left: 4px;
+    }
+    .list-enj li:nth-child(2){
+        height: 33px;
+        background: linear-gradient(to bottom, #fdfdfd 0%,#e8e8e8 71%);
+        line-height: 33px;
+        position: relative;
+        margin-top: 0px;
+        font-size: 14px;
+        margin-left: 4px;
+    }
+    .list-enj li:nth-child(3){
+        height: 33px;
+        background: linear-gradient(to left, #d0d0d0 0%,#d1d1d1 81%);
+        line-height: 33px;
+        position: relative;
+        margin-top: 0px;
+        border-top: 1px solid white;
+        font-size: 14px;
+        margin-left: 4px;
+    }
+    .list-enj li:nth-child(4){
+        height: 33px;
+        background: linear-gradient(to left, #bababa 0%,#b5b5b5 81%);
+        line-height: 33px;
+        position: relative;
+        margin-top: 0px;
+        border-top: 1px solid white;
+         font-size: 14px;
+         margin-left: 4px;
+    }
+    .list-enj li:first-child span{
+          position: absolute;
+      top: 7px;
+    }
+    .list-enj li:first-child span i{
+          position: absolute;
+      
+    }
+    .list-enj a i{
+        margin-right: 10px;
+    font-weight: bold;
+    font-size: 17px;
+    margin-left: 8px;
+    }
+    .featured-fampaigns{
+          margin-top: 3px;
+    }
+    .banner-ads{
+          margin-top: -12px;
+    }
+    .block-check-sale input[type='checkbox']{
+          border: 1px solid black;
+    /* color: red; */
+    opacity: 1;
+    background: white;
+    width: 17px;
+    }
+    .slicknav_nav{
+      position: absolute;
+      top: 28px;
+      border: 1px solid #ddd;
+      width: 100.7%;
+      list-style: none;
+      height: auto;
+      margin-left: -1px;
+      background: #f1f1f1;
+     
+    }
+    .slicknav_nav a{
+      color: #888;
+    }
+    .slicknav_nav li{
+      border-top: 1px solid #cccccc;
+      /*height: 35px;*/
+    line-height: 35px;
+    }
+    .slicknav_nav li a i{
+      padding-left: 8px;
+      padding-right: 8px;
+      color: #660033;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .slicknav_nav,.menu-child{
+      display: none;
+    }
+    .menu-child{
+          margin-left: 27px;
+          list-style: none;
+    }
+    .menu-child li a{
+      color: #660033;
+    }
+    .block-user{
+       float: left;
+    }
+    .block-user .block-content{
+      height: auto;
+      float: left;
+      padding-left: 8px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+    .item-contact div{
+      line-height: 22px;
+    }
+    .item-contact{
+         margin-left: 23px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      font-size: 13px;
+      color: #660033;
+    }
+    .number-mobile{
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+}
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+    .logo-mobile{
+      display: flex;
+      justify-content: center;
+    }
+    .navbar-custom .navbar-header{
+      border-bottom:0px !important;
+    }
+    .no-padding-mobile{
+       padding-right: 0px;
+        padding-left: 0px;
+    }
+    .menu-section{
+      display: block;
+      height: 31px;
+          background: #fff;
+    }
+    .slicknav_menu{
+          display: block;
+       height: 35px;
+    line-height: 35px;
+    text-decoration: none;
+      background-color: #e5e5e5;
+      border: 1px solid #DDD;
+      position: relative;
+    }
+    .icon-bar{
+      position: absolute;
+      left: 8px;
+    }
+    .icon-1
+    {
+    top: 23px;
+    }
+     .icon-2
+    {
+          top: 11px;
+    }
+     .icon-3
+    {
+          top: 4px;
+    }
+    .slicknav_menutxt{
+          margin-left: 35px;
+          position: absolute;
+          top: 0px;
+
+    }
+    .icon-down-menu{
+          float: right;
+        margin-right: 5px;
+       
+        font-size: 18px;
+    }
+    .main-title{
+      font-size: 20px;
+    }
+    .block-newsletter_footer{
+        margin-top: 8px;
+    }
+    .newsletter_footer{
+          font-size: 20px;
+    }
+    .block-newsletter_footer .input{
+      text-align: center;
+    }
+    .block-newsletter_footer .btncustom{
+      width: 110px;
+      height: 35px;
+    }
+    .fccustom2{
+          height: 32px;
+    }
+    .footerbg{
+      margin-top: 25px;
+      padding-bottom: 0px;
+    }
+    .clearfix a{
+      /*text-align: center;*/
+         /* margin-top: 15px !important;
+        margin-bottom: 15px !important;*/
+    }
+    .list-enj li:first-child{
+        height: 33px;
+        background: linear-gradient(to bottom, #fdfdfd 0%,#e8e8e8 71%);
+        line-height: 33px;
+        position: relative;
+        padding-left: 38px;
+        margin-left: 4px;
+    }
+    .list-enj li:nth-child(2){
+        height: 33px;
+        background: linear-gradient(to bottom, #fdfdfd 0%,#e8e8e8 71%);
+        line-height: 33px;
+        position: relative;
+        margin-top: 0px;
+        font-size: 14px;
+        margin-left: 4px;
+    }
+    .list-enj li:nth-child(3){
+        height: 33px;
+        background: linear-gradient(to left, #d0d0d0 0%,#d1d1d1 81%);
+        line-height: 33px;
+        position: relative;
+        margin-top: 0px;
+        border-top: 1px solid white;
+        font-size: 14px;
+        margin-left: 4px;
+    }
+    .list-enj li:nth-child(4){
+        height: 33px;
+        background: linear-gradient(to left, #bababa 0%,#b5b5b5 81%);
+        line-height: 33px;
+        position: relative;
+        margin-top: 0px;
+        border-top: 1px solid white;
+         font-size: 14px;
+         margin-left: 4px;
+    }
+    .list-enj li:first-child span{
+          position: absolute;
+      top: 7px;
+    }
+    .list-enj li:first-child span i{
+          position: absolute;
+      
+    }
+    .list-enj a i{
+        margin-right: 10px;
+    font-weight: bold;
+    font-size: 17px;
+    margin-left: 8px;
+    }
+    .featured-fampaigns{
+          margin-top: 3px;
+    }
+    .banner-ads{
+          margin-top: -12px;
+    }
+    .block-check-sale input[type='checkbox']{
+          border: 1px solid black;
+    /* color: red; */
+    opacity: 1;
+    background: white;
+    width: 17px;
+    }
+    .slicknav_nav{
+      position: absolute;
+      top: 28px;
+      border: 1px solid #ddd;
+      width: 100.7%;
+      list-style: none;
+      height: auto;
+      margin-left: -1px;
+      background: #f1f1f1;
+     
+    }
+    .slicknav_nav a{
+      color: #888;
+    }
+    .slicknav_nav li{
+      border-top: 1px solid #cccccc;
+      /*height: 35px;*/
+    line-height: 35px;
+    }
+    .slicknav_nav li a i{
+      padding-left: 8px;
+      padding-right: 8px;
+      color: #660033;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .slicknav_nav,.menu-child{
+      display: none;
+    }
+    .menu-child{
+          margin-left: 27px;
+          list-style: none;
+    }
+    .menu-child li a{
+      color: #660033;
+    }
+    .block-user{
+       float: left;
+    }
+    .block-user .block-content{
+      height: auto;
+      float: left;
+      padding-left: 8px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+    .item-contact div{
+      line-height: 22px;
+    }
+    .item-contact{
+         margin-left: 23px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      font-size: 13px;
+      color: #660033;
+    }
+    .number-mobile{
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+    .logo-mobile{
+      display: flex;
+      justify-content: center;
+    }
+    .navbar-custom .navbar-header{
+      border-bottom:0px !important;
+    }
+    .no-padding-mobile{
+       padding-right: 0px;
+        padding-left: 0px;
+    }
+    .menu-section{
+      display: block;
+      height: 31px;
+          background: #fff;
+    }
+    .slicknav_menu{
+          display: block;
+       height: 35px;
+    line-height: 35px;
+    text-decoration: none;
+      background-color: #e5e5e5;
+      border: 1px solid #DDD;
+      position: relative;
+    }
+    .icon-bar{
+      position: absolute;
+      left: 8px;
+    }
+    .icon-1
+    {
+    top: 23px;
+    }
+     .icon-2
+    {
+          top: 11px;
+    }
+     .icon-3
+    {
+          top: 4px;
+    }
+    .slicknav_menutxt{
+          margin-left: 35px;
+          position: absolute;
+          top: 0px;
+
+    }
+    .icon-down-menu{
+          float: right;
+        margin-right: 5px;
+       
+        font-size: 18px;
+    }
+    .main-title{
+      font-size: 20px;
+    }
+    .block-newsletter_footer{
+        margin-top: 8px;
+    }
+    .newsletter_footer{
+          font-size: 20px;
+    }
+    .block-newsletter_footer .input{
+      text-align: center;
+    }
+    .block-newsletter_footer .btncustom{
+      width: 110px;
+      height: 35px;
+    }
+    .fccustom2{
+          height: 32px;
+    }
+    .footerbg{
+      margin-top: 25px;
+      padding-bottom: 0px;
+    }
+    .clearfix a{
+      /*text-align: center;*/
+         /* margin-top: 15px !important;
+        margin-bottom: 15px !important;*/
+    }
+    .list-enj li:first-child{
+        height: 33px;
+        background: linear-gradient(to bottom, #fdfdfd 0%,#e8e8e8 71%);
+        line-height: 33px;
+        position: relative;
+        padding-left: 38px;
+        margin-left: 4px;
+    }
+    .list-enj li:nth-child(2){
+        height: 33px;
+        background: linear-gradient(to bottom, #fdfdfd 0%,#e8e8e8 71%);
+        line-height: 33px;
+        position: relative;
+        margin-top: 0px;
+        font-size: 14px;
+        margin-left: 4px;
+    }
+    .list-enj li:nth-child(3){
+        height: 33px;
+        background: linear-gradient(to left, #d0d0d0 0%,#d1d1d1 81%);
+        line-height: 33px;
+        position: relative;
+        margin-top: 0px;
+        border-top: 1px solid white;
+        font-size: 14px;
+        margin-left: 4px;
+    }
+    .list-enj li:nth-child(4){
+        height: 33px;
+        background: linear-gradient(to left, #bababa 0%,#b5b5b5 81%);
+        line-height: 33px;
+        position: relative;
+        margin-top: 0px;
+        border-top: 1px solid white;
+         font-size: 14px;
+         margin-left: 4px;
+    }
+    .list-enj li:first-child span{
+          position: absolute;
+      top: 7px;
+    }
+    .list-enj li:first-child span i{
+          position: absolute;
+      
+    }
+    .list-enj a i{
+        margin-right: 10px;
+    font-weight: bold;
+    font-size: 17px;
+    margin-left: 8px;
+    }
+    .featured-fampaigns{
+          margin-top: 3px;
+    }
+    .banner-ads{
+          margin-top: -12px;
+    }
+    .block-check-sale input[type='checkbox']{
+          border: 1px solid black;
+    /* color: red; */
+    opacity: 1;
+    background: white;
+    width: 17px;
+    }
+    .slicknav_nav{
+      position: absolute;
+      top: 28px;
+      border: 1px solid #ddd;
+      width: 100.7%;
+      list-style: none;
+      height: auto;
+      margin-left: -1px;
+      background: #f1f1f1;
+     
+    }
+    .slicknav_nav a{
+      color: #888;
+    }
+    .slicknav_nav li{
+      border-top: 1px solid #cccccc;
+      /*height: 35px;*/
+    line-height: 35px;
+    }
+    .slicknav_nav li a i{
+      padding-left: 8px;
+      padding-right: 8px;
+      color: #660033;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .slicknav_nav,.menu-child{
+      display: none;
+    }
+    .menu-child{
+          margin-left: 27px;
+          list-style: none;
+    }
+    .menu-child li a{
+      color: #660033;
+    }
+    .block-user{
+       float: left;
+    }
+    .block-user .block-content{
+      height: auto;
+      float: left;
+      padding-left: 8px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+    .item-contact div{
+      line-height: 22px;
+    }
+    .item-contact{
+         margin-left: 23px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      font-size: 13px;
+      color: #660033;
+    }
+    .number-mobile{
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .why-img{
+      margin-bottom: 15px;
+    }
+
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) { 
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+
+}
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+
+}
+
+/* ----------- iPhone X ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+/* ----------- Galaxy S3 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) 
+  and (orientation: portrait) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) 
+  and (orientation: landscape) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* ----------- Galaxy S4, S5 and Note 3 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* ----------- Galaxy S6 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) 
+  and (orientation: portrait) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) 
+  and (orientation: landscape) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+/* ----------- Google Pixel ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* ----------- Google Pixel XL ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) 
+  and (orientation: portrait) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) 
+  and (orientation: landscape) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+/* ----------- HTC One ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+* ----------- Windows Phone ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 480px) 
+  and (device-height: 800px) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 480px) 
+  and (device-height: 800px)  
+  and (orientation: portrait) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 480px) 
+  and (device-height: 800px) 
+  and (orientation: landscape) {
+    .no-padding-right-mobile
+    {
+      padding-right: 0px;
+
+    }
+}
