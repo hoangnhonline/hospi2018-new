@@ -3056,9 +3056,9 @@ a:hover.backbtn {
 }
 
 .labelleft2 {
-    padding: 7px 10px;
+    padding: 7px 10px 20px;
     font-size: 13px;
-    line-height: 18px;
+    line-height: 18px;    
 }
 
 .listitem2 {
@@ -10105,7 +10105,8 @@ h2.go-right.andes-bold,
 }
 
 .tour-image .img_list {
-    min-height: 150px;
+    min-height: 170px;
+    height: 100%;
 }
 
 .tour-image .img_list a img {
@@ -11291,7 +11292,7 @@ ul.footerlist li:before {
 }
 
 .block-check-sale-sb input[type='checkbox']:checked + span {
-    background: url(/themes/defaultassets/img/checked-gray.png) no-repeat;
+    background: url(/themes/default/assets/img/checked-gray.png) no-repeat;
 }
 
 p.view-pos {
@@ -14559,6 +14560,7 @@ textarea {
 }
 .hs_show_info {
     display: none;
+    font-family: Arial, Geneva, SunSans-Regular, sans-serif;
 }
 .show_hs_promotionning {
     background: red;
@@ -14762,6 +14764,19 @@ p.hs_cl_show_info{
     list-style: none !important;
 }
 
+.itemlabel-info-add li {
+    background: transparent;
+    border: 1px solid #457278;
+    color: #457278;
+    width: 100px;
+    text-align: center;
+    padding: 5px 0;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+.itemlabel-info-add li:last-child {
+    margin-right: 0;
+}
 
 .itemlabel-info .hs_cb {background: #003334;}
 .itemlabel-info .hs_deal {background: #FE0000;}
@@ -14772,4 +14787,12 @@ p.hs_cl_show_info{
     width: 100%;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+@media (min-width: 1024px) {
+    .labelleft2 {
+        width: calc(100% - 145px);
+        width: -moz-calc(100% - 145px);
+        width: -webkit-calc(100% - 145px);
+    }
 }

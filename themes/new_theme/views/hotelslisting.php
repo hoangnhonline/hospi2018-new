@@ -652,18 +652,18 @@
                             <input type="hidden" name="searching" value="<?php if (!empty($_GET['searching'])) {
                                 echo $_GET['searching'];
                                 } ?>">
-                            <div class="col-md-3"><span class="sap-xep-theo andes-bold lblue"><?php echo trans('0736'); ?></span></div>
-                            <div class="col-md-3"><input type="radio" id="thap-cao" name="sortby" class="hospi-checkbox sortajax" value="p_lh" <?php if ($_GET['sortby'] == "p_lh") {
+                            <div class="col-md-3 col-xs-3"><span class="sap-xep-theo andes-bold lblue"><?php echo trans('0736'); ?></span></div>
+                            <div class="col-md-3 col-xs-3"><input type="radio" id="thap-cao" name="sortby" class="hospi-checkbox sortajax" value="p_lh" <?php if ($_GET['sortby'] == "p_lh") {
                                 echo 'checked="checked"';
                                 } ?>>  <label for="thap-cao" class="hospi-label">&nbsp;</label>
                                 <span class="txt-label"><?php echo trans('0723'); ?></span>
                             </div>
-                            <div class="col-md-3"><input type="radio" id="cao-thap" name="sortby" class="hospi-checkbox sortajax" value="p_hl" <?php if ($_GET['sortby'] == "p_hl") {
+                            <div class="col-md-3 col-xs-3"><input type="radio" id="cao-thap" name="sortby" class="hospi-checkbox sortajax" value="p_hl" <?php if ($_GET['sortby'] == "p_hl") {
                                 echo 'checked="checked"';
                                 } ?>>  <label for="cao-thap" class="hospi-label">&nbsp;</label>
                                 <span class="txt-label"><?php echo trans('0724'); ?></span>
                             </div>
-                            <div class="col-md-3"><input type="radio" id="feature" name="sortby" class="hospi-checkbox sortajax" value="featured" <?php if ($_GET['sortby'] == "featured") {
+                            <div class="col-md-3 col-xs-3"><input type="radio" id="feature" name="sortby" class="hospi-checkbox sortajax" value="featured" <?php if ($_GET['sortby'] == "featured") {
                                 echo 'checked="checked"';
                                 } ?>>  <label for="feature" class="hospi-label">&nbsp;</label>
                                 <span class="txt-label"><?php echo trans('0725'); ?></span>
@@ -726,7 +726,7 @@
                         </div>
                         <div class="wow fadeInUp col-md-9 offset-0">
                             <div class="itemlabel3 itemlabel3-cus">
-                                <div class="labelright go-left" style="min-width:105px;margin-left:5px">
+                                <div class="labelright go-left" style="width:140px;margin-left:5px">
                                     <div class="purple size18 text-center">
                                         <?php if ($item->price > 0) {
                                             if ($item->price_status == 'Yes') {
@@ -802,17 +802,23 @@
                                         <li class="hs_prt">Đang khuyến mãi</li>
                                         <?php } ?>
                                     </ul>
+                                    <ul class="itemlabel-info itemlabel-info-add">
+                                        <li>New</li>
+                                        <li>Check-in nhiều</li>
+                                        <li>Hồ bơi đẹp</li>
+                                        <li>Gần biển</li>
+                                    </ul>
                                     <?php if ($appModule == "hotels") { ?>
-                                    <ul class="hotelpreferences go-right hidden-xs">
+                                    <ul class="hotelpreferences go-right hidden-xs hidden">
                                         <?php $cnt = 0;
                                             foreach ($item->amenities as $amt) {
                                                 $cnt++;
                                                 if ($cnt <= 10) {
                                                     if (!empty($amt->name)) { ?>
-                                        <img title="<?php //echo $amt->name; ?>" data-toggle="tooltip" data-placement="top" style="height:25px;" src="<?php echo $amt->icon; ?>" alt="<?php //echo $amt->name; ?>" />
-                                        <?php }
-                                            }
-                                            } ?>
+                                                        <li><img title="<?php //echo $amt->name; ?>" data-toggle="tooltip" data-placement="top" style="height:25px;" src="<?php echo $amt->icon; ?>" alt="<?php //echo $amt->name; ?>" /></li>
+                                                    <?php }
+                                                }
+                                            }?>
                                     </ul>
                                     <br>
                                     <?php
@@ -1480,8 +1486,7 @@
                                         <label for="Phòng họp, hội nghị" class="css-label go-left">
                                         <input type="checkbox" value="203" name="amenities[]" id="Phòng họp, hội nghị" class="checkbox  filter">
                                         <span></span>
->>>>>>> html
-                                        <img class="go-right" style="height: 22px;margin-right:5px;margin-left:5px" src="https://www.hospi.vn/uploads/images/hotels/amenities/719341_Phong-hop.png">  Phòng họp, hội nghị                                    </label>
+                            <img class="go-right" style="height: 22px;margin-right:5px;margin-left:5px" src="https://www.hospi.vn/uploads/images/hotels/amenities/719341_Phong-hop.png">  Phòng họp, hội nghị</label>
                                     </div>
                                     <div class="clearfix"></div>
                                     <br>
@@ -1621,17 +1626,17 @@
                                         <a class="go-right" href="javascript:void(0);" onclick="showMap('<?php echo base_url(); ?>home/maps/<?php echo $item->latitude; ?>/<?php echo $item->longitude; ?>/<?php echo $appModule; ?>/<?php echo $item->id; ?>', 'modal');" title="<?php echo character_limiter($item->location, 10); ?>"><i style="margin-left: -3px;" class="icon-location-6 go-right"></i><?php echo character_limiter($item->location, 10); ?></a>
                                         <span class="go-right"><?php echo $item->stars; ?></span>
                                     </div>
-                                    <ul class="hotelpreferences go-right visible-xs">
-                                        <img title="" data-toggle="tooltip" data-placement="top" style="height:23px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/522827_airport.png" alt="Đón tiễn sân bay" data-original-title="Đón tiễn sân bay">
-                                        <img title="" data-toggle="tooltip" data-placement="top" style="height:23px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/593292_receptionist.png" alt="Xe bus đi trung tâm" data-original-title="Xe bus đi trung tâm">
-                                        <img title="" data-toggle="tooltip" data-placement="top" style="height:23px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/78888_club.png" alt="Bar" data-original-title="Bar">
-                                        <img title="" data-toggle="tooltip" data-placement="top" style="height:23px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/813018_laundry.png" alt="Giặt ủi" data-original-title="Giặt ủi">
-                                        <img title="" data-toggle="tooltip" data-placement="top" style="height:23px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/79773_breakfast.png" alt="Nhà hàng" data-original-title="Nhà hàng">
-                                        <img title="" data-toggle="tooltip" data-placement="top" style="height:23px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/53193_858245_wifi.png" alt="Wi-Fi miễn phí" data-original-title="Wi-Fi miễn phí">
-                                        <img title="" data-toggle="tooltip" data-placement="top" style="height:23px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/906341_bar.png" alt="Bar Lounge" data-original-title="Bar Lounge">
-                                        <img title="" data-toggle="tooltip" data-placement="top" style="height:23px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/926605_811401_poll.png" alt="Hồ bơi" data-original-title="Hồ bơi">
-                                        <img title="" data-toggle="tooltip" data-placement="top" style="height:23px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/6348_541779_parking.png" alt="Bãi đậu xe" data-original-title="Bãi đậu xe">
-                                        <img title="" data-toggle="tooltip" data-placement="top" style="height:23px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/403809_764557_fitness.png" alt="Trông giữ trẻ" data-original-title="Trông giữ trẻ">
+                                    <ul class="hotelpreferences go-right hidden">
+                                        <li><img title="" data-toggle="tooltip" data-placement="top" style="height:23px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/522827_airport.png" alt="Đón tiễn sân bay" data-original-title="Đón tiễn sân bay"></li>
+                                        <li><img title="" data-toggle="tooltip" data-placement="top" style="height:23px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/593292_receptionist.png" alt="Xe bus đi trung tâm" data-original-title="Xe bus đi trung tâm"></li>
+                                        <li><img title="" data-toggle="tooltip" data-placement="top" style="height:23px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/78888_club.png" alt="Bar" data-original-title="Bar"></li>
+                                        <li><img title="" data-toggle="tooltip" data-placement="top" style="height:23px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/813018_laundry.png" alt="Giặt ủi" data-original-title="Giặt ủi"></li>
+                                        <li><img title="" data-toggle="tooltip" data-placement="top" style="height:23px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/79773_breakfast.png" alt="Nhà hàng" data-original-title="Nhà hàng"></li>
+                                        <li><img title="" data-toggle="tooltip" data-placement="top" style="height:23px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/53193_858245_wifi.png" alt="Wi-Fi miễn phí" data-original-title="Wi-Fi miễn phí"></li>
+                                        <li><img title="" data-toggle="tooltip" data-placement="top" style="height:23px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/906341_bar.png" alt="Bar Lounge" data-original-title="Bar Lounge"></li>
+                                        <li><img title="" data-toggle="tooltip" data-placement="top" style="height:23px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/926605_811401_poll.png" alt="Hồ bơi" data-original-title="Hồ bơi"></li>
+                                        <li><img title="" data-toggle="tooltip" data-placement="top" style="height:23px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/6348_541779_parking.png" alt="Bãi đậu xe" data-original-title="Bãi đậu xe"></li>
+                                        <li><img title="" data-toggle="tooltip" data-placement="top" style="height:23px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/403809_764557_fitness.png" alt="Trông giữ trẻ" data-original-title="Trông giữ trẻ"></li>
                                     </ul>
                                     <ul class="itemlabel-info">
                                         <?php if(is_have_deal($item->id, 2)) { ?>
@@ -1643,6 +1648,12 @@
                                         <?php if(is_have_deal($item->id, 3)) { ?>
                                         <li class="hs_hnm">Gói honeymoon</li>
                                         <?php } ?>
+                                    </ul>
+                                    <ul class="itemlabel-info itemlabel-info-add">
+                                        <li>New</li>
+                                        <li>Check-in nhiều</li>
+                                        <li>Hồ bơi đẹp</li>
+                                        <li>Gần biển</li>
                                     </ul>
                                      <!-- <ul class="itemlabel-info"> -->
                                         <!-- <?php if(is_combo_hotel($item->id)) { ?>
@@ -1658,17 +1669,17 @@
                                         <!--<li><a href="#" title="Gói honeymoon"><span>Gói honeymoon</span></a></li>
                                     </ul> -->
                                     <p class="grey RTL des hidden-xs">Novotel Phú Quốc Resort&nbsp;tọa lạc tại Bãi Trường, xã Dương Tơ,…</p>
-                                    <ul class="hotelpreferences go-right hidden-xs">
-                                        <img title="" data-toggle="tooltip" data-placement="top" style="height:25px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/522827_airport.png" alt="Đón tiễn sân bay" data-original-title="Đón tiễn sân bay">
-                                        <img title="" data-toggle="tooltip" data-placement="top" style="height:25px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/593292_receptionist.png" alt="Xe bus đi trung tâm" data-original-title="Xe bus đi trung tâm">
-                                        <img title="" data-toggle="tooltip" data-placement="top" style="height:25px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/78888_club.png" alt="Bar" data-original-title="Bar">
-                                        <img title="" data-toggle="tooltip" data-placement="top" style="height:25px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/813018_laundry.png" alt="Giặt ủi" data-original-title="Giặt ủi">
-                                        <img title="" data-toggle="tooltip" data-placement="top" style="height:25px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/79773_breakfast.png" alt="Nhà hàng" data-original-title="Nhà hàng">
-                                        <img title="" data-toggle="tooltip" data-placement="top" style="height:25px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/53193_858245_wifi.png" alt="Wi-Fi miễn phí" data-original-title="Wi-Fi miễn phí">
-                                        <img title="" data-toggle="tooltip" data-placement="top" style="height:25px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/906341_bar.png" alt="Bar Lounge" data-original-title="Bar Lounge">
-                                        <img title="" data-toggle="tooltip" data-placement="top" style="height:25px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/926605_811401_poll.png" alt="Hồ bơi" data-original-title="Hồ bơi">
-                                        <img title="" data-toggle="tooltip" data-placement="top" style="height:25px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/6348_541779_parking.png" alt="Bãi đậu xe" data-original-title="Bãi đậu xe">
-                                        <img title="" data-toggle="tooltip" data-placement="top" style="height:25px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/403809_764557_fitness.png" alt="Trông giữ trẻ" data-original-title="Trông giữ trẻ">
+                                    <ul class="hotelpreferences go-right hidden">
+                                        <li><img title="" data-toggle="tooltip" data-placement="top" style="height:25px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/522827_airport.png" alt="Đón tiễn sân bay" data-original-title="Đón tiễn sân bay"></li>
+                                        <li><img title="" data-toggle="tooltip" data-placement="top" style="height:25px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/593292_receptionist.png" alt="Xe bus đi trung tâm" data-original-title="Xe bus đi trung tâm"></li>
+                                        <li><img title="" data-toggle="tooltip" data-placement="top" style="height:25px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/78888_club.png" alt="Bar" data-original-title="Bar"></li>
+                                        <li><img title="" data-toggle="tooltip" data-placement="top" style="height:25px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/813018_laundry.png" alt="Giặt ủi" data-original-title="Giặt ủi"></li>
+                                        <li><img title="" data-toggle="tooltip" data-placement="top" style="height:25px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/79773_breakfast.png" alt="Nhà hàng" data-original-title="Nhà hàng"></li>
+                                        <li><img title="" data-toggle="tooltip" data-placement="top" style="height:25px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/53193_858245_wifi.png" alt="Wi-Fi miễn phí" data-original-title="Wi-Fi miễn phí"></li>
+                                        <li><img title="" data-toggle="tooltip" data-placement="top" style="height:25px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/906341_bar.png" alt="Bar Lounge" data-original-title="Bar Lounge"></li>
+                                        <li><img title="" data-toggle="tooltip" data-placement="top" style="height:25px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/926605_811401_poll.png" alt="Hồ bơi" data-original-title="Hồ bơi"></li>
+                                        <li><img title="" data-toggle="tooltip" data-placement="top" style="height:25px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/6348_541779_parking.png" alt="Bãi đậu xe" data-original-title="Bãi đậu xe"></li>
+                                        <li><img title="" data-toggle="tooltip" data-placement="top" style="height:25px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/403809_764557_fitness.png" alt="Trông giữ trẻ" data-original-title="Trông giữ trẻ"></li>
                                     </ul>
                                     <div class="hp_price_mb clearfix">
                                         <div class="purple size18 text-center item-book-hotels">
