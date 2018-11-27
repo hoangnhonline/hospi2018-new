@@ -189,7 +189,7 @@
 								<label for="username0" class="col-md-6 control-label font-weight-unset">Cập nhật
 									ngày</label>
 								<div id="datetimepicker1" class="input-group date col-md-6">
-									<input type="text" class="form-control dpd1" name="booking_payment_date" value="<?php echo $model['booking_payment_date']?>">
+									<input type="text" class="form-control dpdsingle" name="booking_payment_date" value="<?php echo $model['booking_payment_date']?>">
 									<span class="input-group-addon">
                                     <span class="fa-calendar fa"></span>
                                   </span>

@@ -163,10 +163,68 @@
         $('#dp2').datepicker();
         $('#dp3').datepicker();
         $('#dp4').datepicker();
-
+        //$('.dpd1').datepicker(); 
+        //$('.dpd2').datepicker();
 // disabling dates
         var nowTemp = new Date();
         var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+        var dpd1 = $('.dpd1').datepicker({
+            format: fmt, 
+            onRender: function (date) {
+           
+                return date.valueOf() < now.valueOf() ? 'disabled' : '';
+            }
+        }).on('changeDate', function (ev) {
+              if (ev.date.valueOf() > dpd2.date.valueOf()) {
+                  var newDate = new Date(ev.date)
+                  newDate.setDate(newDate.getDate() + 1);
+                  dpd2.setValue(newDate);              
+              } 
+            dpd1.hide();
+            $('.dpd2')[0].focus();
+        
+        }).data('datepicker');
+
+        var dpd2 = $('.dpd2').datepicker({
+            format: fmt,
+            onRender: function (date) {
+                return date.valueOf() <= dpd1.date.valueOf() ? 'disabled' : '';
+            }
+        }).on('changeDate', function (ev) {
+
+            dpd2.hide();           
+        }).data('datepicker');
+        
+
+        var dpd3 = $('.dpd3').datepicker({
+            format: fmt, 
+            onRender: function (date) {
+           
+                return date.valueOf() < now.valueOf() ? 'disabled' : '';
+            }
+        }).on('changeDate', function (ev) {
+              if (ev.date.valueOf() > dpd4.date.valueOf()) {
+                  var newDate = new Date(ev.date)
+                  newDate.setDate(newDate.getDate() + 1);
+                  dpd4.setValue(newDate);              
+              } 
+            dpd3.hide();
+            $('.dpd4')[0].focus();
+        
+        }).data('datepicker');
+
+        var dpd4 = $('.dpd4').datepicker({
+            format: fmt,
+            onRender: function (date) {
+                return date.valueOf() <= dpd3.date.valueOf() ? 'disabled' : '';
+            }
+        }).on('changeDate', function (ev) {
+
+            dpd3.hide();           
+        }).data('datepicker');
+
+
         var checkin = $('#fromdate1').datepicker({
             format: fmt, 
             onRender: function (date) {
@@ -267,9 +325,26 @@
             checkout4.hide();
         }).data('datepicker');
        
+
+       var dpdsingle = $('.dpdsingle').datepicker({
+            format: fmt, 
+            onRender: function (date) {
+           
+                return date.valueOf() < now.valueOf() ? 'disabled' : '';
+            }
+        }).on('changeDate', function (ev) {          
+          
+            dpdsingle.hide();
+        
+        }).data('datepicker');
     });
 </script>
-
+<style type="text/css">
+    .datepicker{
+        top: 37px !important;
+        left: 5px !important;
+    }
+</style>
 <!-- timepicker -->
 <script src="<?php echo base_url(); ?>assets_admin_new/include/timepicker/timepicker.js"></script>
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets_admin_new/include/timepicker/timepicker.css"/>

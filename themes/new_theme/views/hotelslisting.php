@@ -74,6 +74,7 @@
                         echo trans('0446');
                         } ?></label>
                     <select  required class="form-control" placeholder=" <?php echo trans(''); ?> " name="adults" id="adults">
+                        <option value="0" > Người lớn </option>
                         <?php for ($Selectadults = 1; $Selectadults < 11; $Selectadults++) { ?>
                         <option value="<?php echo $Selectadults; ?>" <?php if ($Selectadults == $modulelib->adults) {
                             echo "selected";
@@ -89,7 +90,8 @@
                     <div class="clearfix"></div>
                     <label class="control-label go-right size13"><i class="icon-user-7"></i> <?php echo trans('011'); ?></label>
                     <select  class="form-control" placeholder=" <?php echo trans('011'); ?> " name="child" id="child">
-                        <?php for ($Selectchild = 0; $Selectchild < 6; $Selectchild++) { ?>
+                        <option value="0" > Trẻ em </option>
+                        <?php for ($Selectchild = 1; $Selectchild < 6; $Selectchild++) { ?>
                         <option value="<?php echo $Selectchild; ?>" <?php if ($Selectchild == @$modulelib->children) {
                             echo "selected";
                             } ?> > <?php echo $Selectchild; ?> </option>
@@ -162,10 +164,11 @@
                                     <div class="form-group">
                                         <div class="clearfix"></div>
                                         <select  required class="form-control" placeholder=" <?php echo trans(''); ?> " name="adults" id="adults">
+                                             <option value="0" > Người lớn </option>
                                             <?php for ($Selectadults = 1; $Selectadults < 11; $Selectadults++) { ?>
                                             <option value="<?php echo $Selectadults; ?>" <?php if ($Selectadults == $modulelib->adults) {
                                                 echo "selected";
-                                                } ?> > <?php echo $Selectadults; ?> </option>
+                                                } ?> >   <?php echo $Selectadults; ?> </option>
                                             <?php } ?>
                                         </select>
                                     </div>
@@ -176,7 +179,8 @@
                                     <div class="form-group">
                                         <div class="clearfix"></div>
                                         <select  class="form-control" placeholder=" <?php echo trans('011'); ?> " name="child" id="child">
-                                            <?php for ($Selectchild = 0; $Selectchild < 6; $Selectchild++) { ?>
+                                             <option value="0" > Trẻ em </option>
+                                            <?php for ($Selectchild = 1; $Selectchild < 6; $Selectchild++) { ?>
                                             <option value="<?php echo $Selectchild; ?>" <?php if ($Selectchild == @$modulelib->children) {
                                                 echo "selected";
                                                 } ?> > <?php echo $Selectchild; ?> </option>
@@ -802,12 +806,19 @@
                                         <li class="hs_prt">Đang khuyến mãi</li>
                                         <?php } ?>
                                     </ul>
+                                    <?php 
+                                    $tmp = array();
+                                    if($item->diem_noi_bat){
+                                        $tmp = explode(',', $item->diem_noi_bat);
+                                    }
+                                    ?>
+                                    <?php if(!empty($tmp)){ ?>
                                     <ul class="itemlabel-info itemlabel-info-add">
-                                        <li>New</li>
-                                        <li>Check-in nhiều</li>
-                                        <li>Hồ bơi đẹp</li>
-                                        <li>Gần biển</li>
+                                        <?php foreach($tmp as $diemnb){ ?>
+                                        <li><?php echo $diemnb; ?></li>
+                                        <?php } ?>
                                     </ul>
+                                    <?php } ?>
                                     <?php if ($appModule == "hotels") { ?>
                                     <ul class="hotelpreferences go-right hidden-xs hidden">
                                         <?php $cnt = 0;
@@ -1649,12 +1660,21 @@
                                         <li class="hs_hnm">Gói honeymoon</li>
                                         <?php } ?>
                                     </ul>
+                                    <?php 
+                                    //var_dump($item);die;
+                                    $tmp = array();
+                                    if($item->diem_noi_bat){
+                                        $tmp = explode(',', $item->diem_noi_bat);
+                                    }
+                                    ?>
+                                    <?php if(!empty($tmp)){ ?>
                                     <ul class="itemlabel-info itemlabel-info-add">
-                                        <li>New</li>
-                                        <li>Check-in nhiều</li>
-                                        <li>Hồ bơi đẹp</li>
-                                        <li>Gần biển</li>
+                                        <?php foreach($tmp as $diemnb){ ?>
+                                        <li><?php echo $diemnb; ?></li>
+                                        <?php } ?>
                                     </ul>
+                                    <?php } ?>
+                                    
                                      <!-- <ul class="itemlabel-info"> -->
                                         <!-- <?php if(is_combo_hotel($item->id)) { ?>
                                         <li>
@@ -2069,10 +2089,12 @@
                         return false;
                 }
         });
-        $('input.filter').on('change', function (event) { //hoangnh
+       $(document).on('change', 'input.filter', function(event){
             ajaxSearch($(this));
         });
-        $('input.filter-price').on('change', function (event) { //hoangnh
+       
+        $(document).on('change', 'input.filter-price', function(event){
+        //$('input.filter-price').on('change', function (event) { //hoangnh
             var obj = $(this);
             if( obj.prop('checked') == true ){
                 $('.filter-price').prop('checked', false);
@@ -2082,7 +2104,7 @@
             }
             ajaxSearch($(this));
         });
-        $('input.filter-near').on('change', function (event) { //hoangnh
+        $(document).on('change', 'input.filter-near', function(event){       
             var obj = $(this);
             if( obj.prop('checked') == true ){
                 $('.filter-near').prop('checked', false);

@@ -134,7 +134,7 @@
 														$start_date = date('d/m/Y');
 													}
 													?>
-													<input type="text" value="<?= str_replace("-", "/", $start_date) ?>" class="form-control dpd3" id="txt_start_date" name="start_date">
+													<input type="text" value="<?= str_replace("-", "/", $start_date) ?>" class="form-control dpd1" id="txt_start_date" name="start_date">
 													<span class="input-group-addon">
                                                         <span class="fa-calendar fa"></span>
                                                       </span>
@@ -151,7 +151,7 @@
 														$end_date = date('d/m/Y');
 													}
 													?>
-													<input type="text" value="<?= str_replace("-", "/", $end_date) ?>" class="form-control dpd4" name="end_date" id="txt_end_date">
+													<input type="text" value="<?= str_replace("-", "/", $end_date) ?>" class="form-control dpd2" name="end_date" id="txt_end_date">
 													<span class="input-group-addon">
                                                         <span class="fa-calendar fa"></span>
                                                       </span>

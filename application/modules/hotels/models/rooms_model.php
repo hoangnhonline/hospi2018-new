@@ -1273,6 +1273,9 @@ class Rooms_model extends CI_Model
     {
         $this->db->where('id', $id);
         $this->db->delete('pt_rooms_prices');
+
+        $this->db->where('detail_id', $id);
+        $this->db->delete('pt_room_prices_uudai');
     }
 
     function addRoomAvailability($roomid, $count)

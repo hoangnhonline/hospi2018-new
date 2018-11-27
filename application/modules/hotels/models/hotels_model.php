@@ -706,7 +706,7 @@ class Hotels_model extends CI_Model{
 		if (!empty($page)) {
 			$offset = ($page == 1) ? 0 : ($page * $perpage) - $perpage;
 		}
-		$this->db->select('pt_hotels.hotel_id,pt_hotels.hotel_stars,pt_hotels.hotel_title,pt_hotels.hotel_order,pt_hotels.hotel_order,pt_rooms.room_basic_price as price, pt_hotels.hotel_is_featured');
+		$this->db->select('pt_hotels.hotel_id,pt_hotels.hotel_stars,pt_hotels.hotel_title,pt_hotels.hotel_order,pt_hotels.hotel_order,pt_rooms.room_basic_price as price, pt_hotels.hotel_is_featured, pt_hotels.diem_noi_bat');
 		if ($orderby == "za") {
 			$this->db->order_by('pt_hotels.hotel_title', 'desc');
 		} elseif ($orderby == "az") {
@@ -794,7 +794,7 @@ class Hotels_model extends CI_Model{
 		if (!empty($page)) {
 			$offset = ($page == 1) ? 0 : ($page * $perpage) - $perpage;
 		}
-		$this->db->select('pt_hotels.hotel_id,pt_hotels.hotel_stars,pt_hotels.hotel_title,pt_hotels.hotel_order,pt_hotels.hotel_order,pt_rooms.room_basic_price as price');
+		$this->db->select('pt_hotels.hotel_id,pt_hotels.hotel_stars,pt_hotels.hotel_title,pt_hotels.hotel_order,pt_hotels.hotel_order,pt_rooms.room_basic_price as price, pt_hotels.diem_noi_bat');
 		if ($orderby == "za") {
 			$this->db->order_by('pt_hotels.hotel_title', 'desc');
 		} elseif ($orderby == "az") {
@@ -846,7 +846,7 @@ class Hotels_model extends CI_Model{
 		if (!empty($page)) {
 			$offset = ($page == 1) ? 0 : ($page * $perpage) - $perpage;
 		}
-		$this->db->select('pt_hotels.*,pt_rooms.room_basic_price as price,pt_hotels_translation.trans_title');
+		$this->db->select('pt_hotels.*,pt_rooms.room_basic_price as price,pt_hotels_translation.trans_title, , pt_hotels.diem_noi_bat');
 		$this->db->select_avg('pt_reviews.review_overall', 'overall');
 		//$this->db->where('pt_hotels.hotel_city', $searchtxt);
 

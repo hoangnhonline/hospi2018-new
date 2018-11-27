@@ -151,7 +151,7 @@
 														<label for="username0" class=" control-label font-weight-unset">Ngày
 															nhận phòng</label>
 														<div id="datetimepicker1" class="input-group date">
-															<input id="checkin_txt" name="checkin" type="text" class="form-control dpd3" value="<?php echo $model['checkin']; ?>">
+															<input id="checkin_txt" name="checkin" type="text" class="form-control dpdsingle" value="<?php echo $model['checkin']; ?>">
 															<span class="input-group-addon">
                                                         <span class="fa-calendar fa"></span>
                                                       </span>

@@ -149,7 +149,7 @@
                         <div class="form-group">
                            <label for="username0" class="col-md-5" style="margin-right: 15px;">Ngày kết thúc</label>
                           <div id="datetimepicker1" class="input-group date col-md-6">
-                            <input type="text" class="form-control dpd1" name="expdate" id="expdate">
+                            <input type="text" class="form-control dpd2" name="expdate" id="expdate">
                             <span class="input-group-addon">
                               <span class="fa-calendar fa"></span>
                             </span>

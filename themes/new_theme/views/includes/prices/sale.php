@@ -83,7 +83,7 @@
             </td>
             <td rowspan="<?php echo $rowspan; ?>">
                 <p><button style="margin-bottom:5px" type="submit" class="btn btn-action btn-block chk">Đặt phòng</button></p>
-                <p class="size13">Bạn vui lòng chọn số lượng phòng, Bạn có thể đặt một lúc nhiều loại phòng </p>
+                <p class="size13" style="text-align: center">Bạn vui lòng chọn số lượng phòng hoặc giường phụ (nếu có).<br> <span style="font-size: 12px;">Giường phụ: <?php echo number_format($r->price['price_bed_sale']/$modulelib->stay); ?>/đêm</span></p>
                 <hr>
                 <p class="purple andes-bold size13 text-center">Yêu cầu giường</p>
                 <p class="size13 text-center"><label class="radio-inline"><input type="checkbox" name="radiobeds" value="1">1 giường</label></p>

@@ -332,7 +332,9 @@
                             <td colspan="2">
                                 <div class="no-padding-mobile">
                                     <button type="submit" class="btn btn-action btn-block chk">Đặt phòng</button>
-                                    <p class="size13">Bạn vui lòng chọn số lượng phòng, Bạn có thể đặt một lúc nhiều loại phòng </p>
+                                    <p class="size13">Bạn vui lòng chọn số lượng phòng hoặc giường phụ (nếu có).<br>
+                                        Giường phụ : <?php echo $r->price['price_bed_total']/$modulelib->stay; ?>
+                                    </p>
                                     <p class="purple andes-bold size13 text-center">Yêu cầu giường</p>
                                     <div class="col-xs-6 no-padding-mobile">
                                         <p class="size13 text-center"><label class="radio-inline"><input type="checkbox" name="radiobeds" value="1"><span>  1 giường</span></label></p>

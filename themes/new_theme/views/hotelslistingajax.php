@@ -1629,6 +1629,19 @@
                                     <?php } ?>
                                     <!--<li><a href="#" title="Gói honeymoon"><span>Gói honeymoon</span></a></li>-->
                               </ul>
+                              <?php 
+                                    $tmp = array();
+                                    if($item->diem_noi_bat){
+                                        $tmp = explode(',', $item->diem_noi_bat);
+                                    }
+                                    ?>
+                                    <?php if(!empty($tmp)){ ?>
+                                    <ul class="itemlabel-info itemlabel-info-add">
+                                        <?php foreach($tmp as $diemnb){ ?>
+                                        <li><?php echo $diemnb; ?></li>
+                                        <?php } ?>
+                                    </ul>
+                                    <?php } ?>
                               <p class="grey RTL des hidden-xs">Novotel Phú Quốc Resort&nbsp;tọa lạc tại Bãi Trường, xã Dương Tơ,…</p>
                               <ul class="hotelpreferences go-right hidden-xs">
                                  <img title="" data-toggle="tooltip" data-placement="top" style="height:25px;" src="https://www.hospi.vn/uploads/images/hotels/amenities/522827_airport.png" alt="Đón tiễn sân bay" data-original-title="Đón tiễn sân bay">
