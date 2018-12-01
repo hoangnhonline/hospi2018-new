@@ -716,13 +716,13 @@
                     <div class="col-md-12 col-sm-12 col-xs-12 go-right">
                         <div class="form-group">
                             <div class="clearfix"></div>                       
-                            <input type="text" placeholder="<?php echo trans('07');?> " name="checkin" class="form-control mySelectCalendar dpd3" value="<?php echo @$checkin; ?>" required >
+                            <input type="text" placeholder="<?php echo trans('07');?> " name="checkin" class="form-control mySelectCalendar dpd3" value="<?php echo @$checkin; ?>" required autocomplete="off">
                         </div>
                     </div>
                     <div class="col-md-12 col-sm-12 col-xs-12 go-right">
                         <div class="form-group">
                             <div class="clearfix"></div>
-                            <input type="text" placeholder="<?php echo trans('09');?> " name="checkout" class="form-control mySelectCalendar dpd4" value="<?php echo @$checkout; ?>" required >
+                            <input type="text" placeholder="<?php echo trans('09');?> " name="checkout" class="form-control mySelectCalendar dpd4" value="<?php echo @$checkout; ?>" required autocomplete="off">
                         </div>
                     </div>
                     <?php } ?>

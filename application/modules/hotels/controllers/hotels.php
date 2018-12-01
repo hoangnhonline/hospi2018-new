@@ -197,7 +197,7 @@ class Hotels extends MX_Controller
             $page = null;
         }
         $allhotels = $this->hotels_lib->show_hotels($page);     
-        //var_dump($allhotels);die;   
+        
         $this->data['moduleTypes'] = $this->hotels_lib->getHotelTypes();
         $this->data['amenities'] = $this->hotels_lib->getHotelAmenities();
         $this->data['checkin'] = @$_GET['checkin'];
