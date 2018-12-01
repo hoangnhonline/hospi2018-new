@@ -468,14 +468,14 @@ function stripUnicode($str) {
 <script type="text/javascript">
   $(document).ready(function(){
     $('#searchForm #btnSearch').click(function(){
-       var url = "<?php echo base_url(); ?>hotels/";
+       var url = "<?php echo base_url(); ?>hotels";
       if($('#modType').val() == "location"){
-        url += 'search/';
+        url += 'search';
       }   
       var keyword = $.trim($('#search').val());
       keyword = (keyword != '') ? keyword : '-';
       if($('#searchForm #slug-search').val() != ''){
-        url += $('#searchForm #slug-search').val() + '/';
+        url +=  '/' + $('#searchForm #slug-search').val();
       }
       var checkout = $('#searchForm #checkout').val();
       checkout = checkout.replace("/", "-");
