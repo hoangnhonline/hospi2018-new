@@ -484,16 +484,16 @@ function stripUnicode($str) {
       var checkin = $('#searchForm #checkin').val();
       checkin = checkin.replace("/", "-");
       checkin = checkin.replace("/", "-");
-      url += checkin + '/';
-      url += checkout + '/';
+      url += '/' + checkin;
+      url += '/' + checkout;
       if(parseInt($('#searchForm #adults').val()) > 0){
-        url += $('#searchForm #adults').val() + '/';
+        url += '/' + $('#searchForm #adults').val();
       }
       if(parseInt($('#searchForm #child').val()) > 0){
-        url += $('#searchForm #child').val() + '/';
+        url += '/' + $('#searchForm #child').val();
       }
       if($.trim($('#searchForm #inputcoupon').val()) != ''){
-        url += $('#searchForm #inputcoupon').val() + '/';
+        url += '/' + $('#searchForm #inputcoupon').val();
       }
       window.location.href = url;
     });
