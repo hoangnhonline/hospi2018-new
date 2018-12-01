@@ -1011,7 +1011,7 @@
                         <div class="form-group">
                             <div class="clearfix"></div>
                             <label class="control-label go-right size13 hidden-xs"><i class="icon-calendar-7"></i> Ngày nhận phòng</label>
-                            <input type="text" placeholder="Ngày nhận phòng " name="checkin" class="form-control mySelectCalendar dpd1" value="15/01/2018" required="">
+                            <input type="text" placeholder="Ngày nhận phòng " name="checkin" class="form-control mySelectCalendar dpd1" value="15/01/2018" required="" autocomplete="off">
                         </div>
                     </div>
                     <div class="col-md-2 col-sm-6 col-xs-6 go-right input-calendar-hotel">

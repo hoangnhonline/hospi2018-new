@@ -794,13 +794,13 @@
                                         <div class="col-sm-3 col-xs-6 go-right">
                                             <div class="form-group margin-left-mobile-5">
                                                 <div class="clearfix"></div>
-                                                <input type="text" placeholder=" Ngày nhận phòng " name="checkin" class="form-control mySelectCalendar dpd1 go-text-left" value="12/01/2018" required="">
+                                                <input type="text" placeholder=" Ngày nhận phòng " name="checkin" class="form-control mySelectCalendar dpd1 go-text-left" value="12/01/2018" required="" autocomplete="off">
                                             </div>
                                         </div>
                                         <div class="col-sm-3 col-xs-6 go-right">
                                             <div class="form-group margin-right-mobile-5">
                                                 <div class="clearfix"></div>
-                                                <input type="text" placeholder=" Ngày trả phòng " name="checkout" class="form-control mySelectCalendar dpd2 go-text-left" value="13/01/2018" required="">
+                                                <input type="text" placeholder=" Ngày trả phòng " name="checkout" class="form-control mySelectCalendar dpd2 go-text-left" value="13/01/2018" required="" autocomplete="off">
                                             </div>
                                         </div>
                                         <div class="col-sm-2 col-xs-6 go-right num-night">
