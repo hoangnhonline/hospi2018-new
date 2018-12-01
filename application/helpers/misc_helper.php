@@ -2150,6 +2150,20 @@ if (!function_exists('getLocations')) {
 
     }
 }
+if (!function_exists('getCityId')) {
+//get locations list admin panel
+
+    function getCityId($city_slug = null)
+    {
+        $CI = get_instance();
+        $CI->db->where('status', 'yes');
+        if (!empty($city_slug)) {
+            $CI->db->where('slug', $city_slug);
+        }        
+        $a = $CI->db->get('pt_locations')->result();             
+        return $a[0]->id;
+    }
+}
 if (!function_exists('getLocationsdesc')) {
 //get locations list admin panel
 
