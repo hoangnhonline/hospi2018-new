@@ -82,25 +82,25 @@ jQuery(document).ready(function(jQuery){
 	});
 
 	$('form').submit(function() {
-    $('#wait').show();
+    //$('#wait').show();
   });
 	$('a,button').click(function() {
 		var _check=$(this).attr("data-type");
 		if(_check!="menu")
 		{
-			$('#wait').show();
+			//$('#wait').show();
 
 		}
       });
 	$('.modal').on('shown.bs.modal', function (e) {
-	  $('#wait').hide();
+	  //$('#wait').hide();
 	})
 	$('#checkbooking,.navbar-toggle,.plus,a.lblue,.li-link,.carousel-control,.close,.writeReview,.tabsBtn,.collapsebtn').click(function() {
-    $('#wait').hide();
+    //$('#wait').hide();
   });
 
 	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-	  $('#wait').hide();
+	  //$('#wait').hide();
 	});
 });
 

@@ -124,24 +124,25 @@
           <!-- Hotels  -->
           <div role="tabpanel" class="tab-pane fade active in <?php pt_searchbox('hotels'); ?>" id="HOTELS" aria-labelledby="home-tab">
             <?php if(pt_main_module_available('hotels')){ ?> 
-            <form action="<?php echo base_url();?>hotels/search" method="GET" role="search">
+            <form action="<?php echo base_url();?>hotels/search" method="GET" role="search" id="searchForm">
               <div class="row">
                 <div class="col-sm-4 col-xs-12 go-right">
                   <div class="form-group margin-left-right-mobile-5">
                     <input id="search" name="txtSearch" class="form-control form-control-small" placeholder="<?php echo trans('026');?>"/>
                     <div id="autocomlete-container"></div>
                   </div>
+                  <input type="hidden" id="slug-search" value="">
                 </div>
                 <div class="col-sm-3 col-xs-6 go-right">
                   <div class="form-group margin-left-right-mobile-5">
                     <div class="clearfix"></div>
-                    <input type="text" placeholder=" <?php echo trans('07');?> " name="checkin" class="form-control mySelectCalendar dpd1 go-text-left" value="<?php echo $checkin; ?>" required > 
+                    <input type="text" placeholder=" <?php echo trans('07');?> " name="checkin" class="form-control mySelectCalendar dpd1 go-text-left" value="<?php echo $checkin; ?>" required id="checkin" autocomplete="off"> 
                   </div>
                 </div>
                 <div class="col-sm-3 col-xs-6 go-right">
                   <div class="form-group margin-left-right-mobile-5">
                     <div class="clearfix"></div>
-                    <input type="text" placeholder=" <?php echo trans('09');?> " name="checkout" class="form-control mySelectCalendar dpd2 go-text-left" value="<?php echo $checkout; ?>" required > 
+                    <input type="text" placeholder=" <?php echo trans('09');?> " name="checkout" class="form-control mySelectCalendar dpd2 go-text-left" value="<?php echo $checkout; ?>" required id="checkout"  autocomplete="off"  > 
                   </div>
                 </div>
                 <div class="col-sm-2 col-xs-6 go-right num-night">
@@ -157,7 +158,7 @@
               <div class="row">
                 <div class="home col-sm-2 col-xs-6 go-right">
                   <div class="form-group margin-left-mobile-5">
-                    <select class="form-control-cus selectx" name="adults">
+                    <select class="form-control-cus selectx" name="adults" id="adults">
                       <option value="0" selected><?php echo trans('010');?></option>
                       <?php for($i=1;$i<=20;$i++) {
                         echo '<option value="'.$i.'">';
@@ -167,7 +168,7 @@
                 </div>
                 <div class="home col-sm-2 col-xs-6 go-right">
                   <div class="form-group margin-right-mobile-5">
-                    <select class="form-control-cus selectx" name="child">
+                    <select class="form-control-cus selectx" name="child" id="child">
                       <option value="0" selected><?php echo trans('011');?></option>
                       <?php for($j=0;$j<=10;$j++) {
                         echo '<option value="'.$j.'">';
@@ -178,7 +179,7 @@
                 <div class="col-sm-3 col-xs-12 go-right">
                   <div class="form-group margin-left-right-mobile-5">
                     <div class="coupon">
-                      <input type="text" class="form-control inputcoupon" name="inputcoupon" placeholder="<?php echo trans('0745');?>" style="padding-right: 20px;">
+                      <input type="text" id="inputcoupon" class="form-control inputcoupon" name="inputcoupon" placeholder="<?php echo trans('0745');?>" style="padding-right: 20px;">
                       <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="right" title="Bạn có mã giảm giá ưu đãi từ HOSPI vui lòng nhập mã ưu đãi vào đây, số tiền tương ứng sẽ được trừ vào đơn phòng"></i> 
                     </div>
                   </div>
@@ -187,7 +188,7 @@
                 <div class="col-sm-3 col-xs-12 go-right">
                   <div class="form-group margin-left-right-mobile-5">
                     <input id="searching" type="hidden" name="searching" value="{{searching}}"> <input id="modType" type="hidden" name="modType" value="{{modType}}">
-                    <button type="submit"  class="btn-action btn btn-lg btn-block"><?php echo trans('012');?></button>
+                    <button type="button" id="btnSearch"  class="btn-action btn btn-lg btn-block"><?php echo trans('012');?></button>
                   </div>
                 </div>
               </div>
@@ -295,11 +296,11 @@ function stripUnicode($str) {
               <?php $locationlistings = getLocations();
              // var_dump("<pre>", $locationlistings);die;
     foreach($locationlistings as $list){
-        echo '{ label: "'.($list->location).'", category: "Bạn muốn đặt khách sạn ở đâu", modType: "location", id: "'.$list->id.'", desc: "Tỉnh thành", address: ""},';
+        echo '{ label: "'.($list->location).'", slug:"'.create_slug($list->location).'", category: "Bạn muốn đặt khách sạn ở đâu", modType: "location", id: "'.$list->id.'", desc: "Tỉnh thành", address: ""},';
     } ?>
               <?php $hotellistings = getHotels();
     foreach($hotellistings->locations as $hotel){
-    echo '{ label: "'.($hotel->hotel_title).'", category: "Khách sạn", modType: "hotel", id: "'.$hotel->hotel_id.'", desc: "'.$hotel->city.'", address: "'.$hotel->address.' - '.$hotel->near.'"},';
+    echo '{ label: "'.($hotel->hotel_title).'", slug:"'.create_slug($hotel->hotel_title).'", category: "Khách sạn", modType: "hotel", id: "'.$hotel->hotel_id.'", desc: "'.$hotel->city.'", address: "'.$hotel->address.' - '.$hotel->near.'"},';
     } ?>
   ];
   
@@ -311,6 +312,7 @@ function stripUnicode($str) {
               // and place the item.id into the hidden textfield called 'searching'.
               $('#searching').val(ui.item.id);
              $('#modType').val(ui.item.modType);
+             $('#slug-search').val(ui.item.slug);
                   return false;
           }
   });
@@ -463,3 +465,38 @@ function stripUnicode($str) {
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#searchForm #btnSearch').click(function(){
+       var url = "<?php echo base_url(); ?>hotels/";
+      if($('#modType').val() == "location"){
+        url += 'search/';
+      }   
+      var keyword = $.trim($('#search').val());
+      keyword = (keyword != '') ? keyword : '-';
+      if($('#searchForm #slug-search').val() != ''){
+        url += $('#searchForm #slug-search').val() + '/';
+      }
+      var checkout = $('#searchForm #checkout').val();
+      checkout = checkout.replace("/", "-");
+      checkout = checkout.replace("/", "-");
+
+      var checkin = $('#searchForm #checkin').val();
+      checkin = checkin.replace("/", "-");
+      checkin = checkin.replace("/", "-");
+      url += checkin + '/';
+      url += checkout + '/';
+      if(parseInt($('#searchForm #adults').val()) > 0){
+        url += $('#searchForm #adults').val() + '/';
+      }
+      if(parseInt($('#searchForm #child').val()) > 0){
+        url += $('#searchForm #child').val() + '/';
+      }
+      if($.trim($('#searchForm #inputcoupon').val()) != ''){
+        url += $('#searchForm #inputcoupon').val() + '/';
+      }
+      window.location.href = url;
+    });
+  });
+  
+</script>

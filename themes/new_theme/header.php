@@ -53,18 +53,16 @@
   </head>
 
   <body id="top">
-    <div id="wait">
-      <div class="lds-css ng-scope">
-        <div style="width:100%;height:100%" class="lds-flickr">
-          <!-- <div class="rotatingwait"></div> -->
-         <!--  <div class="spinner">
+    <!-- <div id="wait">
+      <div class="lds-css ng-scope">      
+         <div class="spinner">
             <div class="dot1"></div>
             <div class="dot2"></div>
             <div class="dot3"></div>
-          </div> -->
+          </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div id="fb-root"></div>
     <script>(function(d, s, id) {

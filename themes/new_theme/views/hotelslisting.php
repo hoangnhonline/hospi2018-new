@@ -34,7 +34,7 @@
     <!-- container offer-banners -->
     <?php } else { ?>
     <div class="listing-search hidden-xs">
-        <form class="container" action="<?php echo base_url() . $appModule; ?>/search" method="GET">
+        <form id="searchForm" class="container" action="<?php echo base_url() . $appModule; ?>/search" method="GET">
             <div class="col-md-3 col-lg-4 col-sm-12 go-right" ng-controller="autoSuggest">
                 <div class="form-group">
                     <div class="clearfix"></div>
@@ -45,6 +45,7 @@
                     <input id="search" name="txtSearch" class="form-control form-control-small" placeholder="<?php echo trans('026');?>"/>
                     <div id="autocomlete-container"></div>
                     <input id="searching" type="hidden" name="searching" value="{{searching}}"> <input id="modType" type="hidden" name="modType" value="{{modType}}">
+                    <input type="hidden" id="slug-search" value="">
                 </div>
             </div>
             <!-- start hotels checkin checkout fields -->
@@ -53,14 +54,14 @@
                 <div class="form-group">
                     <div class="clearfix"></div>
                     <label class="control-label go-right size13"><i class="icon-calendar-7"></i> <?php echo trans('07'); ?></label>
-                    <input type="text" placeholder="<?php echo trans('07'); ?> " name="checkin" class="form-control mySelectCalendar dpd1" value="<?php echo @$checkin; ?>" required >
+                    <input type="text" placeholder="<?php echo trans('07'); ?> " name="checkin" class="form-control mySelectCalendar dpd1" id="checkin" value="<?php echo @$checkin; ?>" autocomplete="off" required >
                 </div>
             </div>
             <div class="col-md-2 col-sm-6 col-xs-6 go-right">
                 <div class="form-group">
                     <div class="clearfix"></div>
                     <label class="control-label go-right size13"><i class="icon-calendar-7"></i> <?php echo trans('09'); ?></label>
-                    <input type="text" placeholder="<?php echo trans('09'); ?> " name="checkout" class="form-control mySelectCalendar dpd2" value="<?php echo @$checkout; ?>" required >
+                    <input type="text" placeholder="<?php echo trans('09'); ?> " name="checkout" class="form-control mySelectCalendar dpd2" id="checkout" value="<?php echo @$checkout; ?>"  autocomplete="off" required >
                 </div>
             </div>
             <?php } ?>
@@ -114,7 +115,7 @@
                 <div class="form-group">
                     <div class="clearfix"></div>
                     <label class="control-label go-right size13">&nbsp;</label>
-                    <button style="font-size: 14px;" type="submit" class="btn btn-block btn-action"><?php echo trans('012'); ?></button>
+                    <button style="font-size: 14px;" type="button" id="btnSearch" class="btn btn-block btn-action"><?php echo trans('012'); ?></button>
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -2070,11 +2071,11 @@
     
                     <?php $locationlistings = getLocations();
         foreach($locationlistings as $list){
-            echo '{ label: "'.$list->location.'", category: "Bạn muốn đặt khách sạn ở đâu", modType: "location", id: "'.$list->id.'", desc: "Tỉnh thành", address: ""},';
+            echo '{ label: "'.$list->location.'", slug:"'.create_slug($list->location).'", category: "Bạn muốn đặt khách sạn ở đâu", modType: "location", id: "'.$list->id.'", desc: "Tỉnh thành", address: ""},';
         } ?>
                     <?php $hotellistings = getHotels();
         foreach($hotellistings->locations as $hotel){
-        echo '{ label: "'.$hotel->hotel_title.'", category: "Khách sạn", modType: "hotel", id: "'.$hotel->hotel_id.'", desc: "'.$hotel->city.'", address: "'.$hotel->address.' - '.$hotel->near.'"},';
+        echo '{ label: "'.$hotel->hotel_title.'",slug:"'.create_slug($list->location).'", category: "Khách sạn", modType: "hotel", id: "'.$hotel->hotel_id.'", desc: "'.$hotel->city.'", address: "'.$hotel->address.' - '.$hotel->near.'"},';
         } ?>
         ];
     
@@ -2086,6 +2087,7 @@
                     // and place the item.id into the hidden textfield called 'searching'.
                     $('#searching').val(ui.item.id);
                     $('#modType').val(ui.item.modType);
+                    $('#slug-search').val(ui.item.slug);
                         return false;
                 }
         });
@@ -2168,4 +2170,37 @@
             }
         });
     }
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#searchForm #btnSearch').click(function(){
+       var url = "<?php echo base_url(); ?>hotels/";
+      if($('#modType').val() == "location"){
+        url += 'search/';
+      }   
+      var keyword = $.trim($('#search').val());
+      keyword = (keyword != '') ? keyword : '-';
+      if($('#searchForm #slug-search').val() != ''){
+        url += $('#searchForm #slug-search').val() + '/';
+      }
+      var checkout = $('#searchForm #checkout').val();
+      checkout = checkout.replace("/", "-");
+      checkout = checkout.replace("/", "-");
+
+      var checkin = $('#searchForm #checkin').val();
+      checkin = checkin.replace("/", "-");
+      checkin = checkin.replace("/", "-");
+      url += checkin + '/';
+      url += checkout + '/';
+      if(parseInt($('#searchForm #adults').val()) > 0){
+        url += $('#searchForm #adults').val() + '/';
+      }
+      if(parseInt($('#searchForm #child').val()) > 0){
+        url += $('#searchForm #child').val() + '/';
+      }
+     
+      window.location.href = url;
+    });
+  });
+  
 </script>

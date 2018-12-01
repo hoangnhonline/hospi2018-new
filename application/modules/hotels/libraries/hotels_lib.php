@@ -82,6 +82,7 @@ class Hotels_lib
 
     function __construct()
     {
+       // echo base_url(uri_string());
         //get the CI instance
         $this->ci =& get_instance();
         $this->db = $this->ci->db;
@@ -133,7 +134,7 @@ class Hotels_lib
                 $this->checkinout = "?&checkin=" . $this->checkin . "&checkout=" . $this->checkout . "&adults=" . $this->adults . "&child=" . $this->children;
             }
         }
-
+   
         if (!empty($loc)) {
 
             $this->selectedLocation = $loc;
@@ -290,9 +291,9 @@ class Hotels_lib
             $orderby = $settings[0]->front_listings_order;
         }
         // $hotelslist = $this->hotelswithrooms();
-        $rh = $this->ci->hotels_model->listHotelsByLocation($locs->locations);
+        $rh = $this->ci->hotels_model->listHotelsByLocation($locs);
         //    $data['all_hotels'] = $this->ci->hotels_model->list_hotels_front($perpage, $offset, $orderby);
-        $hotels = $this->ci->hotels_model->listHotelsByLocation($locs->locations, $perpage, $offset, $orderby);
+        $hotels = $this->ci->hotels_model->listHotelsByLocation($locs, $perpage, $offset, $orderby);
         $tmp = $this->getResultObject($hotels['all']);
         $data['all_hotels'] = $tmp['result'];
         $data['paginationinfo'] = array(
@@ -357,11 +358,11 @@ class Hotels_lib
         } else {
             $orderby = $settings[0]->front_search_order;
         }
-
+        
         // $hotelslist = $this->hotelswithrooms();
         $rh = $this->ci->hotels_model->search_hotels_by_text($cityid);
         $hotels = $this->ci->hotels_model->search_hotels_by_text($cityid, $perpage, $page, $orderby, '', '', $checkin, $checkout);
-
+        
         $tmp = $this->getResultObject($hotels['all'], null, $orderby, $checkin, $checkout);
 
         $resultSort = $tmp['resultSort'];

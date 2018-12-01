@@ -298,7 +298,7 @@
                 $city_slug = create_slug($list->location);
                 $country_slug = create_slug($list->country);
                 if($list->feature=="Yes") $feature='class="purple"'; else $feature="";               
-                echo "<p ".$feature."><a href='".base_url()."hotels/search/".$country_slug."/".$city_slug."/".$list->id."?txtSearch=".$list->location."&searching=".$list->id."&modType=location&checkin=&checkout=&adults=&child='>";
+                echo "<p ".$feature."><a href='".base_url()."hotels/".$city_slug."'>";
                 echo $list->location;
                 echo '</a></p>';
                 if($cI%9==0){

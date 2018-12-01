@@ -1025,9 +1025,12 @@ class Hotels_model extends CI_Model{
 		$this->db->join('pt_reviews', 'pt_hotels.hotel_id = pt_reviews.review_itemid', 'left');
 		$this->db->join('pt_room_prices_detail', 'pt_hotels.hotel_id = pt_room_prices_detail.hotel_id', 'left');
 		$this->db->where('pt_room_prices_detail.total > ', 0);
-		$this->db->where('pt_room_prices_detail.date_use >= ', $checkin);
-		$this->db->where('pt_room_prices_detail.date_use <= ', $checkout);
-
+		if($checkin != '--'){
+			$this->db->where('pt_room_prices_detail.date_use >= ', $checkin);
+		}
+		if($checkout != '--'){
+			$this->db->where('pt_room_prices_detail.date_use <= ', $checkout);
+		}
 		if (!empty($stars)) {
 			$this->db->where_in('pt_hotels.hotel_stars', $stars);
 		}
@@ -1063,7 +1066,8 @@ class Hotels_model extends CI_Model{
 		if (!empty($types)) {
 			$this->db->where_in('pt_hotels.hotel_type', $types);
 		}
-		if (!empty($sprice)) {
+		
+		if (!empty($sprice) && $sprice) {
 			$tmp = explode(";", $sprice);
 			$this->db->where('pt_room_prices_detail.total >=', $tmp[0]);
 			$this->db->where('pt_room_prices_detail.total <=', $tmp[1]);
@@ -1100,7 +1104,7 @@ class Hotels_model extends CI_Model{
 			$query = $this->db->get('pt_hotels');
 		}
 		//var_dump('<pre>', $this->db->last_query());die;
-		//   $this->db->db_debug = TRUE;
+		  // $this->db->db_debug = TRUE;
 		$data['all'] = $query->result();
 		$data['rows'] = $query->num_rows();
 

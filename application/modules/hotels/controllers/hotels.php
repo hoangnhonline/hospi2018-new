@@ -41,31 +41,27 @@ class Hotels extends MX_Controller
         $this->hotels_lib->set_lang($this->data['lang_set']);
         $this->data['locationsList'] = $this->hotels_lib->getLocationsList();
         $this->data['modulelib'] = $this->hotels_lib;
+
     }
 
-    public function index()
+    public function index($city_slug = null)
     {
+
         $this->load->library('hotels/hotels_calendar_lib');
+
         $this->data['calendar'] = $this->hotels_calendar_lib;
         $settings = $this->settings_model->get_front_settings('hotels');
         $this->data['minprice'] = $settings[0]->front_search_min_price;
         $this->data['maxprice'] = $settings[0]->front_search_max_price;
-        if ($this->validlang) {
+       
+        // $countryName = $this->uri->segment(3);
+        // $cityName = $this->uri->segment(4);
 
-            // $countryName = $this->uri->segment(3);
-            // $cityName = $this->uri->segment(4);
-
-            $hotelname = $this->uri->segment(5);
-        } else {
-
-            // $countryName = $this->uri->segment(2);
-            // $cityName = $this->uri->segment(3);
-
-            $hotelname = $this->uri->segment(4);
-        }
-
+        $hotelname = $this->uri->segment(2);
+    
+        //var_dump($hotelname);die;
         $check = $this->hotels_model->hotel_exists($hotelname);
-        if ($check && !empty($hotelname)) {            
+        if ($check && !empty($hotelname)) { // neu co ten khach san
             $this->hotels_lib->set_hotelid($hotelname);
             $this->data['module'] = $this->hotels_lib->hotel_details();
             $this->data['hasRooms'] = $this->hotels_lib->totalRooms($this->data['module']->id);
@@ -185,8 +181,9 @@ class Hotels extends MX_Controller
         }
     }
 
-    function listing()
-    {
+    function listing($slug_hotel = null)
+    {       
+      
         $this->lang->load("front", $this->data['lang_set']);
         $this->data['sorturl'] = base_url() . 'hotels/listings?';
         $settings = $this->settings_model->get_front_settings('hotels');
@@ -242,6 +239,7 @@ class Hotels extends MX_Controller
 
     function honeymoon($page = null)
     {
+      
         $this->lang->load("front", $this->data['lang_set']);
         $this->data['sorturl'] = base_url() . 'hotels/honeymoon/listings?';
         $settings = $this->settings_model->get_front_settings('hotels');
@@ -402,23 +400,31 @@ class Hotels extends MX_Controller
         // $this->output->cache(20) ; //hoangnhonline
     }
 
-    function search($country = null, $city = null, $citycode = null)
+    function search($city = null, $checkin = null, $checkout=null, $adults = 0, $child = 0, $coupon_code = null)
     {
+        $cityid= "";
+        $country = 'vietnam';
+        //var_dump($city, $citycode);
+        $cityid = getCityId($city);
+        $locationInfo = pt_LocationsInfo($cityid);
+       // var_dump($cityid);
+        //var_dump(base_url(uri_string()));die;
         $surl = http_build_query($_GET);
         $this->data['sorturl'] = base_url() . 'hotels/search' . $surl . '&';
-        $checkin = $this->input->get('checkin');
-        $checkout = $this->input->get('checkout');
-        $cityid = $this->input->get('searching');
-        $modType = $this->input->get('modType');
+        $checkin = str_replace("-", "/", $checkin);
+        $checkout = str_replace("-", "/", $checkout);
+
+        $modType = $this->input->get('modType') ? $this->input->get('modType') : 'location';
         $page = $this->input->get('page');
         if (!$page) {
             $page = null;
         }
-
+        $country = 'vietnam';
         if (empty($country)) {
             $surl = http_build_query($_GET);
             $locationInfo = pt_LocationsInfo($cityid);
             $country = url_title($locationInfo->country, 'dash', true);
+            $country = 'vietnam';         
             $city = url_title($locationInfo->city, 'dash', true);
             $cityid = $locationInfo->id;
             if (!empty($cityid) && $modType == "location") {
@@ -433,16 +439,14 @@ class Hotels extends MX_Controller
                         redirect(base_url() .'hotels/' . $slug);
                     }
                 }
-        } else {
-            if ($modType == "location") {
-                $cityid = $citycode;
-            } else {
-                $cityid = "";
-            }
-        }            
-        if (array_filter($_GET)) {
+        }   
+        //var_dump($cityid);die;        
+        
+
             if (!empty($cityid) && $modType == "location") {
+                
                 $allhotels = $this->hotels_lib->search_hotels_by_text($cityid, $page, $checkin, $checkout);
+
             } else {
                 $allhotels = $this->hotels_lib->search_hotels($page);
             }
@@ -458,12 +462,10 @@ class Hotels extends MX_Controller
             $this->data['resultSort'] = $allhotels['resultSort'];
             $this->data['info'] = $allhotels['paginationinfo'];
             $this->data['info']['base'] = base_url() . 'hotels/search/' . $country . '/' . $city . '/' . $cityid;
-        } else {
-            $this->data['module'] = array();
-        }
 
-        $this->data['checkin'] = @$_GET['checkin'];
-        $this->data['checkout'] = @$_GET['checkout'];
+
+        $this->data['checkin'] = @$checkin;
+        $this->data['checkout'] = @$checkout;
         if (empty($checkin)) {
             $this->data['checkin'] = $this->hotels_lib->checkin;
         }
@@ -479,7 +481,7 @@ class Hotels extends MX_Controller
         } else {
             $this->data['pricehead'] = trans('0397') . " " . $this->hotels_lib->stay . " " . trans('0122');
         }
-
+        //var_dump($locationInfo);die;
         $this->data['city'] = $cityid;
         $this->lang->load("front", $this->data['lang_set']);
         $this->data['selectedLocation'] = $cityid; //$this->hotels_lib->selectedLocation;
@@ -491,7 +493,7 @@ class Hotels extends MX_Controller
         $this->data['maxprice'] = $this->hotels_lib->convertAmount($settings[0]->front_search_max_price);
         $this->data['currCode'] = $this->hotels_lib->currencycode;
         $this->data['currSign'] = $this->hotels_lib->currencysign;
-        $this->data['page_title'] = 'Search Results';
+        $this->data['page_title'] = 'Khách sạn tại '.$locationInfo->city;
         $this->data['metakey'] = @$country . " " . @$city;
         $this->data['metadesc'] = @$country . " " . @$city;
         $checkin = date($this->data['app_settings'][0]->date_f, strtotime('+' . CHECKIN_SPAN . ' day', time()));
@@ -506,6 +508,7 @@ class Hotels extends MX_Controller
 
     function book($hotelname)
     {
+
         $this->load->model('admin/countries_model');
         $this->data['allcountries'] = $this->countries_model->get_all_countries();
         $check = $this->hotels_model->hotel_exists($hotelname);
@@ -643,6 +646,7 @@ class Hotels extends MX_Controller
 
     function _remap($method, $params = array())
     {
+
         $funcs = get_class_methods($this);
         if (in_array($method, $funcs)) {
             return call_user_func_array(array(
@@ -651,46 +655,53 @@ class Hotels extends MX_Controller
             ), $params);
         } else {
             $result = checkUrlParams($method, $params, $this->validlang);
+           
+            $city_id = getCityId($result->countrySlug);
             if ($result->showIndex) {
                 $this->index();
             } else {
-                $this->lang->load("front", $this->data['lang_set']);
-                $this->data['sorturl'] = base_url() . 'hotels/listings?';
-                $settings = $this->settings_model->get_front_settings('hotels');
-                $this->data['minprice'] = $this->hotels_lib->convertAmount($settings[0]->front_search_min_price);
-                $this->data['maxprice'] = $this->hotels_lib->convertAmount($settings[0]->front_search_max_price);
-                $allhotels = $this->hotels_lib->showHotelsByLocation($result, $result->offset);
-                $this->data['moduleTypes'] = $this->hotels_lib->getHotelTypes();
-                $this->data['amenities'] = $this->hotels_lib->getHotelAmenities();
-                $this->data['checkin'] = @$_GET['checkin'];
-                $this->data['checkout'] = @$_GET['checkout'];
-                if (empty($checkin)) {
-                    $this->data['checkin'] = $this->hotels_lib->checkin;
-                }
+                $this->search($result->countrySlug);
 
-                if (empty($checkout)) {
-                    $this->data['checkout'] = $this->hotels_lib->checkout;
-                }
+                // $this->lang->load("front", $this->data['lang_set']);
+                // $this->data['sorturl'] = base_url() . 'hotels/listings?';
+                // $settings = $this->settings_model->get_front_settings('hotels');
+                // $this->data['minprice'] = $this->hotels_lib->convertAmount($settings[0]->front_search_min_price);
+                // $this->data['maxprice'] = $this->hotels_lib->convertAmount($settings[0]->front_search_max_price);
+                // $allhotels = $this->hotels_lib->showHotelsByLocation($city_id, $result->offset);
+                // $this->data['moduleTypes'] = $this->hotels_lib->getHotelTypes();
+                // $this->data['amenities'] = $this->hotels_lib->getHotelAmenities();
+                // $this->data['checkin'] = @$_GET['checkin'];
+                // $this->data['checkout'] = @$_GET['checkout'];
+                // if (empty($checkin)) {
+                //     $this->data['checkin'] = $this->hotels_lib->checkin;
+                // }
 
-                $chin = $this->hotels_lib->checkin;
-                $chout = $this->hotels_lib->checkout;
-                if (empty($chin) || empty($chout)) {
-                    $this->data['pricehead'] = trans('0396');
-                } else {
-                    $this->data['pricehead'] = trans('0397') . " " . $this->hotels_lib->stay . " " . trans('0122');
-                }
+                // if (empty($checkout)) {
+                //     $this->data['checkout'] = $this->hotels_lib->checkout;
+                // }
 
-                $this->data['selectedLocation'] = $this->hotels_lib->selectedLocation;
-                $this->data['module'] = $allhotels['all_hotels'];
-                $this->data['info'] = $allhotels['paginationinfo'];
-                $this->data['plinks2'] = $allhotels['plinks2'];
-                $this->data['currCode'] = $this->hotels_lib->currencycode;
-                $this->data['currSign'] = $this->hotels_lib->currencysign;
-                $this->data['page_title'] = $settings[0]->header_title;
-                $this->data['metakey'] = $settings[0]->meta_keywords;
-                $this->data['metadesc'] = $settings[0]->meta_description;
-                $this->data['langurl'] = base_url() . "hotels/{langid}";
-                $this->theme->view('listing', $this->data);
+                // $chin = $this->hotels_lib->checkin;
+                // $chout = $this->hotels_lib->checkout;
+                // if (empty($chin) || empty($chout)) {
+                //     $this->data['pricehead'] = trans('0396');
+                // } else {
+                //     $this->data['pricehead'] = trans('0397') . " " . $this->hotels_lib->stay . " " . trans('0122');
+                // }
+
+                // $this->data['selectedLocation'] = $this->hotels_lib->selectedLocation;
+                // //var_dump( $this->data['selectedLocation']);die;
+                
+                // $this->data['module'] = $allhotels['all_hotels'];
+                // $this->data['info'] = $allhotels['paginationinfo'];
+                // $this->data['plinks2'] = $allhotels['plinks2'];
+                // $this->data['currCode'] = $this->hotels_lib->currencycode;
+                // $this->data['currSign'] = $this->hotels_lib->currencysign;
+                // $this->data['page_title'] = $settings[0]->header_title;
+                // $this->data['metakey'] = $settings[0]->meta_keywords;
+                // $this->data['metadesc'] = $settings[0]->meta_description;
+                // $this->data['langurl'] = base_url() . "hotels/{langid}";
+
+                // $this->theme->view('listing', $this->data);
             }
         }
     }
