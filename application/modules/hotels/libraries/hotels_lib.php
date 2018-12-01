@@ -657,7 +657,8 @@ class Hotels_lib
             'mapAddress' => $details[0]->hotel_map_city,
             'diem_noi_bat' => $details[0]->diem_noi_bat,
             'hotelsurcharge' => $hotelsurcharge,
-            'hotel_policy' => $hotel_policy
+            'hotel_policy' => $hotel_policy,
+            'hotel_slug'=>$detail[0]->hotel_slug
         );
 
         return $detailResults;
@@ -1703,7 +1704,8 @@ class Hotels_lib
                 'honeymoon' => $honeymoon,
                 'offer_title' => $offer_title,
                 'hotel_is_featured' => $h->hotel_is_featured,
-                'diem_noi_bat' => $h->diem_noi_bat
+                'diem_noi_bat' => $h->diem_noi_bat,
+                'hotel_slug' => $h->hotel_slug
 
             );
         }

@@ -709,9 +709,9 @@
                                 else $khuyenmai = ""; ?>
                             <div class="img_list <?php echo $khuyenmai; ?>">
                                 <?php if (isset($_GET['honeymoon']) && !empty($_GET['honeymoon'])) { ?>
-                                <a href="<?php echo $item->slug;?>/?details=<?php echo $item->roomid;?>">
+                                <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>/?details=<?php echo $item->roomid;?>">
                                 <?php } else { ?>
-                                <a href="<?php echo $item->slug; ?>">
+                                <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>">
                                     <?php } ?>
                                     <img src="<?php echo $item->thumbnail; ?>" alt="<?php echo character_limiter($item->title, 20); ?>">                                
                                     <?php                                  
@@ -771,9 +771,9 @@
                                         <?php }
                                             } ?>
                                         <?php if (isset($_GET['honeymoon']) && !empty($_GET['honeymoon'])) { ?>
-                                        <a href="<?php echo $item->slug;?>/?details=<?php echo $item->roomid;?>">
+                                        <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>/?details=<?php echo $item->roomid;?>">
                                         <?php } else { ?>
-                                        <a href="<?php echo $item->slug; ?>">
+                                        <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>">
                                         <?php } ?>
                                         <button type="submit" class="btn btn-action2"><?php echo trans('0177'); ?></button>
                                         </a>
@@ -781,7 +781,7 @@
                                 </div>
                                 <div class="labelleft2 rtl_title_home description">
                                     <h4 class="mtb0 RTL go-text-right hotel-name">
-                                        <a href="<?php echo $item->slug; ?>"><b><?php echo $item->title; ?></b></a>
+                                        <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>"><b><?php echo $item->title; ?></b></a>
                                         <!-- Cars airport pickup -->  <?php if ($appModule == "cars") {
                                             if ($item->airportPickup == "yes") { ?> <button class="btn btn-success btn-xs"><i class="icon-paper-plane-2"></i> <?php echo trans('0207'); ?></button> <?php }
                                             } ?> <!-- Cars airport pickup -->
@@ -1615,7 +1615,7 @@
 
                             <!-- Add to whishlist -->
                             <div class="img_list ">
-                                <a href="<?php echo $item->slug; ?>">
+                                <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>">
                                     <img src="<?php echo $item->thumbnail; ?>" alt="<?php echo character_limiter($item->title, 20); ?>">
                                     <?php if($item->hotel_is_featured == "yes"){ ?>
                                     <div class="hs_favorite">
@@ -1631,7 +1631,7 @@
                             <div class="itemlabel3 itemlabel3-cus hp_itemlabel3-cus_mb">
                                 <div class="labelleft2 rtl_title_home description">
                                     <h4 class="mtb0 RTL go-text-right hotel-name">
-                                        <a href="<?php echo $item->slug; ?>"><b><?php echo $item->title .$item->price_status; ?></b></a>
+                                        <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>"><b><?php echo $item->title .$item->price_status; ?></b></a>
                                         <!-- Cars airport pickup -->   <!-- Cars airport pickup -->
                                     </h4>
                                     <div class="clearfix">
@@ -1733,7 +1733,7 @@
                                                 } ?>
                                             <div class="line-right-tow"></div>
                                             <div class=" text-center size18 col-xs-4 item-xem-ngay">
-                                                <a href="<?php echo $item->slug; ?>">
+                                                <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>">
                                                 <button type="submit" class="btn btn-action2">Xem ngay</button>
                                                 </a>
                                             </div>
@@ -1941,7 +1941,7 @@
                             map_image_url: "<?php echo $item->thumbnail; ?>",
                             name_point: "<?php echo $item->title; ?>",
                             description_point: "<?php echo character_limiter(strip_tags(trim($item->desc)), 75); ?>",
-                            url_point: "<?php echo $item->slug; ?>"
+                            url_point: "<?php echo base_url().'hotels/'.$item->hotel_slug; ?>"
                     },
     <?php endforeach; ?>
     

@@ -687,9 +687,9 @@
                             else $khuyenmai = ""; ?>
                         <div class="img_list <?php echo $khuyenmai; ?>">
                             <?php if (isset($_GET['honeymoon']) && !empty($_GET['honeymoon'])) { ?>
-                            <a href="<?php echo $item->slug;?>/?details=<?php echo $item->roomid;?>">
+                            <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>/?details=<?php echo $item->roomid;?>">
                             <?php } else { ?>
-                            <a href="<?php echo $item->slug; ?>">
+                            <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>">
                                 <?php } ?>
                                 <img src="<?php echo $item->thumbnail; ?>" alt="<?php echo character_limiter($item->title, 20); ?>">
                                 <?php                                  
@@ -746,9 +746,9 @@
                                         <?php }
                                     } ?>
                                     <?php if (isset($_GET['honeymoon']) && !empty($_GET['honeymoon'])) { ?>
-                                    <a href="<?php echo $item->slug;?>/?details=<?php echo $item->roomid;?>">
+                                    <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>/?details=<?php echo $item->roomid;?>">
                                     <?php } else { ?>
-                                    <a href="<?php echo $item->slug; ?>">
+                                    <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>">
                                     <?php } ?>
                                     <button type="submit" class="btn btn-action2"><?php echo trans('0177'); ?></button>
                                     </a>
@@ -756,7 +756,7 @@
                             </div>
                             <div class="labelleft2 rtl_title_home description">
                                 <h4 class="mtb0 RTL go-text-right hotel-name">
-                                    <a href="<?php echo $item->slug; ?>"><b><?php echo $item->title; ?></b></a>
+                                    <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>"><b><?php echo $item->title; ?></b></a>
                                     <!-- Cars airport pickup -->  <?php if ($appModule == "cars") {
                                         if ($item->airportPickup == "yes") { ?> <button class="btn btn-success btn-xs"><i class="icon-paper-plane-2"></i> <?php echo trans('0207'); ?></button> <?php }
                                         } ?> <!-- Cars airport pickup -->
@@ -1589,7 +1589,7 @@
                         </span>
                         <!-- Add to whishlist -->
                         <div class="img_list ">
-                           <a href="<?php echo $item->slug; ?>">
+                           <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>">
                               <img src="<?php echo $item->thumbnail; ?>" alt="<?php echo character_limiter($item->title, 20); ?>">
                               <div class="short_info"></div>
                            </a>
@@ -1599,7 +1599,7 @@
                         <div class="itemlabel3 itemlabel3-cus">
                            <div class="labelleft2 rtl_title_home description">
                               <h4 class="mtb0 RTL go-text-right hotel-name">
-                                 <a href="<?php echo $item->slug; ?>"><b><?php echo $item->title; ?></b></a>
+                                 <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>"><b><?php echo $item->title; ?></b></a>
                                  <!-- Cars airport pickup -->   <!-- Cars airport pickup -->
                               </h4>
                               <a class="go-right" href="javascript:void(0);" onclick="showMap('<?php echo base_url(); ?>home/maps/<?php echo $item->latitude; ?>/<?php echo $item->longitude; ?>/<?php echo $appModule; ?>/<?php echo $item->id; ?>', 'modal');" title="<?php echo character_limiter($item->location, 10); ?>"><i style="margin-left: -3px;" class="icon-location-6 go-right"></i><?php echo character_limiter($item->location, 10); ?></a>
@@ -1687,7 +1687,7 @@
                                  
                                  <div class="line-right-tow"></div>
                                   <div class=" text-center size18 col-xs-4 item-xem-ngay">
-                                     <a href="<?php echo $item->slug; ?>">
+                                     <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>">
                                        <button type="submit" class="btn btn-action2">Xem ngay</button>
                                     </a>
                                  </div>

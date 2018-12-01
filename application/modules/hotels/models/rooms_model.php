@@ -14,7 +14,7 @@ class Rooms_model extends CI_Model
         $this->langdef = DEFLANG;
     }
 
-    // get all rooms info
+    // get all rooms in fo
 
     function get_all_rooms($hotelid = null, $userid = null)
     {
