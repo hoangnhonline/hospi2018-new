@@ -470,7 +470,7 @@ function stripUnicode($str) {
     $('#searchForm #btnSearch').click(function(){
        var url = "<?php echo base_url(); ?>hotels";
       if($('#modType').val() == "location"){
-        url += 'search';
+        url += '/search';
       }   
       var keyword = $.trim($('#search').val());
       keyword = (keyword != '') ? keyword : '-';
