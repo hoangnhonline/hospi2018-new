@@ -4,7 +4,7 @@
         <ol class="breadcrumb">
             <li><a href="<?php echo base_url(); ?>">Trang chủ</a></li>
             <li><a href="<?php echo base_url(); ?>hotels">Khách sạn</a></li>
-            <li class="active"><?php echo $_GET['txtSearch']; ?></li>
+            <li class="active"><?php echo $city_name; ?></li>
         </ol>
     </div>
 </div><!-- block-breadcrumb -->
