@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="<?php echo $theme_url; ?>plugins/jslider/css/jslider.round.css" type="text/css">
 <link href="<?php echo $theme_url; ?>asset/css/responsive-khachsan.css" rel="stylesheet">
 <div id="listing-search">
-    <?php if (isset($_GET['searching']) && !empty($_GET['searching'])) { ?>
+    <?php if ($cityid) { ?>
     <div class="block-breadcrumb">
         <div class="container">
             <ol class="breadcrumb">
@@ -22,7 +22,7 @@
     <div class="container offer-banners">
         <div id="carousel-banner" class="banner-by-location carousel slide" data-ride="carousel">
             <?php //echo run_widget(get_widget_id($_GET['searching'], "Hotel"));
-                $image = PT_LOCATION_IMAGES.get_location_hotel_image($_GET['searching']);
+                $image = PT_LOCATION_IMAGES.get_location_hotel_image($cityid);
                 echo '<img alt="'.$_GET['txtSearch'].'" src="'.$image.'">';
                 ?>
             <div class="search-result-location">
@@ -44,7 +44,7 @@
                         </div>-->
                     <input id="search" name="txtSearch" class="form-control form-control-small" placeholder="<?php echo trans('026');?>"/>
                     <div id="autocomlete-container"></div>
-                    <input id="searching" type="hidden" name="searching" value="{{searching}}"> <input id="modType" type="hidden" name="modType" value="{{modType}}">
+                    <input id="searching" type="hidden" name="searching" value="<?php echo $cityid; ?>"> <input id="modType" type="hidden" name="modType" value="<?php echo $modType; ?>">
                     <input type="hidden" id="slug-search" value="">
                 </div>
             </div>
@@ -129,7 +129,7 @@
         <div class="col-md-3 filters offset-0 go-right">
             <div class="block-module">
                 <div class="block-md-item">
-                    <?php if (isset($_GET['searching'])) { ?>
+                    <?php if ($cityid) { ?>
                     <form class="" action="<?php echo base_url() . $appModule; ?>/search" method="GET">
                         <button type="button" class="collapsebtn go-text-right" data-toggle="collapse" data-target="#txtsearch">
                         <?php echo trans('0693'); ?> <span class="collapsearrow"></span>
@@ -142,7 +142,7 @@
                                         <div class="clearfix"></div>
                                         <input id="search" name="txtSearch" value="<?php echo $_GET['txtSearch']; ?>" class="form-control form-control-small" placeholder="<?php echo trans('026');?>"/>
                                         <div id="autocomlete-container"></div>
-                                        <input id="searching" type="hidden" name="searching" value="{{searching}}"> <input id="modType" type="hidden" name="modType" value="{{modType}}">
+                                        <input id="searching" type="hidden" name="searching" value="<?php echo $cityid; ?>"> <input id="modType" type="hidden" name="modType" value="<?php echo $modType; ?>">
                                     </div>
                                 </div>
                                 <!-- start hotels checkin checkout fields -->
@@ -647,9 +647,7 @@
                             <input type="hidden" name="adults" value="<?php if (!empty($_GET['adults'])) {
                                 echo $_GET['adults'];
                                 } ?>">
-                            <input type="hidden" name="searching" value="<?php if (!empty($_GET['searching'])) {
-                                echo $_GET['searching'];
-                                } ?>">
+                            <input type="hidden" name="searching" value="<?php echo $cityid; ?>">
                             <div class="col-md-3 col-xs-3"><span class="sap-xep-theo andes-bold lblue"><?php echo trans('0736'); ?></span></div>
                             <div class="col-md-3 col-xs-3"><input type="radio" id="thap-cao" name="sortby" class="hospi-checkbox sortajax" value="p_lh" <?php if ($_GET['sortby'] == "p_lh") {
                                 echo 'checked="checked"';
@@ -668,9 +666,9 @@
                             </div>
                             <div class="clearfix"></div>
                         </form>
-                        <?php if (isset($_GET['searching']) && !empty($_GET['searching'])) { ?>
+                        <?php if ($cityid) { ?>
                         <?php
-                            $widget_ids = get_widget_ids($_GET['searching'], "Advert");
+                            $widget_ids = get_widget_ids($cityid, "Advert");
                             $list = array();
                             foreach ($widget_ids as $id) {
                                 array_push($list, $id->widget_id);
