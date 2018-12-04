@@ -518,7 +518,7 @@ class Hotels extends MX_Controller
             $this->data['cityid'] =  $cityid;
             $this->data['modType'] = $modType;
             $this->data['city'] = $cityid;
-        
+            $this->data['city_name'] = $locationInfo->city;
         }
         $this->theme->partial('hotelslistingajax', $this->data);
         // $this->output->cache(20) ; //hoangnhonline
@@ -746,6 +746,7 @@ class Hotels extends MX_Controller
             $this->data['cityid'] =  $cityid;
             $this->data['modType'] = $modType;
             $this->data['city'] = $cityid;
+            $this->data['city_name'] = $locationInfo->city;
             $this->theme->view('hotelslisting', $this->data);
         }
         
