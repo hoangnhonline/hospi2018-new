@@ -695,7 +695,7 @@
                             <?php } else { ?>
                             <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>">
                                 <?php } ?>
-                                <img src="<?php echo $item->thumbnail; ?>" alt="<?php echo character_limiter($item->title, 20); ?>">
+                                <img style="height: 100%;width: auto" src="<?php echo $item->thumbnail; ?>" alt="<?php echo character_limiter($item->title, 20); ?>">
                                 <?php                                  
                                 if($item->hotel_is_featured == "yes"){ ?>
                                 <div class="hs_favorite">
