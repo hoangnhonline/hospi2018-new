@@ -299,8 +299,7 @@
                     <!-- block-md-item -->
                     <div class="block-md-item">
                         <!-- Price range -->
-                        <button type="button" class="collapsebtn go-text-right" data-toggle="collapse" data-target="#collapse2">
-                        <?php echo trans('0301'); ?> <span class="collapsearrow"></span>
+                        <button type="button" class="collapsebtn go-text-right" data-toggle="collapse" data-target="#collapse2">Giá phòng <span class="collapsearrow"></span>
                         </button>
                         <div id="collapse2" class="collapse in collapse-br">
                             <div class="block-content">
@@ -578,19 +577,13 @@
                         <input type="hidden" name="txtSearch" value="<?php if (!empty($_GET['txtSearch'])) {
                             echo $_GET['txtSearch'];
                             } ?>">
-                        <input type="hidden" name="modType" value="<?php if (!empty($_GET['modType'])) {
-                            echo $_GET['modType'];
-                            } ?>">
-                        <input type="hidden" name="city" value="<?php if (!empty($_GET['city'])) {
-                            echo $_GET['city'];
-                            } else {
-                            echo $selectedCity;
-                            } ?>">
+                        <input type="hidden" name="modType" value="<?php echo $modType ?>">
+                        <input type="hidden" name="city" value="<?php echo $city; ?>">
                         <input type="hidden" name="checkin" value="<?php echo $checkin; ?>">
                         <input type="hidden" name="checkout" value="<?php echo $checkout; ?>">
                         <input type="hidden" name="childages" value="<?php echo $childAges; ?>">
                         <input type="hidden" name="adults" value="<?php echo $adults; ?>">
-                        <input type="hidden" name="searching" value="<?php echo $selectedLocation; ?>">
+                        <input type="hidden" name="searching" value="<?php echo $cityid; ?>">
                         <input name="sortby" type="hidden" id="sortbyajax" class="sortby" value="<?php if (!empty($_GET['sortby'])) {
                             echo $_GET['sortby'];
                             } ?>">                   

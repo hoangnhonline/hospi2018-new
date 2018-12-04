@@ -299,47 +299,168 @@ class Hotels extends MX_Controller
         return ((float)$usec + (float)$sec);
     }
 
-    function searchajax($country = null, $city = null, $citycode = null)
+    function searchajax($city = null, $checkin = null, $checkout=null, $adults = 0, $child = 0, $coupon_code = null)
     {
-        $surl = http_build_query($_GET);
-        $this->data['sorturl'] = base_url() . 'hotels/search' . $surl . '&';
-        $checkin = $this->input->get('checkin');
-        $checkout = $this->input->get('checkout');
-        $cityid = $this->input->get('searching');
-        $modType = $this->input->get('modType');
-        $page = $this->input->get('page');
-        if (!$page) {
-            $page = null;
-        }
-        if (empty($country)) {
-            $surl = http_build_query($_GET);
-            $locationInfo = pt_LocationsInfo($cityid);
-            $country = url_title($locationInfo->country, 'dash', true);
-            $city = url_title($locationInfo->city, 'dash', true);
-            $cityid = $locationInfo->id;
-            if (!empty($cityid) && $modType == "location") {
-                redirect('hotels/search/' . $country . '/' . $city . '/' . $cityid . '?' . $surl);
-            } else
-                if (!empty($cityid) && $modType == "hotel") {
-                    $this->hotels_lib->set_id($cityid);
-                    $this->hotels_lib->hotel_short_details();
-                    $title = $this->hotels_lib->title;
-                    $slug = $this->hotels_lib->slug;
-                    if (!empty($title)) {
-                        redirect('hotels/' . $slug);
-                    }
-                }
-        } else {
-            if ($modType == "location") {
-                $cityid = $citycode;
-            } else {
-                $cityid = "";
-            }
-        }
+        $cityid= "";
+        $country = 'vietnam';
+        //var_dump($city, $citycode);
+        $cityid = getCityId($city);
+        if(!$cityid){
+            $hotelname = $city;
+            //var_dump($hotelname);die;
+            $this->hotels_lib->set_hotelid($hotelname);
+            $this->data['module'] = $this->hotels_lib->hotel_details();
+            
+            $this->data['hasRooms'] = $this->hotels_lib->totalRooms($this->data['module']->id);
+            $this->data['rooms'] = $this->hotels_lib->hotel_rooms($this->data['module']->id);            
+            // Availability Calender settings variables
 
-        if (array_filter($_GET)) {
+            $this->data['from1'] = date("F Y");
+            $this->data['to1'] = date("F Y", strtotime('+5 months'));
+            $this->data['from2'] = date("F Y", strtotime('+6 months'));
+            $this->data['to2'] = date("F Y", strtotime('+11 months'));
+            $this->data['from3'] = date("F Y", strtotime('+12 months'));
+            $this->data['to3'] = date("F Y", strtotime('+17 months'));
+            $this->data['from4'] = date("F Y", strtotime('+18 months'));
+            $this->data['to4'] = date("F Y", strtotime('+23 months'));
+            $this->data['first'] = date("m") . "," . date("Y");
+            $this->data['second'] = date("m", strtotime('+6 months')) . "," . date("Y", strtotime('+6 months'));
+            $this->data['third'] = date("m", strtotime('+12 months')) . "," . date("Y", strtotime('+12 months'));
+            $this->data['fourth'] = date("m", strtotime('+18 months')) . "," . date("Y", strtotime('+18 months'));
+
+            // End Availability Calender settings variables
+
+            $this->data['tripadvisorinfo'] = $tripadvisorinfo = tripAdvisorInfo($this->data['module']->tripadvisorid);
+            
+            if (pt_is_module_enabled('reviews')) {
+                $this->data['reviews'] = $this->hotels_lib->hotelReviews($this->data['module']->id);
+                $this->data['avgReviews'] = $this->hotels_lib->hotelReviewsAvg($this->data['module']->id);
+                $this->data['avgOverall'] = [
+                    'veryhigh' => ['Tuyệt vời', '9+'],
+                    'high' => ['Rất tốt', '8 - 9'],
+                    'medium' => ['Tốt', '6 - 8'],
+                    'normal' => ['Tạm được', '5 - 6'],
+                    'low' => ['Kém', '3 - 5'],
+                    'verylow' => ['Rất tệ', '1 - 3']
+                ];
+            }
+            // Split date for new date desing on hotel single page
+
+            $checkin = explode("/", $this->hotels_lib->checkin);
+            $this->data['d1first'] = $checkin[0];
+            $this->data['d1second'] = $checkin[1];
+            $this->data['d1third'] = $checkin[2];
+            $checkout = explode("/", $this->hotels_lib->checkout);
+            $this->data['d2first'] = $checkout[0];
+            $this->data['d2second'] = $checkout[1];
+            $this->data['d2third'] = $checkout[2];
+
+            // end Split date for new date desing on hotel single page
+
+            $this->lang->load("front", $this->data['lang_set']);
+            $this->data['currencySign'] = $this->hotels_lib->currencysign;
+            $this->data['lowestPrice'] = $this->hotels_lib->bestPrice($this->data['module']->id);
+            $this->data['allowreg'] = $this->data['app_settings'][0]->allow_registration;
+            $this->data['page_title'] = $this->data['module']->title;
+            $this->data['metakey'] = $this->data['module']->keywords;
+            $this->data['metadesc'] = $this->data['module']->metadesc;
+            $this->data['langurl'] = base_url() . "hotels/{langid}/" . $this->data['module']->slug;
+            $recentlyViewed = $this->session->userdata('recentlyViewed');
+            if (!is_array($recentlyViewed)) {
+                $recentlyViewed = array();
+            }
+
+            // change this to 10
+
+            if (sizeof($recentlyViewed) > 10) {
+                array_shift($recentlyViewed);
+            }
+
+            // here set your id or page or whatever
+
+            if (!in_array($this->data['module']->id, $recentlyViewed)) {
+                array_push($recentlyViewed, $this->data['module']->id);
+            }
+
+            $this->session->set_userdata('recentlyViewed', $recentlyViewed);
+            $recentlyViewed = array_reverse($recentlyViewed);
+            $recentlyViewed = array_diff($recentlyViewed, array(
+                $this->data['module']->id
+            ));
+            $recentlyViewed = array_filter($recentlyViewed);
+
+            //get offer
+            $this->load->library('offers_lib');
+
+            $offers = $this->offers_lib->showOffers(null, null, $type = 1, 1, $this->data['module']->id);
+            $combos = $this->offers_lib->showOffers(null, null, $type = 2, 100, $this->data['module']->id);            
+            $honeymoons = $this->offers_lib->showOffers(null, null, $type = 3, 1, $this->data['module']->id);
+            $this->data['offers'] = [];
+            if ($offers['allOffers']['count'] > 0) {
+                $this->data['offers'][] = $offers['allOffers']['offers'][0];
+            }
+            if ($combos['allOffers']['count'] > 0) {
+                foreach($combos['allOffers']['offers'] as $offerCombo){
+                    $this->data['offers'][] = $offerCombo;    
+                }
+                
+            }
+            if ($honeymoons['allOffers']['count'] > 0) {
+                $this->data['offers'][] = $honeymoons['allOffers']['offers'][0];
+            }
+
+            //var_dump('<pre>',  $this->data['offers']);die;
+
+            $this->data['recents'] = $recentlyViewed;
+            /* Bread crum */
+            $this->breadcrumbcomponent->add('Trang chủ', base_url());
+            $this->breadcrumbcomponent->add('Khách sạn', base_url() . 'hotels');
+            $this->breadcrumbcomponent->add($this->data['module']->location, base_url() . 'hotels/search/vietnam/' . $this->data['module']->cityName . '/' . $this->data['module']->hotel_city . '?txtSearch=' . $this->data['module']->location . '&searching=' . $this->data['module']->hotel_city . '&modType=location&checkin=&checkout=&adults=1&child=0');
+            $this->breadcrumbcomponent->add($this->data['module']->title, base_url() . "hotels/" . $this->data['module']->slug);
+            $this->data['breadcrumb'] = $this->breadcrumbcomponent->output();
+
+            $this->theme->view('details', $this->data);
+
+        }else{
+            $locationInfo = pt_LocationsInfo($cityid);
+           // var_dump($cityid);
+            //var_dump(base_url(uri_string()));die;
+            $surl = http_build_query($_GET);
+            $this->data['sorturl'] = base_url() . 'hotels/search' . $surl . '&';
+            $checkin = str_replace("-", "/", $checkin);
+            $checkout = str_replace("-", "/", $checkout);
+
+            $modType = $this->input->get('modType') ? $this->input->get('modType') : 'location';
+            $page = $this->input->get('page');
+            if (!$page) {
+                $page = null;
+            }
+            $country = 'vietnam';
+            if (empty($country)) {
+                $surl = http_build_query($_GET);
+                $locationInfo = pt_LocationsInfo($cityid);
+                $country = url_title($locationInfo->country, 'dash', true);
+                $country = 'vietnam';         
+                $city = url_title($locationInfo->city, 'dash', true);
+                $cityid = $locationInfo->id;
+                if (!empty($cityid) && $modType == "location") {
+                    redirect(base_url() . 'hotels/search/' . $country . '/' . $city . '/' . $cityid . '?' . $surl);
+                } else
+                    if (!empty($cityid) && $modType == "hotel") {
+                        $this->hotels_lib->set_id($cityid);
+                        $this->hotels_lib->hotel_short_details();
+                        $title = $this->hotels_lib->title;
+                        $slug = $this->hotels_lib->slug;
+                        if (!empty($title)) {
+                            redirect(base_url() .'hotels/' . $slug);
+                        }
+                    }
+            }               
+
             if (!empty($cityid) && $modType == "location") {
+                
                 $allhotels = $this->hotels_lib->search_hotels_by_text($cityid, $page, $checkin, $checkout);
+
             } else {
                 $allhotels = $this->hotels_lib->search_hotels($page);
             }
@@ -354,50 +475,52 @@ class Hotels extends MX_Controller
             $this->data['module'] = $tmpArr;
             $this->data['resultSort'] = $allhotels['resultSort'];
             $this->data['info'] = $allhotels['paginationinfo'];
-           // $this->data['info']['base'] = base_url() . 'hotels/search/' . $country . '/' . $city . '/' . $cityid;
-             $this->data['info']['base'] = base_url() . 'hotels/search' ;
-        } else {
-            $this->data['module'] = array();
-        }
+            $this->data['info']['base'] = base_url() . 'hotels/search/' . $country . '/' . $city . '/' . $cityid;
 
-        $this->data['checkin'] = @$_GET['checkin'];
-        $this->data['checkout'] = @$_GET['checkout'];
-        if (empty($checkin)) {
-            $this->data['checkin'] = $this->hotels_lib->checkin;
-        }
 
-        if (empty($checkout)) {
-            $this->data['checkout'] = $this->hotels_lib->checkout;
-        }
+            $this->data['checkin'] = @$checkin;
+            $this->data['checkout'] = @$checkout;
+            if (empty($checkin)) {
+                $this->data['checkin'] = $this->hotels_lib->checkin;
+            }
 
-        $chin = $this->hotels_lib->checkin;
-        $chout = $this->hotels_lib->checkout;
-        if (empty($chin) || empty($chout)) {
-            $this->data['pricehead'] = trans('0396');
-        } else {
-            $this->data['pricehead'] = trans('0397') . " " . $this->hotels_lib->stay . " " . trans('0122');
-        }
+            if (empty($checkout)) {
+                $this->data['checkout'] = $this->hotels_lib->checkout;
+            }
 
-        $this->data['city'] = $cityid;
-        $this->lang->load("front", $this->data['lang_set']);
-        $this->data['selectedLocation'] = $cityid; //$this->hotels_lib->selectedLocation;
-        $settings = $this->settings_model->get_front_settings('hotels');
-        $this->data['nears'] = $this->hotels_model->select_nearby($cityid);
-        $this->data['amenities'] = $this->hotels_lib->getHotelAmenities();
-        $this->data['moduleTypes'] = $this->hotels_lib->getHotelTypes();
-        $this->data['minprice'] = $this->hotels_lib->convertAmount($settings[0]->front_search_min_price);
-        $this->data['maxprice'] = $this->hotels_lib->convertAmount($settings[0]->front_search_max_price);
-        $this->data['currCode'] = $this->hotels_lib->currencycode;
-        $this->data['currSign'] = $this->hotels_lib->currencysign;
-        $this->data['page_title'] = 'Search Results';
-        $this->data['metakey'] = @$country . " " . @$city;
-        $this->data['metadesc'] = @$country . " " . @$city;
-        $checkin = date($this->data['app_settings'][0]->date_f, strtotime('+' . CHECKIN_SPAN . ' day', time()));
-        $checkout = date($this->data['app_settings'][0]->date_f, strtotime('+' . CHECKOUT_SPAN . ' day', time()));
-        $this->data['hotelslocationsList'] = $this->hotels_lib->getLocationsList($checkin, $checkout);
-        $this->data['langurl'] = base_url() . "hotels/{langid}";
+            $chin = $this->hotels_lib->checkin;
+            $chout = $this->hotels_lib->checkout;
+            if (empty($chin) || empty($chout)) {
+                $this->data['pricehead'] = trans('0396');
+            } else {
+                $this->data['pricehead'] = trans('0397') . " " . $this->hotels_lib->stay . " " . trans('0122');
+            }
+            //var_dump($locationInfo);die;
+            $this->data['city'] = $cityid;
+            $this->lang->load("front", $this->data['lang_set']);
+            $this->data['selectedLocation'] = $cityid; //$this->hotels_lib->selectedLocation;
+            $settings = $this->settings_model->get_front_settings('hotels');
+            $this->data['nears'] = $this->hotels_model->select_nearby($cityid);
+            $this->data['amenities'] = $this->hotels_lib->getHotelAmenities();
+            $this->data['moduleTypes'] = $this->hotels_lib->getHotelTypes();
+            $this->data['minprice'] = $this->hotels_lib->convertAmount($settings[0]->front_search_min_price);
+            $this->data['maxprice'] = $this->hotels_lib->convertAmount($settings[0]->front_search_max_price);
+            $this->data['currCode'] = $this->hotels_lib->currencycode;
+            $this->data['currSign'] = $this->hotels_lib->currencysign;
+            $this->data['page_title'] = 'Khách sạn tại '.$locationInfo->city;
+            $this->data['metakey'] = @$country . " " . @$city;
+            $this->data['metadesc'] = @$country . " " . @$city;
+            $checkin = date($this->data['app_settings'][0]->date_f, strtotime('+' . CHECKIN_SPAN . ' day', time()));
+            $checkout = date($this->data['app_settings'][0]->date_f, strtotime('+' . CHECKOUT_SPAN . ' day', time()));
+            $this->data['hotelslocationsList'] = $this->hotels_lib->getLocationsList($checkin, $checkout);
+            $this->data['langurl'] = base_url() . "hotels/{langid}";
+            $this->data['ajaxurl'] = base_url() . str_replace('search', 'searchajax', $this->uri->uri_string());
+            $this->data['cityid'] =  $cityid;
+            $this->data['modType'] = $modType;
+            $this->data['city'] = $cityid;
+        
+        }
         $this->theme->partial('hotelslistingajax', $this->data);
-
         // $this->output->cache(20) ; //hoangnhonline
     }
 
@@ -620,6 +743,9 @@ class Hotels extends MX_Controller
             $this->data['hotelslocationsList'] = $this->hotels_lib->getLocationsList($checkin, $checkout);
             $this->data['langurl'] = base_url() . "hotels/{langid}";
             $this->data['ajaxurl'] = base_url() . str_replace('search', 'searchajax', $this->uri->uri_string());
+            $this->data['cityid'] =  $cityid;
+            $this->data['modType'] = $modType;
+            $this->data['city'] = $cityid;
             $this->theme->view('hotelslisting', $this->data);
         }
         

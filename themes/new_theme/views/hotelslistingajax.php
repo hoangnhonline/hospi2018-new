@@ -286,6 +286,10 @@
                     <button type="button" class="collapsebtn go-text-right" data-toggle="collapse" data-target="#collapse2">
                     <?php echo trans('0301'); ?> <span class="collapsearrow"></span>
                     </button>
+                    <?php 
+                    $priceSelected = @$_GET['price'];
+                    var_dump($arrPriceSelected);
+                    ?>
                     <div id="collapse2" class="collapse in collapse-br">
                         <div class="block-content">
                             <div class="hpadding20">
@@ -293,7 +297,7 @@
                                 <div class="clearfix"></div>
                                 <div class="block-check-sale-sb go-right">
                                     <label for="Dưới 500.000" class="css-label go-left">
-                                        <input type="checkbox" value="0;500000"  name="price" id="Dưới 500.000" class="go-right radio filter-price" />
+                                        <input type="checkbox" value="0;500000"  name="price" id="Dưới 500.000" class="go-right radio filter-price" <?php echo isset($priceSelected) && $priceSelected == '0;500000' ? 'checked' : ''; ?>/>
                                         <span></span>
                                         Dưới 500.000
                                     </label>
@@ -301,7 +305,7 @@
                                 <div class="clearfix"></div>
                                 <div class="block-check-sale-sb go-right">
                                     <label for="Từ 500.000 - 1,000.000" class="css-label go-left">
-                                        <input type="checkbox" value="500000;1000000"  name="price" id="Từ 500.000 - 1,000.000" class="go-right radio filter-price" />
+                                        <input type="checkbox" value="500000;1000000"  name="price" id="Từ 500.000 - 1,000.000" class="go-right radio filter-price" <?php echo isset($priceSelected) && $priceSelected == '500000;1000000' ? 'checked' : ''; ?>/>
                                         <span></span>
                                         Từ 500.000 - 1,000.000
                                     </label>
@@ -309,7 +313,7 @@
                                 <div class="clearfix"></div>
                                 <div class="block-check-sale-sb go-right">
                                     <label for="Từ 1,000.000 - 2,000.000" class="css-label go-left">
-                                        <input type="checkbox" value="1000000;2000000"  name="price" id="Từ 1,000.000 - 2,000.000" class="go-right radio filter-price" />
+                                        <input type="checkbox" value="1000000;2000000"  name="price" id="Từ 1,000.000 - 2,000.000" class="go-right radio filter-price" <?php echo isset($priceSelected) && $priceSelected == '1000000;2000000' ? 'checked' : ''; ?>/>
                                         <span></span>
                                         Từ 1,000.000 - 2,000.000
                                     </label>
@@ -317,7 +321,7 @@
                                 <div class="clearfix"></div>
                                 <div class="block-check-sale-sb go-right">
                                     <label for="Từ 2,000.000 - 4,000.000" class="css-label go-left">
-                                        <input type="checkbox" value="2000000;4000000"  name="price" id="Từ 2,000.000 - 4,000.000" class="go-right radio filter-price" />
+                                        <input type="checkbox" value="2000000;4000000"  name="price" id="Từ 2,000.000 - 4,000.000" class="go-right radio filter-price" <?php echo isset($priceSelected) && $priceSelected == '2000000;4000000' ? 'checked' : ''; ?>/>
                                         <span></span>
                                         Từ 2,000.000 - 4,000.000
                                     </label>
@@ -325,7 +329,7 @@
                                 <div class="clearfix"></div>
                                 <div class="block-check-sale-sb go-right">
                                     <label for="Trên  4,000.000" class="css-label go-left">
-                                        <input type="checkbox" value="4000000;100000000"  name="price" id="Trên  4,000.000" class="go-right radio filter-price" />
+                                        <input type="checkbox" value="4000000;100000000"  name="price" id="Trên  4,000.000" class="go-right radio filter-price" <?php echo isset($priceSelected) && $priceSelected == '4000000;100000000' ? 'checked' : ''; ?>/>
                                         <span></span>
                                         Trên  4,000.000
                                     </label>
@@ -376,7 +380,7 @@
                                 <div class="clearfix"></div>
                                 <div class="block-check-sale-sb go-right">
                                     <label for="uudai" class="css-label go-left">
-                                        <input type="checkbox" value="yes" <?php if ($uudai == "yes") {echo "checked";} ?> name="uudai" id="uudai" class="checkbox  filter" />
+                                        <input type="checkbox" value="yes" <?php if ($varuudai == "yes") {echo "checked";} ?> name="uudai" id="uudai" class="checkbox  filter" />
                                         <span></span>
                                         <?php echo trans('0710'); ?>
                                     </label>
