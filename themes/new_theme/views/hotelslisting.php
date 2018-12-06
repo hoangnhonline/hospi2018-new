@@ -397,6 +397,7 @@
                                         <?php echo trans('0710'); ?>
                                         </label>
                                     </div>
+                                    <input type="hidden" name="page" value="1" id="page">
                                     <div class="clearfix"></div>
                                     <div class="block-check-sale-sb go-right">
                                         <label for="honeymoon" class="css-label go-left">
@@ -579,8 +580,8 @@
                             } ?>">
                         <input type="hidden" name="modType" value="<?php echo $modType ?>">
                         <input type="hidden" name="city" value="<?php echo $city; ?>">
-                        <input type="hidden" name="checkin" value="<?php echo $checkin; ?>">
-                        <input type="hidden" name="checkout" value="<?php echo $checkout; ?>">
+                        <!-- <input type="hidden" name="checkin" value="<?php echo $checkin; ?>">
+                        <input type="hidden" name="checkout" value="<?php echo $checkout; ?>"> -->
                         <input type="hidden" name="childages" value="<?php echo $childAges; ?>">
                         <input type="hidden" name="adults" value="<?php echo $adults; ?>">
                         <input type="hidden" name="searching" value="<?php echo $cityid; ?>">
@@ -2108,7 +2109,7 @@
             ajaxSearch($(this));
         });
         $('ul.pagination li a').each(function() {
-            var url = $(this).attr('href');
+            var url = '<?php echo $ajaxurl; ?>';
     
             $(this)
                 .attr('href', 'javascript:;')
@@ -2116,8 +2117,9 @@
                 .data('url', url)
                 .on('click', function(evt) {
                     evt.preventDefault();
-    
-                    ajaxSearchPagination($(this).data('url'));
+                    console.log($(this).text());
+                    $('#formSearchAjax #page').val(parseInt($(this).text()));
+                    ajaxSearch($('#formSearchAjax #uudai'));
                 });
         });
     });

@@ -1162,7 +1162,7 @@
             ajaxSearch($(this));
         });
         $('ul.pagination li a').each(function() {
-            var url = $(this).attr('href');
+            var url = '<?php echo $ajaxurl; ?>';
 
             $(this)
                 .attr('href', 'javascript:;')
