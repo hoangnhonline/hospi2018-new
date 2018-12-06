@@ -288,7 +288,7 @@
                     </button>
                     <?php 
                     $priceSelected = @$_GET['price'];
-                    var_dump($arrPriceSelected);
+                    
                     ?>
                     <div id="collapse2" class="collapse in collapse-br">
                         <div class="block-content">
@@ -568,8 +568,7 @@
                         } else {
                         echo $selectedCity;
                         } ?>">
-                    <input type="hidden" name="checkin" value="<?php echo $checkin; ?>">
-                    <input type="hidden" name="checkout" value="<?php echo $checkout; ?>">
+                    <input type="hidden" name="page" value="1" id="page">
                     <input type="hidden" name="childages" value="<?php echo $childAges; ?>">
                     <input type="hidden" name="adults" value="<?php echo $adults; ?>">
                     <input type="hidden" name="searching" value="<?php echo $selectedLocation; ?>">
@@ -784,6 +783,19 @@
                                     <li><span style="color:#660033">Đang khuyến mãi</span></li>
                                     <?php } ?>
                                 </ul>
+                                <?php 
+                                    $tmp = array();
+                                    if($item->diem_noi_bat){
+                                        $tmp = explode(',', $item->diem_noi_bat);
+                                    }
+                                    ?>
+                                    <?php if(!empty($tmp)){ ?>
+                                    <ul class="itemlabel-info itemlabel-info-add">
+                                        <?php foreach($tmp as $diemnb){ ?>
+                                        <li><?php echo $diemnb; ?></li>
+                                        <?php } ?>
+                                    </ul>
+                                    <?php } ?>
                                 <?php if (is_sales_off_hotel($item->id)) { ?>
                                 <div class="purple sale-off-now-icon"><?php echo trans('0709'); ?>
                                     <span class="sale-percent-star"><?php echo "-" . is_sales_off_hotel($item->id) . "%"; ?></span>
@@ -1857,18 +1869,19 @@
 
 <script type="text/javascript">
     $('ul.pagination li a').each(function() {
-        var url = $(this).attr('href');
-
-        $(this)
-            .attr('href', 'javascript:;')
-            .attr('data-url', url)
-            .data('url', url)
-            .on('click', function(evt) {
-                evt.preventDefault();
-
-                ajaxSearchPagination($(this).data('url'));
-            });
-    });
+            var url = '<?php echo $ajaxurl; ?>';
+    
+            $(this)
+                .attr('href', 'javascript:;')
+                .attr('data-url', url)
+                .data('url', url)
+                .on('click', function(evt) {
+                    evt.preventDefault();
+                    console.log($(this).text());
+                    $('#formSearchAjax #page').val(parseInt($(this).text()));
+                    ajaxSearch($('#formSearchAjax #uudai'));
+                });
+        });
 
     function ajaxSearchPagination(url){ // hoangnh
         url = url.replace('/search', '/searchajax');
