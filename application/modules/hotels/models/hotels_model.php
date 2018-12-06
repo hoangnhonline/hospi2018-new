@@ -1024,7 +1024,7 @@ class Hotels_model extends CI_Model{
 		$this->db->join('pt_rooms', 'pt_hotels.hotel_id = pt_rooms.room_hotel', 'left');
 		$this->db->join('pt_reviews', 'pt_hotels.hotel_id = pt_reviews.review_itemid', 'left');
 		$this->db->join('pt_room_prices_detail', 'pt_hotels.hotel_id = pt_room_prices_detail.hotel_id', 'left');
-		$this->db->where('pt_room_prices_detail.total > ', 0);
+		//$this->db->where('pt_room_prices_detail.total > ', 0);
 		if($checkin != '--'){
 			$this->db->where('pt_room_prices_detail.date_use >= ', $checkin);
 		}
