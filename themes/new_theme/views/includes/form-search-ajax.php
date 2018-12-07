@@ -1,4 +1,4 @@
-<form  class="hospifilter" action="<?php echo base_url() . $appModule; ?>/search" method="GET" role="search" id="formSearchAjax">
+<form  class="hospifilter" action="<?php echo base_url() . $appModule; ?>/search" method="GET" role="search" id="formSearchAjaxSidebar">
     <!--<a class="btn btn-block btn-default" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap"><i class="icon_set_1_icon-41"></i> <?php echo trans('067'); ?></a>-->
     <!-- TOP TIP
         <div class="filtertip">
@@ -350,13 +350,18 @@
     <div class="block-md-item">
         <div class="clearfix"></div>
         <br/>                   
-        <input type="hidden" name="txtSearch" value="<?php if (!empty($_GET['txtSearch'])) {
-            echo $_GET['txtSearch'];
-            } ?>">
+        <input type="hidden" name="txtSearch" value="<?php echo $city_name; ?>">
+            <?php            
+            $tmp = explode("/", $checkin);
+            $checkinFormat = $tmp[2]."/".$tmp[1]."/".$tmp[0];
+
+            $tmp = explode("/", $checkout);
+            $checkoutFormat = $tmp[2]."/".$tmp[1]."/".$tmp[0];
+            ?>
         <input type="hidden" name="modType" value="<?php echo $modType ?>">
         <input type="hidden" name="city" value="<?php echo $city; ?>">
-        <!-- <input type="hidden" name="checkin" value="<?php echo $checkin; ?>">
-        <input type="hidden" name="checkout" value="<?php echo $checkout; ?>"> -->
+        <input type="hidden" id="checkin" value="<?php echo date('Y-m-d', strtotime($checkinFormat)); ?>">
+        <input type="hidden" id="checkout" value="<?php echo date('Y-m-d', strtotime($checkoutFormat)); ?>">
         <input type="hidden" name="childages" value="<?php echo $childAges; ?>">
         <input type="hidden" name="adults" value="<?php echo $adults; ?>">
         <input type="hidden" name="searching" value="<?php echo $cityid; ?>">

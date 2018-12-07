@@ -23,10 +23,10 @@
         <div id="carousel-banner" class="banner-by-location carousel slide" data-ride="carousel">
             <?php //echo run_widget(get_widget_id($_GET['searching'], "Hotel"));
                 $image = PT_LOCATION_IMAGES.get_location_hotel_image($cityid);
-                echo '<img alt="'.$_GET['txtSearch'].'" src="'.$image.'">';
+                echo '<img alt="'.$city_name.'" src="'.$image.'">';
                 ?>
             <div class="search-result-location">
-                <div class="result-location-title"><?php echo $_GET['txtSearch']; ?></div>
+                <div class="result-location-title"><?php echo $city_name; ?></div>
                 <a data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap"><i class="icon-location-6"></i> <?php echo trans('067'); ?></a>
             </div>
         </div>
@@ -324,7 +324,7 @@
                         }
                         //var_dump("<pre>", $item->price_status, "</pre>");
                             ?>
-                <div class="offset-2">
+                <div class="offset-2 row-data <?php if($i > 20) echo 'hidden'?>" data-order="<?php echo $i; ?>">
                     <div class="searching-item row-eq-height">
                         <div class="wow fadeInUp col-lg-3 col-md-3 col-sm-3 offset-0 go-right tour-image">
                             <!-- Add to whishlist -->
@@ -359,16 +359,19 @@
                         <div class="wow fadeInUp col-md-9 offset-0">
                             <div class="itemlabel3 itemlabel3-cus">
                                 <div class="labelright go-left" style="width:140px;margin-left:5px">
-                                    <div class="purple size18 text-center">
-                                        <?php if ($item->price > 0) {
+                                    <div class="purple size18 text-center ">
+                                    	
+                                        <div class="clearfix"></div>
+                                        <?php 
                                             if ($item->price_status == 'Yes') {
                                             ?>
-                                        <b>
-                                            <?php echo $item->price; ?>
+                                        <b style="display: none;">
+                                            <span class="price-display" data-id="<?php echo $item->id; ?>"></span>
                                             <div class="smalltext">(<?php echo $item->currSymbol; ?>)</div>
+                                            <hr>
                                         </b>
                                         <div class="clearfix"></div>
-                                        <hr>
+                                        
                                         <?php
                                             } else {
                                             ?>
@@ -381,7 +384,7 @@
                                         <div class="clearfix"></div>
                                         <hr>
                                         <?php } ?>
-                                        <?php } ?>
+                                      
                                         <?php if (pt_is_module_enabled('reviews')) { ?>
                                         <?php if ($item->avgReviews->overall > 0) { ?>
                                         <div class="review text-center size18"><i class="icon-thumbs-up-4"></i><?php echo $item->avgReviews->overall; ?></div>
@@ -489,7 +492,7 @@
                             $.post("<?php echo base_url(); ?>admin/ajaxcalls/laygiaEmail", {email: youremail, phone: yourphone, id: itemid, hotel: duration}, function(resp){
                             //alert(resp);
                             if (resp === "done") {
-                            console.log(resp);
+                         
                             $("#getresponse<?php echo $item->id; ?>").html("");
                             $('.email-me-modal<?php echo $item->id; ?>').modal('hide');
                             $('#openModal<?php echo $item->id; ?>').modal('show');
@@ -555,9 +558,9 @@
                     </div>
                 </div>
                 <?php
-                    if ($i % 6 == 0) {
+                    if ($i % 6 == 0 && $i <= 20) {
                         $random_key = array_rand($list);
-                        echo '<div class="offset-2">' . run_widget($list[$random_key]) . '</div>';
+                        echo '<div class="offset-2" >' . run_widget($list[$random_key]) . '</div>';
                         unset($list[$random_key]);
                     }
                     $i++;
@@ -598,6 +601,9 @@
                 <div id="message_noResult"></div>
                 <!-- END OF LIST CONTENT-->
                 <?php } ?>
+                <div style="text-align: center;">
+                	<button class="btn btn-action2" data-page="2" id="loadDataBtn">Xem thêm</button>
+            	</div>
                 <!-- End EAN multiple locations found and load more hotels  -->
             </div>
             <!-- END OF LIST CONTENT-->
@@ -1187,7 +1193,7 @@
                                     <select class="visible-xs">
                                         <option value="0">Giá thấp đến cao</option>
                                         <option value="1">Giá cao xuống thấp</option>
-                                        <option value="2">Gợi ý của Hospi</option>
+                                        <option value="2">Yêu thích</option>
                                     </select>
                                 </div>
                             </div>
@@ -1202,7 +1208,7 @@
                             </div>
                             <div class="col-md-3 hidden-xs">
                                 <input type="radio" id="feature" name="sortby" class="hospi-checkbox sortajax" value="featured">  <label for="feature" class="hospi-label">&nbsp;</label>
-                                <span class="txt-label">Gợi ý của Hospi</span>
+                                <span class="txt-label">Yêu thích</span>
                             </div>
                             <div class="clearfix"></div>
                         </form>
@@ -1753,14 +1759,23 @@
                 .on('click', function(evt) {
                     evt.preventDefault();
                     console.log($(this).text());
-                    $('#formSearchAjax #page').val(parseInt($(this).text()));
-                    ajaxSearch($('#formSearchAjax #uudai'));
+                    $('#formSearchAjaxSidebar #page').val(parseInt($(this).text()));
+                    ajaxSearch($('#formSearchAjaxSidebar #uudai'));
                 });
         });
+        $('#loadDataBtn').click(function(){
+        	
+        	for( var i =0; i < 20; i++){
+        		$('.row-data.hidden').eq(i).removeClass('hidden');
+        	}
+        	if($('.row-data.hidden').length == 0){
+        		$('#loadDataBtn').hide();
+        	}
+        });
+       
     });
     
     function ajaxSearch(obj){ 
-        var form = obj.parents('form');
         $.ajax({
             url : $('#ajaxurl').val(),
             type : "GET",
@@ -1771,36 +1786,67 @@
                     scrollTop: $("#right-content").offset().top
                 }, 500);
             },
-            data : form.serialize(),
+            data : $('#formSearchAjaxSidebar').serialize(),
             success : function(data){
+            	console.log(data);
                 $('#listing-search').html(data);
+                $('.price-display').each(function(){
+			  		var obj = $(this);
+			  		var hotel_id = obj.data('id');
+			  		
+			  		var checkin = $('#formSearchAjaxSidebar #checkin').val();
+				   
+
+				      var checkout = $('#formSearchAjaxSidebar #checkout').val();
+				 
+			  		 $.ajax({
+				        url : '<?php echo base_url()."/hotels/load_price_ajax"; ?>?id=' + hotel_id +'&checkin=' + checkin + '&checkout=' + checkout,
+				        type : "GET",
+				        dataType : 'html',
+				        success : function(data){
+				          //$('#booking_item').html(data).trigger("chosen:updated");
+				          if(data != '0'){
+				          	obj.html(data);
+				          	obj.parents('b').show();
+				          }else{
+				          	obj.parents('b').hide();
+				          }
+				        }        
+
+				      })
+			  	});
             }
         });
-    }
+    }   
     
-    function ajaxSearchPagination(url){
-        url = url.replace('/search', '/searchajax');
-    
-        $.ajax({
-            url : url,
-            type : "get",
-            beforeSend : function(){
-    
-                $('#listing-search').html('<p style="text-align:center;margin-top:100px"><img src="<?php echo $theme_url ?>images/loading.gif"></p>');
-                $('html, body').animate({
-                    scrollTop: $("#listing-search").offset().top
-                }, 500);
-                $('#wait').show();
-            },
-            success : function(data){
-                $('#wait').hide();
-                $('#listing-search').html(data);
-            }
-        });
-    }
 </script>
 <script type="text/javascript">
   $(document).ready(function(){
+  	$('.price-display').each(function(){
+  		var obj = $(this);
+  		var hotel_id = obj.data('id');
+  		
+  		var checkin = $('#formSearchAjaxSidebar #checkin').val();
+	   
+
+	      var checkout = $('#formSearchAjaxSidebar #checkout').val();
+	 
+  		 $.ajax({
+	        url : '<?php echo base_url()."/hotels/load_price_ajax"; ?>?id=' + hotel_id +'&checkin=' + checkin + '&checkout=' + checkout,
+	        type : "GET",
+	        dataType : 'html',
+	        success : function(data){
+	          //$('#booking_item').html(data).trigger("chosen:updated");
+	          if(data != '0'){
+	          	obj.html(data);
+	          	obj.parents('b').show();
+	          }else{
+	          	obj.parents('b').hide();
+	          }
+	        }        
+
+	      })
+  	});
     $('#searchForm #btnSearch').click(function(){
        var url = "<?php echo base_url(); ?>hotels";
       if($('#modType').val() == "location"){
@@ -1831,3 +1877,8 @@
   });
   
 </script>
+<style type="text/css">
+	div.hidden{
+		display: none;
+	}
+</style>

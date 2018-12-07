@@ -82,7 +82,6 @@ class Hotels_lib
 
     function __construct()
     {
-       // echo base_url(uri_string());
         //get the CI instance
         $this->ci =& get_instance();
         $this->db = $this->ci->db;
@@ -134,7 +133,7 @@ class Hotels_lib
                 $this->checkinout = "?&checkin=" . $this->checkin . "&checkout=" . $this->checkout . "&adults=" . $this->adults . "&child=" . $this->children;
             }
         }
-   
+
         if (!empty($loc)) {
 
             $this->selectedLocation = $loc;
@@ -291,9 +290,9 @@ class Hotels_lib
             $orderby = $settings[0]->front_listings_order;
         }
         // $hotelslist = $this->hotelswithrooms();
-        $rh = $this->ci->hotels_model->listHotelsByLocation($locs);
+        $rh = $this->ci->hotels_model->listHotelsByLocation($locs->locations);
         //    $data['all_hotels'] = $this->ci->hotels_model->list_hotels_front($perpage, $offset, $orderby);
-        $hotels = $this->ci->hotels_model->listHotelsByLocation($locs, $perpage, $offset, $orderby);
+        $hotels = $this->ci->hotels_model->listHotelsByLocation($locs->locations, $perpage, $offset, $orderby);
         $tmp = $this->getResultObject($hotels['all']);
         $data['all_hotels'] = $tmp['result'];
         $data['paginationinfo'] = array(
@@ -358,11 +357,11 @@ class Hotels_lib
         } else {
             $orderby = $settings[0]->front_search_order;
         }
-        
+
         // $hotelslist = $this->hotelswithrooms();
-       // $rh = $this->ci->hotels_model->search_hotels_by_text($cityid);
-        $hotels = $this->ci->hotels_model->search_hotels_by_text_no_paging($cityid, $perpage, $page, $orderby, '', '', $checkin, $checkout);
-        
+        $rh = $this->ci->hotels_model->search_hotels_by_text($cityid);
+        $hotels = $this->ci->hotels_model->search_hotels_by_text($cityid, $perpage, $page, $orderby, '', '', $checkin, $checkout);
+
         $tmp = $this->getResultObject($hotels['all'], null, $orderby, $checkin, $checkout);
 
         $resultSort = $tmp['resultSort'];
@@ -377,12 +376,12 @@ class Hotels_lib
         $data['paginationinfo'] = array('base' => 'hotels/honeylist/search'.$segments, 'totalrows' => $rh['rows'], 'perpage' => $perpage, 'urisegment' => 6);
         $data['plinks'] = $this->ci->bootpagination->dopagination('hotels/honeylist/search', $rh['rows'], $perpage);
         } else {*/
-        // $data['paginationinfo'] = array(
-        //     'base' => 'hotels/search' . $segments,
-        //     'totalrows' => $rh['rows'],
-        //     'perpage' => $perpage,
-        //     'urisegment' => 6
-        // );
+        $data['paginationinfo'] = array(
+            'base' => 'hotels/search' . $segments,
+            'totalrows' => $rh['rows'],
+            'perpage' => $perpage,
+            'urisegment' => 6
+        );
         $data['resultSort'] = $resultSort;
         //}
         return $data;
@@ -657,8 +656,7 @@ class Hotels_lib
             'mapAddress' => $details[0]->hotel_map_city,
             'diem_noi_bat' => $details[0]->diem_noi_bat,
             'hotelsurcharge' => $hotelsurcharge,
-            'hotel_policy' => $hotel_policy,
-            'hotel_slug'=>$detail[0]->hotel_slug
+            'hotel_policy' => $hotel_policy
         );
 
         return $detailResults;
@@ -1703,9 +1701,7 @@ class Hotels_lib
                 'salepercent' => $hotel_is_sale_percent,
                 'honeymoon' => $honeymoon,
                 'offer_title' => $offer_title,
-                'hotel_is_featured' => $h->hotel_is_featured,
-                'diem_noi_bat' => $h->diem_noi_bat,
-                'hotel_slug' => $h->hotel_slug
+                'hotel_is_featured' => $h->hotel_is_featured
 
             );
         }

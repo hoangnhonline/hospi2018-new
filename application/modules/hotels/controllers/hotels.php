@@ -953,4 +953,12 @@ class Hotels extends MX_Controller
             }
         }
     }
+    function load_price_ajax(){
+         $this->load->model('admin/hotels_model');
+        $city_id = (int) $_GET['id'];
+        $checkin = $_GET['checkin'];
+        $checkout = $_GET['checkout'];         
+        $tmp = $this->hotels_model->load_min_price($city_id, $checkin, $checkout);   
+        echo number_format($tmp->price);
+    }
 }
