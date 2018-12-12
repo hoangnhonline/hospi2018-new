@@ -310,7 +310,7 @@
                     }
                     //var_dump("<pre>", $item, "</pre>");
                         ?>
-            <div class="offset-2">
+            <div class="offset-2 dong-du-lieu" data-price="">
                 <div class="searching-item row-eq-height">
                     <div class="wow fadeInUp col-lg-3 col-md-3 col-sm-3 offset-0 go-right tour-image">
                         <!-- Add to whishlist -->

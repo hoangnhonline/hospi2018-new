@@ -5,11 +5,11 @@
             <div class="row">
                 <div class="col-sm-3 col-xs-12 go-right">
                     <label class="size12 RTL go-right" style="white-space: nowrap;"><?php echo trans('07'); ?></label>
-                    <input type="text" placeholder="<?php echo trans('07'); ?>" name="checkin" class="form-control mySelectCalendar dpd1" value="<?php echo $modulelib->checkin; ?>" required autocomplete="off">
+                    <input type="text" placeholder="<?php echo trans('07'); ?>" name="checkin" id="checkin_update" class="form-control mySelectCalendar dpd1" value="<?php echo date('d/m/Y', strtotime($modulelib->checkin)); ?>" required autocomplete="off">
                 </div>
                 <div class="col-sm-3 col-xs-12 go-right">
                     <label class="size12 RTL go-right"><?php echo trans('09'); ?></label>
-                    <input type="text" placeholder="<?php echo trans('09'); ?>" name="checkout" class="form-control mySelectCalendar dpd2" value="<?php echo $modulelib->checkout; ?>" required autocomplete="off">
+                    <input type="text" placeholder="<?php echo trans('09'); ?>" name="checkout" id="checkout_update" class="form-control mySelectCalendar dpd2" value="<?php echo date('d/m/Y', strtotime($modulelib->checkout)); ?>" required autocomplete="off">
                 </div>
                 <div class="col-xs-12 col-sm-2 one-dem-hotel-detail" style="margin-top: 10px;">
                     <label>&nbsp;</label>
@@ -19,12 +19,13 @@
                 </div>
                 <div class="col-sm-4 col-xs-12 go-right one-dem-hotel-detail">
                     <label>&nbsp;</label>
-                    <button class="btn btn-block btn-success pull-right"><?php echo trans('0106'); ?></button>
+                    <button class="btn btn-block btn-success pull-right" type="button" id="btnUpdate"><?php echo trans('0106'); ?></button>
                     <input type="hidden" id="loggedin" value="<?php echo $usersession; ?>" />
                     <input type="hidden" id="itemid" value="<?php echo $module->id; ?>" />
                     <input type="hidden" id="module" value="<?php echo $appModule; ?>" />
                     <input type="hidden" id="addtxt" value="<?php echo trans('029'); ?>" />
                     <input type="hidden" id="removetxt" value="<?php echo trans('028'); ?>" />
+					<input type="hidden" id="hotel_slug" value="<?php echo $hotel_slug; ?>" />
                 </div>
             </div>
         </form>
@@ -353,7 +354,7 @@
         </div>
     </div>
 
-    <div class="clearfix block-rooms hidden-xs">
+    <div class="clearfix block-rooms hidden-xs" id="rld">
         <div class="table-responsive">
             <form action="<?php echo base_url() . $appModule; ?>/book/<?php echo $module->bookingSlug; ?>" method="GET">
                 <input type="hidden" name="adults" value="<?php echo $modulelib->adults; ?>" />
@@ -493,3 +494,25 @@
     </div>
 </div>
 <!-- modal -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#btnUpdate').click(function(){
+			 var url = "<?php echo base_url(); ?>hotels";
+			  
+				url += '/' + $('#hotel_slug').val();
+			  
+			  
+			  var checkout = $('#checkout_update').val();
+			  console.log(checkout);
+			  checkout = checkout.replace("/", "-");
+			  checkout = checkout.replace("/", "-");
+
+			  var checkin = $('#checkin_update').val();
+			  checkin = checkin.replace("/", "-");
+			  checkin = checkin.replace("/", "-");
+			  url += '/' + checkin;
+			  url += '/' + checkout;			   
+			  window.location.href = url + '#rld';
+		});
+	});
+</script>

@@ -45,8 +45,7 @@ class Hotels extends MX_Controller
     }
 
     public function index($city_slug = null)
-    {
-
+    {		
         $this->load->library('hotels/hotels_calendar_lib');
 
         $this->data['calendar'] = $this->hotels_calendar_lib;
@@ -58,10 +57,11 @@ class Hotels extends MX_Controller
         // $cityName = $this->uri->segment(4);
 
         $hotelname = $this->uri->segment(2);
-    
+		$checkin = $this->uri->segment(3);
+		$checkout = $this->uri->segment(4);
         //var_dump($hotelname);die;
         $check = $this->hotels_model->hotel_exists($hotelname);
-        if ($check && !empty($hotelname)) { // neu co ten khach san
+        if ($check && !empty($hotelname)) { // neu co ten khach san		
             $this->hotels_lib->set_hotelid($hotelname);
             $this->data['module'] = $this->hotels_lib->hotel_details();
             $this->data['hasRooms'] = $this->hotels_lib->totalRooms($this->data['module']->id);
@@ -80,7 +80,7 @@ class Hotels extends MX_Controller
             $this->data['second'] = date("m", strtotime('+6 months')) . "," . date("Y", strtotime('+6 months'));
             $this->data['third'] = date("m", strtotime('+12 months')) . "," . date("Y", strtotime('+12 months'));
             $this->data['fourth'] = date("m", strtotime('+18 months')) . "," . date("Y", strtotime('+18 months'));
-
+			$this->data['hotel_slug'] = $hotelname;
             // End Availability Calender settings variables
 
             $this->data['tripadvisorinfo'] = $tripadvisorinfo = tripAdvisorInfo($this->data['module']->tripadvisorid);

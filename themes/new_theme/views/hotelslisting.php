@@ -130,7 +130,7 @@
             <div class="block-module">
                 <div class="block-md-item">
                     <?php if ($cityid) { ?>
-                    <form class="" action="<?php echo base_url() . $appModule; ?>/search" method="GET">
+                    <form class="" action="<?php echo base_url() . $appModule; ?>/search" method="GET" id="searchForm">
                         <button type="button" class="collapsebtn go-text-right" data-toggle="collapse" data-target="#txtsearch">
                         <?php echo trans('0693'); ?> <span class="collapsearrow"></span>
                         </button>
@@ -140,7 +140,7 @@
                                 <div class="col-md-12 col-sm-12 go-right" ng-controller="autoSuggest">
                                     <div class="form-group">
                                         <div class="clearfix"></div>
-                                        <input id="search" name="txtSearch" value="<?php echo $_GET['txtSearch']; ?>" class="form-control form-control-small" placeholder="<?php echo trans('026');?>"/>
+                                        <input id="search" name="txtSearch" class="form-control form-control-small" placeholder="<?php echo trans('026');?>" value="<?php echo ($city_name); ?>"/>
                                         <div id="autocomlete-container"></div>
                                         <input id="searching" type="hidden" name="searching" value="<?php echo $cityid; ?>"> <input id="modType" type="hidden" name="modType" value="<?php echo $modType; ?>">
                                     </div>
@@ -150,13 +150,13 @@
                                 <div class="col-md-12 col-sm-12 col-xs-12 go-right">
                                     <div class="form-group">
                                         <div class="clearfix"></div>
-                                        <input type="text" placeholder="<?php echo trans('07'); ?> " name="checkin" class="form-control mySelectCalendar dpd1" value="<?php echo @$checkin; ?>" required >
+                                        <input type="text" placeholder="<?php echo trans('07'); ?> " name="checkin" id="checkin" class="form-control mySelectCalendar dpd1" autocomplete="off" value="<?php echo @$checkin; ?>" required >
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xs-12 go-right">
                                     <div class="form-group">
                                         <div class="clearfix"></div>
-                                        <input type="text" placeholder="<?php echo trans('09'); ?> " name="checkout" class="form-control mySelectCalendar dpd2" value="<?php echo @$checkout; ?>" required >
+                                        <input type="text" placeholder="<?php echo trans('09'); ?> " name="checkout" id="checkout" class="form-control mySelectCalendar dpd2" autocomplete="off" value="<?php echo @$checkout; ?>" required >
                                     </div>
                                 </div>
                                 <?php } ?>
@@ -212,8 +212,9 @@
                                 <div class="go-right" style="width: 190px; margin: 0 auto;">
                                     <div class="form-group">
                                         <div class="clearfix"></div>
-                                        <button style="font-size: 14px;margin-top: 6px;" type="submit" class="btn btn-block btn-action"><?php echo trans('012'); ?></button>
+                                        <button style="font-size: 14px;margin-top: 6px;" type="button" id="btnSearch" class="btn btn-block btn-action"><?php echo trans('012'); ?></button>
                                     </div>
+                                    <input type="hidden" id="slug-search" value="<?php echo @create_slug($city_name); ?>">
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -324,7 +325,7 @@
                         }
                         //var_dump("<pre>", $item->price_status, "</pre>");
                             ?>
-                <div class="offset-2 row-data <?php if($i > 20) echo 'hidden'?>" data-order="<?php echo $i; ?>">
+                <div class="dong-du-lieu offset-2 row-data <?php if($i > 20) echo 'hidden'?>" data-order="<?php echo $i; ?>" data-price="">
                     <div class="searching-item row-eq-height">
                         <div class="wow fadeInUp col-lg-3 col-md-3 col-sm-3 offset-0 go-right tour-image">
                             <!-- Add to whishlist -->
@@ -619,7 +620,7 @@
                     <div class="clearfix"></div>
                     <label class="control-label go-right"><i class="icon-location-6"></i> Bạn muốn đi đâu</label>
                     <div class="clearfix"></div>
-                    <input id="search" name="txtSearch" class="form-control form-control-small" placeholder="Nhập tên khách sạn, thành phố!">
+                    <input id="search" name="txtSearch" class="form-control form-control-small" placeholder="Nhập tên khách sạn, thành phố!" value="<?php echo @create_slug($city_name); ?>">
                     <div id="autocomlete-container"></div>
                     <input id="searching" type="hidden" name="searching" value=""> <input id="modType" type="hidden" name="modType" value="">
                 </div>
@@ -632,9 +633,8 @@
                     <div class="col-md-3 col-lg-4 col-sm-12 go-right visible-xs autoSuggest ng-scope" ng-controller="autoSuggest">
                         <div class="form-group">
                             <div class="clearfix"></div>
-                            <!--<div angucomplete-alt id="Search" input-name="txtSearch" initial-value="txtSearch" placeholder="Nhập điểm đến, thành phố!" pause="500" selected-object="selectedItem" remote-url="https://www.hospi.vn/home/suggestions/hotels" remote-url-request-formatter="remoteUrlRequestFn" remote-url-data-field="items" title-field="name" description-field="" minlength="2" input-class="form-control form-control-small" match-class="highlight">
-                                </div>-->
-                            <input id="search" name="txtSearch" class="form-control form-control-small" placeholder="Nhập tên khách sạn, thành phố!">
+                            
+                            <input id="search" name="txtSearch" class="form-control form-control-small" placeholder="Nhập tên khách sạn, thành phố!" autocomplete="off">
                             <div id="autocomlete-container"></div>
                             <input id="searching" type="hidden" name="searching" value=""> <input id="modType" type="hidden" name="modType" value="">
                         </div>
@@ -644,14 +644,14 @@
                         <div class="form-group">
                             <div class="clearfix"></div>
                             <label class="control-label go-right size13 hidden-xs"><i class="icon-calendar-7"></i> Ngày nhận phòng</label>
-                            <input type="text" placeholder="Ngày nhận phòng " name="checkin" class="form-control mySelectCalendar dpd1" value="15/01/2018" required="" autocomplete="off">
+                            <input type="text" placeholder="Ngày nhận phòng " name="checkin" class="form-control mySelectCalendar dpd1" value="15/01/2018" required="" autocomplete="off" id="checkin">
                         </div>
                     </div>
                     <div class="col-md-2 col-sm-6 col-xs-6 go-right input-calendar-hotel">
                         <div class="form-group">
                             <div class="clearfix"></div>
                             <label class="control-label go-right size13 hidden-xs"><i class="icon-calendar-7"></i> Ngày trả phòng</label>
-                            <input type="text" placeholder="Ngày trả phòng " name="checkout" class="form-control mySelectCalendar dpd2" value="16/01/2018" required="">
+                            <input type="text" placeholder="Ngày trả phòng " name="checkout" class="form-control mySelectCalendar dpd2" value="16/01/2018" required="" id="checkout">
                         </div>
                     </div>
                     <!-- end hotels checkin checkout fields -->
@@ -700,7 +700,7 @@
                         <div class="form-group">
                             <div class="clearfix"></div>
                             <label class="control-label go-right size13 hidden-xs">&nbsp;</label>
-                            <button style="font-size: 14px;" type="submit" class="btn btn-block btn-action">Tìm kiếm</button>
+                            <button style="font-size: 14px;" type="button" id="btnSearch" class="btn btn-block btn-action">Tìm kiếm</button>
                         </div>
                     </div>
                     <div class="col-md-3 col-lg-2 col-xs-12 col-sm-12 go-right input-calendar-hotel check-box-khuyenmian">
@@ -1730,14 +1730,36 @@
        
         $(document).on('change', 'input.filter-price', function(event){
         //$('input.filter-price').on('change', function (event) { //hoangnh
-            var obj = $(this);
+			var obj = $(this);
+			var tmpPrice = obj.val();
+			res = tmpPrice.split(";");
+			var minPrice = res[0];
+			var maxPrice = res[1];
+			//console.log(minPrice, maxPrice);		
+            
             if( obj.prop('checked') == true ){
                 $('.filter-price').prop('checked', false);
                 obj.prop('checked', true);
+				$('#loadDataBtn').hide();
+				$('.dong-du-lieu').each(function(){
+					var dong = $(this);
+					var price = parseInt(dong.data('price'));
+					if(price >= minPrice && price <= maxPrice){
+						dong.removeClass('hidden');
+					}else{
+						dong.addClass('hidden');						
+						console.log(dong.next().hasClass('widget-content'));
+						if(dong.next().hasClass('widget-content')){
+							dong.next().hide();
+						}
+					}				
+				});
             }else{
                 $('.filter-price').prop('checked', false);
+				$('.dong-du-lieu').removeClass('hidden');
             }
-            ajaxSearch($(this));
+			
+            //ajaxSearch($(this));
         });
         $(document).on('change', 'input.filter-near', function(event){       
             var obj = $(this);
@@ -1805,6 +1827,9 @@
 				        dataType : 'html',
 				        success : function(data){
 				          //$('#booking_item').html(data).trigger("chosen:updated");
+						   var price = data.replace(",", "");
+			  price = price.replace(",", "");
+			  obj.parents('.dong-du-lieu').attr('data-price', price);
 				          if(data != '0'){
 				          	obj.html(data);
 				          	obj.parents('b').show();
@@ -1815,6 +1840,56 @@
 
 				      })
 			  	});
+                $( "#searchForm #search" ).catcomplete({
+                    source: data,
+                    appendTo: "#autocomlete-container",
+                    select: function(event, ui) {
+                            $('#search').val(ui.item.label);
+                            // and place the item.id into the hidden textfield called 'searching'.
+                            $('#searching').val(ui.item.id);
+                            $('#modType').val(ui.item.modType);
+                            $('#slug-search').val(ui.item.slug);
+                                return false;
+                        }
+                });
+                 var nowTemp = new Date();
+                  var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+                  var checkin = $('.dpd1').datepicker({
+                      format: fmt,
+                      language: 'vi',
+                      onRender: function(date) {
+                          return date.valueOf() < now.valueOf() ? 'disabled' : '';
+                      }
+                  }).on('changeDate', function(ev) {
+                      if (ev.date.valueOf() > checkout.date.valueOf()) {
+                          var newDate = new Date(ev.date)
+                          newDate.setDate(newDate.getDate() + 1);
+                          checkout.setValue(newDate);              
+                      }
+                      checkin.hide();
+                      $('.dpd2')[0].focus();
+                      if($('.dpd2').val() != '' && $('.dpd1').val() != '' ){
+                        var number_night = parseInt(daydiff(parseDate($('.dpd1').val()), parseDate($('.dpd2').val())));
+                        var zero2 = new Padder(2);            
+                        $('#number_night').html(zero2.pad(number_night));
+                      }
+                  }).data('datepicker');
+                  var checkout = $('.dpd2').datepicker({
+                      format: fmt,
+                      onRender: function(date) {
+                          return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+                      }
+                  }).on('changeDate', function(ev) {
+                      checkout.hide();
+                      if($('.dpd2').val() != '' && $('.dpd1').val() != '' ){
+                        var number_night = parseInt(daydiff(parseDate($('.dpd1').val()), parseDate($('.dpd2').val())));
+                        var zero2 = new Padder(2);            
+                        $('#number_night').html(zero2.pad(number_night));
+                      }
+
+                  }).data('datepicker');
+
+
             }
         });
     }   
@@ -1837,6 +1912,9 @@
 	        dataType : 'html',
 	        success : function(data){
 	          //$('#booking_item').html(data).trigger("chosen:updated");
+			  var price = data.replace(",", "");
+			  price = price.replace(",", "");
+			  obj.parents('.dong-du-lieu').attr('data-price', price);
 	          if(data != '0'){
 	          	obj.html(data);
 	          	obj.parents('b').show();

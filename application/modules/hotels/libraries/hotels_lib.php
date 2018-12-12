@@ -90,10 +90,10 @@ class Hotels_lib
         $this->ci->load->model('hotels/hotels_model');
         $this->currencysign = $this->appSettings[0]->currency_sign;
         $this->currencycode = $this->appSettings[0]->currency_code;
-        $this->checkin = $this->ci->input->get('checkin');
-        $this->checkout = $this->ci->input->get('checkout');
+        $this->checkin = $this->ci->uri->segment(3);
+        $this->checkout = $this->ci->uri->segment(4);
         $loc = $this->ci->input->get('searching');
-
+	
         $this->children = 0;
         $adultss = $this->ci->input->get('adults');
         if (empty($adultss)) {
