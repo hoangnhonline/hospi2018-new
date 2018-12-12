@@ -167,7 +167,7 @@
                                         <select  required class="form-control" placeholder=" <?php echo trans(''); ?> " name="adults" id="adults">
                                              <option value="0" > Người lớn </option>
                                             <?php for ($Selectadults = 1; $Selectadults < 11; $Selectadults++) { ?>
-                                            <option value="<?php echo $Selectadults; ?>" <?php if ($Selectadults == $modulelib->adults) {
+                                            <option value="<?php echo $Selectadults; ?>" <?php if ($Selectadults == $adults) {
                                                 echo "selected";
                                                 } ?> >   <?php echo $Selectadults; ?> </option>
                                             <?php } ?>
