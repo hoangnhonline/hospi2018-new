@@ -708,6 +708,9 @@ class Hotels extends MX_Controller
 
             $this->data['checkin'] = @$checkin;
             $this->data['checkout'] = @$checkout;
+            $this->data['adults'] = @$adults;
+            $this->data['child'] = @$child;
+            
             if (empty($checkin)) {
                 $this->data['checkin'] = $this->hotels_lib->checkin;
             }
