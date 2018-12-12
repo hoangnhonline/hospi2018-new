@@ -128,7 +128,7 @@
               <div class="row">
                 <div class="col-sm-4 col-xs-12 go-right">
                   <div class="form-group margin-left-right-mobile-5">
-                    <input id="search" name="txtSearch" class="form-control form-control-small" placeholder="<?php echo trans('026');?>"/>
+                    <input id="search" name="txtSearch" class="form-control form-control-small" placeholder="<?php echo trans('026');?>" autocomplete="off"/>
                     <div id="autocomlete-container"></div>
                   </div>
                   <input type="hidden" id="slug-search" value="">
