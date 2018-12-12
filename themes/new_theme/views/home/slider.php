@@ -488,6 +488,8 @@ function stripUnicode($str) {
       url += '/' + checkout;
       if(parseInt($('#searchForm #adults').val()) > 0){
         url += '/' + $('#searchForm #adults').val();
+      }else{
+        url += '/2'; 
       }
       if(parseInt($('#searchForm #child').val()) > 0){
         url += '/' + $('#searchForm #child').val();
