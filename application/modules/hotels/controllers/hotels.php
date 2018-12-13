@@ -59,10 +59,13 @@ class Hotels extends MX_Controller
         $hotelname = $this->uri->segment(2);
 		$checkin = $this->uri->segment(3);
 		$checkout = $this->uri->segment(4);
+
         //var_dump($hotelname);die;
         $check = $this->hotels_model->hotel_exists($hotelname);
         if ($check && !empty($hotelname)) { // neu co ten khach san		
             $this->hotels_lib->set_hotelid($hotelname);
+            $this->data['checkin'] = $checkin;
+            $this->data['checkout'] = $checkout;
             $this->data['module'] = $this->hotels_lib->hotel_details();
             $this->data['hasRooms'] = $this->hotels_lib->totalRooms($this->data['module']->id);
             $this->data['rooms'] = $this->hotels_lib->hotel_rooms($this->data['module']->id);            
@@ -174,7 +177,6 @@ class Hotels extends MX_Controller
 
             $this->theme->view('details', $this->data);
 
-            // $this->output->cache(20) ; //hoangnhonline
 
         } else {            
             $this->listing();
@@ -418,7 +420,7 @@ class Hotels extends MX_Controller
             $this->breadcrumbcomponent->add($this->data['module']->location, base_url() . 'hotels/search/vietnam/' . $this->data['module']->cityName . '/' . $this->data['module']->hotel_city . '?txtSearch=' . $this->data['module']->location . '&searching=' . $this->data['module']->hotel_city . '&modType=location&checkin=&checkout=&adults=1&child=0');
             $this->breadcrumbcomponent->add($this->data['module']->title, base_url() . "hotels/" . $this->data['module']->slug);
             $this->data['breadcrumb'] = $this->breadcrumbcomponent->output();
-
+              die('aaa');
             $this->theme->view('details', $this->data);
 
         }else{
@@ -533,7 +535,10 @@ class Hotels extends MX_Controller
         $cityid = getCityId($city);
         if(!$cityid){
             $hotelname = $city;
-            //var_dump($hotelname);die;
+            $this->data['checkin'] = $checkin == null ? date('d-m-Y') : $checkin;
+            $this->data['checkout'] = $checkout == null ? date('d-m-Y', strtotime('tomorrow')) : $checkout;
+            
+            $this->data['hotel_slug'] = $hotelname;
             $this->hotels_lib->set_hotelid($hotelname);
             $this->data['module'] = $this->hotels_lib->hotel_details();
             

@@ -155,7 +155,7 @@
     margin-right: 5px;
     }
     .block-search-hotel-hd h3 {
-         margin-top: 15px;
+    margin-top: 0;
     font-size: 16px;
     color: #660033;
     font-family: 'AndesRoundedBold';
@@ -170,7 +170,7 @@
     background:transparent;
   }
   .collapsebtn h3 span.collapsearrow, .collapsebtn.collapsed h3 span.collapsearrow{
-    margin-top: 0px;
+    margin-top: 15px;
   }
   .icon-left-sao{
         position: absolute;

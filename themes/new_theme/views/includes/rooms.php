@@ -5,11 +5,11 @@
             <div class="row">
                 <div class="col-sm-3 col-xs-12 go-right">
                     <label class="size12 RTL go-right" style="white-space: nowrap;"><?php echo trans('07'); ?></label>
-                    <input type="text" placeholder="<?php echo trans('07'); ?>" name="checkin" id="checkin_update" class="form-control mySelectCalendar dpd1" value="<?php echo date('d/m/Y', strtotime($modulelib->checkin)); ?>" required autocomplete="off">
+                    <input type="text" placeholder="<?php echo trans('07'); ?>" name="checkin" id="checkin_update" class="form-control mySelectCalendar dpd1" value="<?php echo date('d/m/Y', strtotime($checkin)); ?>" required autocomplete="off">
                 </div>
                 <div class="col-sm-3 col-xs-12 go-right">
                     <label class="size12 RTL go-right"><?php echo trans('09'); ?></label>
-                    <input type="text" placeholder="<?php echo trans('09'); ?>" name="checkout" id="checkout_update" class="form-control mySelectCalendar dpd2" value="<?php echo date('d/m/Y', strtotime($modulelib->checkout)); ?>" required autocomplete="off">
+                    <input type="text" placeholder="<?php echo trans('09'); ?>" name="checkout" id="checkout_update" class="form-control mySelectCalendar dpd2" value="<?php echo date('d/m/Y', strtotime($checkout)); ?>" required autocomplete="off">
                 </div>
                 <div class="col-xs-12 col-sm-2 one-dem-hotel-detail" style="margin-top: 10px;">
                     <label>&nbsp;</label>

@@ -739,10 +739,10 @@
                         </div>-->
                     <div class="block-md-item">
                         <!-- Star ratings -->
-                        <button type="button" class="collapsebtn go-text-right collapsed" data-toggle="collapse" data-target="#collapse1">
+                        <button type="button" class="collapsebtn go-text-right collapsed" data-toggle="collapse" data-target="#collapse11">
                         Xếp hạng sao <span class="collapsearrow"></span>
                         </button>
-                        <div id="collapse1" class="collapse out collapse-br">
+                        <div id="collapse11" class="collapse out collapse-br">
                             <div class="block-content">
                                 <div class="hpadding20">
                                     <br>
@@ -794,10 +794,10 @@
                     <!-- block-md-item -->
                     <div class="block-md-item">
                         <!-- Price range -->
-                        <button type="button" class="collapsebtn go-text-right collapsed" data-toggle="collapse" data-target="#collapse2">
+                        <button type="button" class="collapsebtn go-text-right collapsed" data-toggle="collapse" data-target="#collapse21">
                         Giá phòng <span class="collapsearrow"></span>
                         </button>
-                        <div id="collapse2" class="collapse out collapse-br">
+                        <div id="collapse21" class="collapse out collapse-br">
                             <div class="block-content">
                                 <div class="hpadding20">
                                     <br>
@@ -851,10 +851,10 @@
                     <!-- block-md-item -->
                     <div class="block-md-item">
                         <!-- Advance types -->
-                        <button type="button" class="collapsebtn go-text-right collapsed" data-toggle="collapse" data-target="#collapseadvance">
+                        <button type="button" class="collapsebtn go-text-right collapsed" data-toggle="collapse" data-target="#collapseadvance1">
                         Nâng cao <span class="collapsearrow"></span>
                         </button>
-                        <div id="collapseadvance" class="collapse out collapse-br">
+                        <div id="collapseadvance1" class="collapse out collapse-br">
                             <div class="block-content">
                                 <div class="hpadding20">
                                     <br>
@@ -897,10 +897,10 @@
                     <!-- block-md-item -->
                     <div class="block-md-item">
                         <!-- Module types -->
-                        <button type="button" class="collapsebtn go-text-right collapsed" data-toggle="collapse" data-target="#collapse3">
+                        <button type="button" class="collapsebtn go-text-right collapsed" data-toggle="collapse" data-target="#collapse31">
                         Loại hình <span class="collapsearrow"></span>
                         </button>
-                        <div id="collapse3" class="collapse out collapse-br">
+                        <div id="collapse31" class="collapse out collapse-br">
                             <div class="block-content">
                                 <div class="hpadding20">
                                     <br>
@@ -958,10 +958,10 @@
                     <!-- block-md-item -->
                     <div class="block-md-item">
                         <!-- Hotel Amenities -->
-                        <button type="button" class="collapsebtn last go-text-right collapsed" data-toggle="collapse" data-target="#collapse4">
+                        <button type="button" class="collapsebtn last go-text-right collapsed" data-toggle="collapse" data-target="#collapse41">
                         Tiện nghi <span class="collapsearrow"></span>
                         </button>
-                        <div id="collapse4" class="collapse out collapse-br">
+                        <div id="collapse41" class="collapse out collapse-br">
                             <div class="block-content">
                                 <div class="hpadding20">
                                     <br>
@@ -1337,18 +1337,32 @@
                                     </ul>
                                     <div class="hp_price_mb clearfix">
                                         <div class="purple size18 text-center item-book-hotels">
-                                            <?php if ($item->price > 0) {
-                                                if ($item->price_status != 'Yes') { ?>
-
-                                            <div class="click-2get-price col-xs-4 item-gia-tot">
-                                                <a style="font-size: 11px" id="popoverData" href="#emailme38" data-toggle="modal" data-content="Vì giá tốt nhất không được công bố lên website, Bạn vui lòng click vào để nhận giá tốt nhất qua email hoặc qua điện thoại" rel="popover" data-placement="top" data-original-title="<?php echo $item->title; ?>" data-trigger="hover">
-
-                                                    <div class="click-a">Click lấy giá tốt</div>
-                                                    <i class="fa fa-check-circle-o" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                            <?php } ?>
-                                            <?php } ?>
+                                            
+											
+											<?php 
+                                            if ($item->price_status == 'Yes') {
+                                            ?>
+											<div class="col-xs-4 item-gia-tot">
+                                        <b style="display: none;">
+                                            <span class="price-display" style="font-size:20px" data-id="<?php echo $item->id; ?>"></span>
+                                            <div class="smalltext">(<?php echo $item->currSymbol; ?>)</div>
+                                           
+                                        </b>
+                                        <div class="clearfix"></div>
+                                        </div>
+                                        <?php
+                                            } else {
+                                            ?>
+                                        <div class='click-2get-price col-xs-4 item-gia-tot'>
+                                            <a  style="font-size: 12px;" id="popoverData" href="#emailme<?php echo $item->id; ?>" data-toggle="modal" data-content="<?php echo trans('0800'); ?>" rel="popover" data-placement="top" data-original-title="<?php echo $item->title; ?>" data-trigger="hover">
+                                                <div class="click-a"><?php echo trans('0799'); ?></div>
+                                                <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                      
+                                        <?php } ?>
+											
                                             <div class="line-right"></div>
                                             <?php if (pt_is_module_enabled('reviews')) { ?>
                                             <?php if ($item->avgReviews->overall > 1) { ?>
