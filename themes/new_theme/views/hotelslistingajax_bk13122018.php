@@ -339,7 +339,7 @@
                         </div>
                     </div>
                     <div class="wow fadeInUp col-md-9 offset-0">
-                        <div class="itemlabel3 itemlabel3-cus hp_itemlabel3-cus_mb">
+                        <div class="itemlabel3 itemlabel3-cus">
                             <div class="labelright go-left" style="min-width:105px;margin-left:5px">
                                 <div class="purple size18 text-center">
                                     <?php 
@@ -392,7 +392,7 @@
                             </div>
                             <div class="labelleft2 rtl_title_home description">
                                 <h4 class="mtb0 RTL go-text-right hotel-name">
-                                    <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>/<?php echo @str_replace("/", "-",$checkin); ?>/<?php echo @str_replace("/", "-",$checkout); ?>/<?php echo $adults; ?>"><b><?php echo $item->title; ?></b></a>
+                                    <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>"><b><?php echo $item->title; ?></b></a>
                                     <!-- Cars airport pickup -->  <?php if ($appModule == "cars") {
                                         if ($item->airportPickup == "yes") { ?> <button class="btn btn-success btn-xs"><i class="icon-paper-plane-2"></i> <?php echo trans('0207'); ?></button> <?php }
                                         } ?> <!-- Cars airport pickup -->
@@ -438,7 +438,7 @@
                                 <?php if ($appModule == "hotels") { ?>
                                     <?php
                                     if ($item->vatvalue == 0 || $item->servicevalue == 0) {
-                                        echo "<div class='price-include price-include_mb'>";
+                                        echo "<div class='price-include'>";
                                         echo trans('0700');
                                         echo "- " . trans('0701') . " ";
                                         if ($item->vatvalue == 0)
@@ -1233,7 +1233,7 @@
                         </div>
                      </div>
                      <div class="wow fadeInUp col-md-9 col-xs-12 offset-0">
-                        <div class="itemlabel3 itemlabel3-cus hp_itemlabel3-cus_mb">
+                        <div class="itemlabel3 itemlabel3-cus">
                            <div class="labelleft2 rtl_title_home description">
                               <h4 class="mtb0 RTL go-text-right hotel-name">
                                  <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>"><b><?php echo $item->title; ?></b></a>
@@ -1268,9 +1268,9 @@
                                         <?php } ?>
                                     </ul>
                                     <?php } ?>
-                                <p class="grey RTL des hidden-xs">Novotel Phú Quốc Resort&nbsp;tọa lạc tại Bãi Trường, xã Dương Tơ,…</p>
-                                <div class="hp_price_mb clearfix">
-                                    <div class="purple size18 text-center item-book-hotels">
+                              <p class="grey RTL des hidden-xs">Novotel Phú Quốc Resort&nbsp;tọa lạc tại Bãi Trường, xã Dương Tơ,…</p>
+                               
+                                <div class="purple size18 text-center item-book-hotels">
                                 
                                     
 											<?php 
@@ -1323,12 +1323,11 @@
                                 
                                
                               </div>
-                                </div>
-                                <div class="price-include price-include_mb hidden">Giá đã bao gồm: - Ăn sáng - VAT 10% - Phí phục vụ 5%</div>
+                              <div class="price-include">Giá đã bao gồm: - Ăn sáng - VAT 10% - Phí phục vụ 5%</div>
                                <?php if ($appModule == "hotels") { ?>
                                     <?php
                                     if ($item->vatvalue == 0 || $item->servicevalue == 0) {
-                                        echo "<div class='price-include price-include_mb'>";
+                                        echo "<div class='price-include'>";
                                         echo trans('0700');
                                         echo "- " . trans('0701') . " ";
                                         if ($item->vatvalue == 0)

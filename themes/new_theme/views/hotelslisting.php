@@ -339,7 +339,7 @@
                                 <?php if (isset($_GET['honeymoon']) && !empty($_GET['honeymoon'])) { ?>
                                 <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>/?details=<?php echo $item->roomid;?>">
                                 <?php } else { ?>
-                                <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>">
+                                <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>/<?php echo @str_replace("/", "-",$checkin); ?>/<?php echo @str_replace("/", "-",$checkout); ?>/<?php echo $adults; ?>">
                                     <?php } ?>
                                     <img style="height: 100%;width: auto" src="<?php echo $item->thumbnail; ?>" alt="<?php echo character_limiter($item->title, 20); ?>">                                
                                     <?php                                  
@@ -404,15 +404,15 @@
                                         <?php if (isset($_GET['honeymoon']) && !empty($_GET['honeymoon'])) { ?>
                                         <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>/?details=<?php echo $item->roomid;?>">
                                         <?php } else { ?>
-                                        <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>">
+                                        <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>/<?php echo @str_replace("/", "-",$checkin); ?>/<?php echo @str_replace("/", "-",$checkout); ?>/<?php echo $adults; ?>">
                                         <?php } ?>
                                         <button type="submit" class="btn btn-action2"><?php echo trans('0177'); ?></button>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="labelleft2 rtl_title_home description">
-                                    <h4 class="mtb0 RTL go-text-right hotel-name">
-                                        <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>"><b><?php echo $item->title; ?></b></a>
+                                    <h4 class="mtb0 RTL go-text-right hotel-name">									
+                                        <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>/<?php echo @str_replace("/", "-",$checkin); ?>/<?php echo @str_replace("/", "-",$checkout); ?>/<?php echo $adults; ?>"><b><?php echo $item->title; ?></b></a>
                                         <!-- Cars airport pickup -->  <?php if ($appModule == "cars") {
                                             if ($item->airportPickup == "yes") { ?> <button class="btn btn-success btn-xs"><i class="icon-paper-plane-2"></i> <?php echo trans('0207'); ?></button> <?php }
                                             } ?> <!-- Cars airport pickup -->
@@ -1248,7 +1248,7 @@
 
                             <!-- Add to whishlist -->
                             <div class="img_list ">
-                                <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>">
+                                <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>/<?php echo @str_replace("/", "-",$checkin); ?>/<?php echo @str_replace("/", "-",$checkout); ?>/<?php echo $adults; ?>">
                                     <img src="<?php echo $item->thumbnail; ?>" alt="<?php echo character_limiter($item->title, 20); ?>">
                                     <?php if($item->hotel_is_featured == "yes"){ ?>
                                     <div class="hs_favorite">
@@ -1264,7 +1264,7 @@
                             <div class="itemlabel3 itemlabel3-cus hp_itemlabel3-cus_mb">
                                 <div class="labelleft2 rtl_title_home description">
                                     <h4 class="mtb0 RTL go-text-right hotel-name">
-                                        <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>"><b><?php echo $item->title .$item->price_status; ?></b></a>
+                                        <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>/<?php echo @str_replace("/", "-",$checkin); ?>/<?php echo @str_replace("/", "-",$checkout); ?>/<?php echo $adults; ?>"><b><?php echo $item->title; ?></b></a>
                                         <!-- Cars airport pickup -->   <!-- Cars airport pickup -->
                                     </h4>
                                     <div class="clearfix">
@@ -1380,7 +1380,7 @@
                                                 } ?>
                                             <div class="line-right-tow"></div>
                                             <div class=" text-center size18 col-xs-4 item-xem-ngay">
-                                                <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>">
+                                                <a href="<?php echo base_url().'hotels/'.$item->hotel_slug; ?>/<?php echo @str_replace("/", "-",$checkin); ?>/<?php echo @str_replace("/", "-",$checkout); ?>/<?php echo $adults; ?>">
                                                 <button type="submit" class="btn btn-action2">Xem ngay</button>
                                                 </a>
                                             </div>

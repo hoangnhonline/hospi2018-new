@@ -1,27 +1,31 @@
 .nav-tabs-book{
 	text-transform: unset !important;
+	border-bottom: none;
 }
 .nav-tabs-book > li{
-	width: 220px;
+	width: 50%;
+	background:#cdcdcd;
+	margin-bottom: 0;
 }
 .nav-tabs-book li.active{
-	background: transparent !important;
+	background: #660033 !important;
 }
-.nav-tabs-book > li.active > a, .nav-tabs-book > li.active > a:hover, .nav-tabs-book > li.active > a:focus,.nav-tabs-book > li.active > a:visited
-{
-	color: #660033 !important;
-	border-bottom: 3px solid #660033;
-}
-.nav-tabs-book > li.active > a
-{
+.nav-tabs-book > li > a {
+	font-size: 14px;
 	color: #660033;
-	border-bottom: 3px solid #660033;
-	text-transform: unset !important;
-	
+	border: none;
+	margin-right: 0;
+	border-radius: 0;
+	text-align: center;
+	padding: 10px;
 }
-.nav-tabs-book > li > a{
-font-size: 15px;
-    padding-left: 0px;
+.nav-tabs-book > li.active > a {
+	text-transform: none;
+	text-align: center;
+}
+.nav-tabs-book > li > a:hover {
+    background-color:transparent;
+    color: #660033;
 }
 .nav-tabs-book li.phuongthuc{
 	text-align: right;
@@ -39,19 +43,18 @@ font-size: 15px;
 }
 .content-visa-item{
 	border: 1px solid #ccc;
-    width: 300px;
+    /* width: 300px; */
     padding-top: 10px;
     padding-bottom: 10px;
-    color: #a9a9a9;
+    /* color: #a9a9a9; */
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 .content-visa-item-xuat-hoa-don{
-	
 	border: 1px solid #ccc;
-    width: 300px;
+    /* width: 300px; */
     padding-top: 10px;
     padding-bottom: 10px;
-    color: #a9a9a9;
+    /* color: #a9a9a9; */
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 .info-hoa-don{
@@ -62,43 +65,82 @@ font-size: 15px;
 	color: #a9a9a9;
 }
 .conten-vanphong{
-	    border: 1px solid #ccc;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: #a9a9a9;
+	border: 1px solid #ccc;
+    padding: 10px;
+    /* padding-bottom: 10px; */
+    /* color: #a9a9a9; */
 }
 .margin-bottom-10{
 	margin-bottom: 10px;
 }
-.info-hotel h1{
-font-size: 20px;
+.info-hotel h1 {
+	font-size: 17px;
+	font-weight: bold;
     margin-top: 0px;
     margin-bottom: 0px;
 }
-.info-time-book{
+.block-info-time-book {
+	padding: 0 15px;
+	display: flex;
+}
+.block-info-time-book > * {
 	border: 1px solid #ccc;
-	margin-top: 10px;
+	padding: 10px 15px;
+}
+.block-info-time-book .info-time-book {
+	width: 60%;
 	margin-right: 10px;
-	height: 100px;
-	padding-top: 12px;
 }
-.info-people{
-	border: 1px solid #ccc;
-	margin-top: 10px;
-	padding-top: 12px;
-	padding-bottom: : 12px;
+.block-info-time-book > .info-time-book div span:first-child {
+	width: 115px;
+}
+.block-info-time-book > .info-people div span:first-child {
+	width: 90px;
+}
+.block-info-time-book > * div span:nth-child(2) {
+	width: 10px;
+}
+.block-info-time-book > * div span {
+    display: inline-block;
+    vertical-align: middle;
+}
+.block-info-time-book .info-people {
+	margin-left: auto;
+	width: 40%;
+	margin-left: 10px;
+}
 
-}
 .cl-grey{
-	 color: #a9a9a9;
+	color: #a9a9a9;
 }
-.clss-content-book{
+.cl-black {
+	color: #323232;
+}
+.cl-bold {
+	font-weight: bold;
+}
+
+.clss-content-book {
 	border: 1px solid #ccc;
+	padding: 15px;
 }
-.content-item-text,.content-giam-gia{
-	border-left: 1px solid #ccc;
-	border-right:  1px solid #ccc;
-	border-bottom:  1px solid #ccc;
+.clss-content-book p {
+	line-height: 1;
+	margin-bottom: 10px;
+}
+.clss-content-book p:last-child {
+	margin-bottom: 0;
+}
+.content-item-text {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border: 1px solid #ccc;
+	border-top: none;
+}
+.content-giam-gia {
+	border: 1px solid #ccc;
+	padding: 20px 15px 5px;
+	margin-bottom: 20px;
 }
 .cl-tim{
 	color: #660033;
@@ -110,64 +152,149 @@ font-size: 20px;
 	padding: 5px;
 	border: none;
 }
-.clss-tongthanhtoan{
-	border-top:   1px solid #ccc;
-	border-bottom:  1px solid #ccc;
+.clss-tongthanhtoan {
+	border-top: 1px solid #ccc;
 	padding-bottom: 10px;
 	padding-top: 10px;
 }
+.clss-dathanhtoan {
+	border-top: 1px solid #ccc;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+.clss-conlai {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
 .clss-finish{
-padding-bottom: 10px;
+	padding-bottom: 10px;
 	padding-top: 10px;
 }
 .padding-top-10{
 	padding-top: 10px;
 }
-.content-checkout{
-	width: 53%;
-	float: left;
-}
-.info-people{
-	width: 44.8%;
-	float: left;
-}
 .cotent-huyphong{
-	padding-top: 10px;
-	padding-bottom: 10px;
-	border: 1px solid #ccc;
-	color: #a9a9a9;
+	padding: 0 10px 10px;
+	/* border: 1px solid #ccc; */
+	/* color: #a9a9a9; */
 }
 .line-book{
 	border-top: 1px solid #cccc;
-   
     margin-top: 4px;
     margin-bottom: 4px;
 }
 .nav-tabs-book-combox li{
 	width: 155px;
 }
-.nav-tabs-book .thongtinbooking{
+.nav-tabs-book .thongtinbooking {
     width: 121px;
     padding-right: 0px;
 }
-.nav-tabs-book .xuathoadon{
-	    width: 143px;
+.nav-tabs-book .xuathoadon {
+	width: 143px;
 }
-.nav-tabs-book .phuongthuca
-{
-	    width: 161px;
-}
-.nav-tabs-book .donphongduaban{
-	width: 80px;
-    padding-right: 0px;
-}
-.nav-tabs-book .dieukienhuy{
-	padding-right: 0px;
-	    width: 95px;
+.nav-tabs-book .phuongthuca {
+	width: 161px;
 }
 .nav-tabs-book  .dieukiensudung{
 	width: 139px;
 }
 .cotent-huyphong div span{
 	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.block-tab-order {
+	font-family: "Arial", sans-serif;
+}
+.block-tab-order .tab-content {
+	border: 1px solid #DDD;
+	border-top: none;
+}
+
+.block-requirement {
+	border: 1px solid #DDD;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.block-btn-inline .form-group > * {
+	float: left;
+}
+.block-btn-inline .coupon {
+	width: calc(100% - 148px);
+	width: -moz-calc(100% - 148px);
+	width: -webkit-calc(100% - 148px);
+} 
+.block-btn-inline .applycoupon {
+	width: 132px;
+	margin-left: 16px;
+}
+
+.block-couponmsg {
+	background: #cdcdcd;
+	color: #2e5753;
+	padding: 8px 15px;
+	border-radius: 10px;
+	margin-bottom: 15px;
+}
+
+.block-discount {}
+
+.block-payment {
+	border: 1px solid #CCC;
+}
+.block-payment-item:nth-child(1) {
+	margin-bottom: 20px;
+}
+.block-payment .block-title {
+	position: relative;
+	font-size: 17px;
+	height: 39px;
+    line-height: 39px;
+	background: #cdcdcd;
+	text-align: center;
+	color: #660033;
+}
+.block-payment .block-title .num {
+	position: absolute;
+    width: 44px;
+    text-align: center;
+    background: #660033;
+    color: #FFF;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+.block-content {
+	padding: 15px;
+}
+
+.fontf_arial {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.block-panel-info .form_title {
+	line-height: 1;
+}
+
+.block-xuathoadon .collapsebtn {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	width: auto;
+    height: auto;
+    border: none;
+    text-align: left;
+    padding: 0;
+    color: #660033;
+    font-size: 15px;
+    font-weight: normal;
+    background: transparent;
+}
+.block-xuathoadon .collapsebtn span.collapsearrow {
+    margin-left: 15px;
 }
