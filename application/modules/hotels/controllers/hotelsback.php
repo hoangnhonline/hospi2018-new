@@ -735,8 +735,9 @@ class hotelsback extends MX_Controller
               
                 $tab_active = $this->input->get('tab') ? $this->input->get('tab') : "main";
                 $this->data['errormsg'] = '';
-                $listRoomPrices = $this->rooms_model->getListRoomPricesByRoom($editroom);
-                var_dump($listRoomPrices);die;
+                
+                //$listRoomPrices = $this->rooms_model->getListRoomPricesByRoom($editroom);
+                //var_dump($listRoomPrices);die;
                 if ($action == "add") { //them-gia-phong
                     $this->form_validation->set_rules('fromdate', 'From Date', 'trim|required');
                     $this->form_validation->set_rules('todate', 'To Date', 'trim|required');

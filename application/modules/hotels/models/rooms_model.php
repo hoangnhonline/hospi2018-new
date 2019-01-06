@@ -818,16 +818,21 @@ class Rooms_model extends CI_Model
         //var_dump($data);die;
         $this->db->insert('pt_rooms_prices', $data);        
         $detail_id = $this->db->insert_id();
-        $listRoomPrices = $this->getListRoomPricesByRoom($roomid);
-        die('1111');
-        //insert price detail
-        if($type == 4){
-            $this->insertPriceUuDai($hotel_id, $roomid, $datefrom, $dateto, $mon, $tue, $wed, $thu, $fri, $sat, $sun, $type, $this->input->post('type_apply'), $bed_price, $name_uudai, $detail_uudai, $min_night, $detail_id, $min_day);
-        }else{
-            $this->insertPriceDetail($hotel_id, $roomid, $datefrom, $dateto, $mon, $tue, $wed, $thu, $fri, $sat, $sun, $type, $this->input->post('type_apply'), $bed_price);
-        }
+        
+        $this->processPriceDetail($hotel_id, $roomid);
         
         $this->session->set_flashdata('flashmsgs', "Thêm giá thành công.");
+    }
+    public function processPriceDetail($hotel_id, $roomid){
+        $this->deleteRoomPriceDetail($roomid);
+        $listRoomPrices = $this->getListRoomPricesByRoom($roomid);
+        foreach($listRoomPrices as $arr){ 
+            if($arr->type == 4){
+                $this->insertPriceUuDai($hotel_id, $roomid, $arr->date_from, $arr->date_to, $arr->mon, $arr->tue, $arr->wed, $arr->thu, $arr->fri, $arr->sat, $arr->sun, $arr->type, $arr->type_apply, $arr->extra_bed_charge, $arr->name_uudai, $arr->detail_uudai, $arr->min_night, $arr->id, $arr->min_day);
+            }else{
+                $this->insertPriceDetail($hotel_id, $roomid, $arr->date_from, $arr->date_to, $arr->mon, $arr->tue, $arr->wed, $arr->thu, $arr->fri, $arr->sat, $arr->sun, $arr->type, $arr->type_apply, $arr->extra_bed_charge, $arr->name_uudai, $arr->detail_uudai, $arr->min_night);
+            }            
+        }
     }
     public function insertPriceDetailNew($hotel_id, $room_id, $datefrom, $dateto, $mon, $tue, $wed, $thu, $fri, $sat, $sun, $type, $type_apply, $bed_price, $name_uudai = null, $detail_uudai = null, $min_night = 0)
     {        
@@ -1204,18 +1209,7 @@ class Rooms_model extends CI_Model
             $data['min_day'] = $min_day;
         }
         $this->db->update('pt_rooms_prices', $data);
-        //update price detail
-        if($type == 4){
-
-            $detail_id = $this->input->post('detail_id');
-
-            $this->insertPriceUuDai($hotel_id, $room_id, $datefrom, $dateto, $mon, $tue, $wed, $thu, $fri, $sat, $sun, $type, $type_apply, $bed_price, $name_uudai, $detail_uudai, $min_night, $detail_id, $min_day);
-
-
-        }else{
-            $this->updatePriceDetail($room_id, $datefrom, $dateto, $mon, $tue, $wed, $thu, $fri, $sat, $sun, $type, $type_apply, $bed_price);
-        }
-        
+        $this->processPriceDetail($hotel_id, $room_id);        
 
         $this->session->set_flashdata('flashmsgs', "Cập nhật giá thành công.");
     }
@@ -1319,8 +1313,8 @@ class Rooms_model extends CI_Model
 
     }
     public function getListRoomPricesByRoom($room_id){
-        $rs = $this->db->where('room_id', $room_id)->order_by('type', 'asc')->get('pt_rooms_prices')->result();
-        var_dump("<pre>", $rs);
+        return $this->db->where('room_id', $room_id)->order_by('type', 'asc')->get('pt_rooms_prices')->result();
+        
     }
     public function updatePriceUuDai($room_id, $datefrom, $dateto, $mon, $tue, $wed, $thu, $fri, $sat, $sun, $type, $type_apply, $bed_price, $name_uudai = null, $detail_uudai = null, $min_night = 0, $min_day = 0, $detail_id)
     {
@@ -1378,13 +1372,27 @@ class Rooms_model extends CI_Model
     }
 
     function deleteRoomPrice($id)
-    {   
+    {       
+        //get room_id
         $rs1 =  $this->db->where('id', $id)->get('pt_rooms_prices')->result();
-        var_dump($rs1);die;
+        $room_id = $rs1[0]->room_id;
+        // get hotel_id
+        $rs2 =  $this->db->where('room_id', $room_id)->get('pt_rooms')->result();
+        $hotel_id = $rs2[0]->room_hotel;
+        // delete room prices
         $this->db->where('id', $id);
         $this->db->delete('pt_rooms_prices');
+        //process price detail
+        $this->processPriceDetail($hotel_id, $room_id);
 
-        $this->db->where('detail_id', $id);
+        
+    }
+    function deleteRoomPriceDetail($room_id)
+    {            
+        $this->db->where('room_id', $room_id);
+        $this->db->delete('pt_room_prices_detail');
+
+        $this->db->where('room_id', $room_id);
         $this->db->delete('pt_room_prices_uudai');
     }
 
