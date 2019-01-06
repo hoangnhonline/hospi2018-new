@@ -729,11 +729,14 @@ class hotelsback extends MX_Controller
                 $this->data['page_title'] = 'Room Availability';
                 $this->load->view('admin/template', $this->data);
             } elseif ($args == "prices" && !empty($editroom)) {
+
                 $this->data['delurl'] = base_url() . 'admin/hotelajaxcalls/deleteRoomPrice';
                 $action = $this->input->post('action');
               
                 $tab_active = $this->input->get('tab') ? $this->input->get('tab') : "main";
                 $this->data['errormsg'] = '';
+                $listRoomPrices = $this->rooms_model->getListRoomPricesByRoom($editroom);
+                var_dump($listRoomPrices);die;
                 if ($action == "add") { //them-gia-phong
                     $this->form_validation->set_rules('fromdate', 'From Date', 'trim|required');
                     $this->form_validation->set_rules('todate', 'To Date', 'trim|required');
