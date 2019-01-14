@@ -12734,10 +12734,14 @@ h4.hotel-name {
 }
 
 .information li.dots:before {
-    content: "â€¢";
-    font-size: 30px;
+      content: "\f111";
+    font-size: 10px;
+    font-family: FontAwesome;
     position: absolute;
     top: 50%;
+    transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
     left: 0;
     color: #660033;
     line-height: 0;

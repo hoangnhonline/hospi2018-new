@@ -276,14 +276,17 @@
                                 <li class="active"><a data-toggle="tab" class="donphongduaban andes" href="#donphongcuaban">Thông tin chi tiết</a></li>
                                 <li class="text-center pading-top-5-mobile margin-bottom-5-mobile"><a data-toggle="tab" class="dieukienhuy andes" href="#dieukienhuy">Điều kiện hủy</a></li>
                             </ul>
+                            <?php 
+                            //var_dump("<pre>", $module);die;
+                            ?>
                             <div class="tab-content">
                                 <div id="donphongcuaban" class="tab-pane fade in active">
                                     <div class="col-lg-12 col-xs-12 no-padding">
                                         <div class="col-lg-3 col-xs-4 no-padding-left">
-                                            <img src="<?php echo $module->thumbnail; ?>" alt="<?php echo $module->hotel_title; ?>" width="108">
+                                            <img src="<?php echo "https://www.hospi.vn/uploads/images/hotels/slider/thumbs/".$module->thumbnail_image; ?>" alt="<?php echo $module->hotel_title; ?>" width="108">
                                         </div>
                                         <div class="col-lg-9 col-xs-8 info-hotel">
-                                            <h1><?php echo $module->hotel_title; ?></h1>
+                                            <h1 style="font-size: 16px;"><?php echo $module->hotel_title; ?></h1>
                                             <div class="no-padding">
                                                 <i style="margin-left:-5px" class="icon-location-6"></i>
                                                 <small class="adddress font-size-14"><?php echo $module->hotel_map_city; ?></small>
@@ -307,7 +310,8 @@
                                                     <i class="star text-warning fa fa-star voted"></i>
                                                     <i class="star text-warning fa fa-star voted"></i> -->
                                             </div>
-                                        </div>
+                                        </div> 
+                                        <div style="margin-bottom: 10px; clear: both"></div>                                       
                                         <div class="clearfix block-info-time-book">
                                             <div class="info-time-book">
                                                 <div class="">
@@ -345,7 +349,7 @@
                                                 <div class="">
                                                     <span class="cl-black">Giường phụ</span>
                                                     <span>:</span>
-                                                    <span class="cl-tim cl-bold"><?php echo $totalRooms; ?></span>
+                                                    <span class="cl-tim cl-bold"><?php echo (int) $extra_beds[$roomId]; ?></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -353,26 +357,39 @@
                                     <div class="col-lg-12 col-xs-12 margin-top-10">
                                         <div class="block-requirement">
                                             <span>Yêu cầu giường:</span>
-                                            <span class="cl-tim cl-bold">1 Giường lớn; 2 Giường nhỏ</span>
+                                            <span class="cl-tim cl-bold"><?php echo $radiobeds;?> giường</span>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-xs-12">											
+                                    <div class="col-lg-12 col-xs-12">
                                         <div class="clss-content-book">
+                                            <?php 
+                                            $thanh_tien_phong = $priceChoose[$roomId]*$stay*$room_quantity_decode[$roomId];
+                                            $thanh_tien_giuong = $priceBedChoose[$roomId]*$stay*$extra_beds_decode[$roomId];
+                                            ?>
                                             <p class="cl-tim cl-bold">
                                                 <?php 
                                                 if($name_uudai[$roomId]){
                                                 ?>
                                                 <span><?php echo $name_uudai[$roomId]; ?></span><br>
                                                 <?php } ?>
-                                                <span><?php echo $rDetail->title; ?></span>
+                                                <span><?php echo $room[$roomId]->title; ?></span>
                                             </p>
                                             <p>
-                                                <span><?php echo number_format($priceOne); ?> x <?php echo $stay; ?> (đêm)
-                                                    x <?php echo $quantity; ?> (phòng)
-                                                    = <?php echo number_format($thanh_tien_phong); ?> VND</span>
+                                                <span><?php echo number_format($priceChoose[$roomId]); ?> x <?php echo $stay; ?> (đêm)
+                                                    x <?php echo $room_quantity_decode[$roomId]; ?> (phòng)
+                                                    = <?php echo number_format($priceChoose[$roomId]*$stay*$room_quantity_decode[$roomId]); ?> VND</span>
                                             </p>
+                                            <?php 
+                                            if((int) $extra_beds[$roomId] > 0){
+                                            ?>
                                             <p class="cl-tim">* Giường phụ</p>
-                                            <p><span><?php echo number_format($thanh_tien_giuong); ?></span></p>
+                                            <p>
+                                                <span><?php echo number_format($priceBedChoose[$roomId]); ?> x <?php echo $stay; ?> (đêm)
+                                                    x <?php echo $extra_beds_decode[$roomId]; ?> (phòng)
+                                                    = <?php echo number_format($priceBedChoose[$roomId]*$stay*$extra_beds_decode[$roomId]); ?> VND</span>
+
+                                            </p>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                     <input type="hidden" name="so_giuong_phu" value="<?php echo $so_giuong_phu; ?>">
@@ -380,7 +397,7 @@
                                     <div class="col-lg-12 col-xs-12">
                                         <div class="content-item-text clearfix">
                                             <div class="col-lg-12 col-xs-12 no-padding">
-                                                <div class="col-lg-6 col-xs-6 text-left"><span>Thành tiền</span></div>
+                                                <div class="col-lg-6 col-xs-6 text-left"><span>Tiền phòng</span></div>
                                                 <div class="col-lg-6 col-xs-6 text-right"><span><?php echo number_format($thanh_tien_phong + $thanh_tien_giuong ); ?> VND</span></div>
                                             </div>
                                             <?php
@@ -411,7 +428,7 @@
                                                 <div class="col-lg-6 col-xs-6 text-right"><span>0 VND</span></div>
                                             </div>
                                             <div class="col-lg-12 col-xs-12 no-padding">
-                                                <div class="col-lg-6 col-xs-6 text-left "><span>Thanh toán</span></div>
+                                                <div class="col-lg-6 col-xs-6 text-left "><span>Tổng tiền</span></div>
                                                 <div class="col-lg-6 col-xs-6 text-right"><span><b><?php echo number_format($thanh_tien_giuong + $thanh_tien_phong + $phi_vat + $phi_dich_vu); ?> VND</b></span></div>
                                                 <input type="hidden" name="tong_chua_giam" id="tong_chua_giam"   value="<?php echo $thanh_tien_giuong + $thanh_tien_phong + $phi_vat + $phi_dich_vu; ?>">
                                             </div>
@@ -427,23 +444,23 @@
                                                         <button type="button" class="form-control button-tim applycoupon andes">Áp dụng</button>
                                                     </div>
                                                 </div>
-                                                <p class="cl-grey block-couponmsg">
+                                                <!-- <p class="cl-grey block-couponmsg">
                                                     Mã giảm giá <strong>01728</strong> đã được áp dụng<br>Bạn đã được giảm được 300,000 VND /tổng booking
-                                                </p>
-                                                <div class="block-discount row">
+                                                </p> -->
+                                                <!-- <div class="block-discount row">
                                                     <div class="col-sm-6 col-xs-6 text-left cl-tim cl-bold"><span>Giảm giá </span></div>
                                                     <div class="col-lg-6 col-xs-6 text-right"><span  id="giam_gia_span" ><b>0 VND</b></span></div>
                                                     <input type="hidden" name="giam_gia" value="0" id="giam_gia">
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-xs-12 no-padding cl-tim clss-tongthanhtoan">
-                                        <div class="col-lg-6 col-xs-6 text-left "><span>Tổng thanh toán </span></div>
+                                        <div class="col-lg-6 col-xs-6 text-left "><span style="font-weight: bold;">Tổng thanh toán </span></div>
                                         <div class="col-lg-6 col-xs-6 text-right"><span id="tong_thanh_toan_span"><b><?php echo number_format($thanh_tien_phong + $thanh_tien_giuong); ?> VND</b></span></div>
                                         <input type="hidden" name="tong_thanh_toan" id="tong_thanh_toan" value="<?php echo($thanh_tien_giuong + $thanh_tien_phong); ?>">
                                     </div>
-                                    <div class="col-lg-12 col-xs-12 no-padding cl-grey clss-dathanhtoan">
+                                    <!-- <div class="col-lg-12 col-xs-12 no-padding cl-grey clss-dathanhtoan">
                                         <div class="col-lg-6 col-xs-6 text-left "><span>Đã thanh toán</span></div>
                                         <div class="col-lg-6 col-xs-6 text-right"><span id="tong_thanh_toan_span"><b>0 VND</b></span></div>
                                         <input type="hidden" name="da_thanh_oan" id="da_thanh_oan" value="0">
@@ -452,7 +469,7 @@
                                         <div class="col-lg-6 col-xs-6 text-left"><span class="cl-bold">Còn lại</span></div>
                                         <div class="col-lg-6 col-xs-6 text-right"><span id="tong_thanh_toan_span"><b>5,483,000 VND</b></span></div>
                                         <input type="hidden" name="con_lai" id="con_lai" value="0">
-                                    </div>
+                                    </div> -->
                                     <div class="col-lg-12 col-xs-12 no-padding cl-grey clss-finish">
                                         <div class="col-lg-12 col-xs-12 text-left ">
                                             <span>Tôi đã đọc và chấp nhận <span class="cl-tim cl-bold">điều khoản và chính sách của khách sạn</span> và <span class="cl-tim cl-bold">điều khoản và chính sách bảo mật</span> của HOSPI </span>

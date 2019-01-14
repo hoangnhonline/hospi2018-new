@@ -792,7 +792,8 @@ class Hotels extends MX_Controller
 
         $name_uudai = $this->input->get('name_uudai'); // 1 :  2 Gia khuyen mai 3 Ten uu dai
         $detail_id = $this->input->get('detail_id'); // price detail id
-        
+        $radiobeds = $this->input->get('radiobeds');
+
         $totalRooms = 0;
         if (!empty($room_quantity)) {
             foreach ($room_quantity as $tmp) {
@@ -830,6 +831,7 @@ class Hotels extends MX_Controller
             echo "</pre>";*/           
             $this->data['detail_id'] = $detail_id;
             $this->data['priceChoose'] = $p;
+
             $this->data['priceBedChoose'] = $pb;
             $this->data['typeChoose'] = $ptype;
             $this->data['name_uudai'] = $name_uudai;
@@ -839,6 +841,7 @@ class Hotels extends MX_Controller
             //var_dump("<pre>", $detailHotel);die;
             $this->data['extraChkUrl'] = $bookInfo['hotel']->extraChkUrl;
             $this->data['room'] = $bookInfo;
+            //var_dump($this->data['room']);die;
             if ($this->data['room']->price < 1 || $this->data['room']->stay < 1) {
                 $this->data['error'] = "error";
             }
@@ -867,10 +870,14 @@ class Hotels extends MX_Controller
             $this->data['totalRooms'] = $totalRooms;
 
             $this->data['room_id'] = json_encode(array_keys($bookInfo));
+            $this->data['roomId'] = array_keys($bookInfo)[0];
             $this->data['room_quantity'] = json_encode($room_quantity);
+            $this->data['room_quantity_decode'] = $room_quantity;
             $this->data['extra_beds'] = json_encode($extra_beds);
-            $this->data['room_price'] = json_encode($price);
-
+            $this->data['extra_beds_decode'] = ($extra_beds);
+            $this->data['room_price'] = json_encode($price);            
+            $this->data['radiobeds'] = $radiobeds;
+            //var_dump( $this->data['roomId']);die;
             // var_dump($detailHotel->hotel_title);die;
 
             $this->breadcrumbcomponent->add('Trang chủ', base_url());
