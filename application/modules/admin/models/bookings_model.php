@@ -297,7 +297,7 @@ class Bookings_model extends CI_Model
     function doGuestBooking($bookquick = null)
     {
         $userid = $this->accounts_model->signup_account('guest', '0');
-
+        //die($bookquick);
         if (empty($bookquick)) {
             return $this->do_booking($userid);
         } else {

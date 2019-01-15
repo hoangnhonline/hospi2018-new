@@ -35,10 +35,10 @@ class Invoice extends MX_Controller {
 				$payerID = $this->input->get('PayerID');
 				$token = $this->input->get('token');
 
-				$this->data['hideHeader'] = "1";
-			
-				if (!empty ($ebookingid)) {
+				$this->data['hideHeader'] = "1";				
+				if (!empty ($ebookingid)) {					
 						$this->data['invoice'] = pt_get_einvoice_details($ebookingid, $bookingref);
+						//var_dump("<pre>", $this->data['invoice'], "</pre>");
 						$this->data['response'] = json_decode($this->data['invoice'][0]->book_response);
 						if (empty ($this->data['invoice'])) {
 								redirect(base_url());
@@ -64,7 +64,7 @@ $this->session->set_userdata('checkout_total', $this->data['invoice'][0]->bookin
 								$bookingid = $this->session->userdata("BOOKING_ID");
 								$bookingref = $this->session->userdata("REF_NO");
 						}
-						$this->data['invoice'] = invoiceDetails($bookingid, $bookingref);
+						$this->data['invoice'] = invoiceDetails($bookingid, $bookingref);						
 						if (empty ($this->data['invoice']->id)) {
 								redirect(base_url());
 						}
@@ -183,26 +183,29 @@ $this->session->set_userdata('checkout_total', $this->data['invoice'][0]->bookin
 
 
 								if($invoice->module == 'combo'){
-									  $surchargeInfo = [];
-					            $this->db->where('offer_id', $invoice->itemid);
-					            $result = $this->db->get('phuthucombo')->result();//	echo "<pre>";print_r($result);echo "</pre>";
-					            $surchargeInfo = array();
-					            foreach ($result as $item) {
-					                $surchargeInfo[] = (object)[
-					                    'id' => $item->id,
-					                    'name' => $item->name,
-					                    'price' => $item->price ,//$curr->convertPrice($item->price, 0),
-					                    'show_price' => $item->show_price
-					                ];
-					            }
-					            $this->data['surchargeInfo'] = $surchargeInfo;
+									$surchargeInfo = [];
+						            $this->db->where('offer_id', $invoice->itemid);
+						            $result = $this->db->get('phuthucombo')->result();//	echo "<pre>";print_r($result);echo "</pre>";
+						            $surchargeInfo = array();
+						            foreach ($result as $item) {
+						                $surchargeInfo[] = (object)[
+						                    'id' => $item->id,
+						                    'name' => $item->name,
+						                    'price' => $item->price ,//$curr->convertPrice($item->price, 0),
+						                    'show_price' => $item->show_price
+						                ];
+						            }
+						            $this->data['surchargeInfo'] = $surchargeInfo;
 									$this->theme->view('admin/modules/global/invoice_combo', $this->data);
 								}else{
-									  $this->db->where('booked_booking_id', $invoice->id);
-					            $result = $this->db->get('pt_booked_rooms')->result();//
-					           /* $checkin =  strtotime($invoice->checkin);
-					            $checkin = date("d/m/Y",  strtotime($invoice->checkin) );
-					            $checkout = date("d/m/Y",  strtotime($invoice->checkout) );*/
+									$this->db->where('booked_booking_id', $invoice->id);
+						            $result = $this->db->get('pt_booked_rooms')->result();
+						            var_dump($result);die;
+						            //var_dump($result);die;
+						            //
+						           /* $checkin =  strtotime($invoice->checkin);
+						            $checkin = date("d/m/Y",  strtotime($invoice->checkin) );
+						            $checkout = date("d/m/Y",  strtotime($invoice->checkout) );*/
 
 					            	$bookInfo = array();
 					            	$hotelID = $invoice->itemid;
@@ -225,10 +228,10 @@ $this->session->set_userdata('checkout_total', $this->data['invoice'][0]->bookin
 			                                $total_extra_bed += $bookInfo[$roomID]->extraBedsCount;
 
 			                             }
-			                       }
-			                           $this->data['bookInfo'] = $bookInfo;
-			                           	$this->data['total_extra_bed'] = $total_extra_bed;
-			                           	$this->data['total_room'] = $total_room;
+			                       	} // foreach
+			                        $this->data['bookInfo'] = $bookInfo;
+			                        $this->data['total_extra_bed'] = $total_extra_bed;
+			                        $this->data['total_room'] = $total_room;
 
 					         //echo "<pre>";print_r($bookInfo);echo "</pre>";die;
 			                        /* $date1 = new \DateTime(date('Y-m-d', strtotime(str_replace("/", "-", $invoice->checkin))));

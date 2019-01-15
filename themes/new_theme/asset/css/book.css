@@ -97,6 +97,9 @@
 .block-info-time-book > .info-people div span:first-child {
 	width: 90px;
 }
+.block-info-time-book > .info-people-single div span:first-child {
+	width: 130px;
+}
 .block-info-time-book > * div span:nth-child(2) {
 	width: 10px;
 }
@@ -108,6 +111,11 @@
 	margin-left: auto;
 	width: 40%;
 	margin-left: 10px;
+}
+.block-info-time-book .info-people-single {
+	margin-left: auto;
+	width: 100%;
+	margin-left: 0;
 }
 
 .cl-grey{
@@ -125,7 +133,7 @@
 	padding: 15px;
 }
 .clss-content-book p {
-	line-height: 1;
+	line-height: normal;
 	margin-bottom: 10px;
 }
 .clss-content-book p:last-child {
@@ -187,17 +195,16 @@
     margin-bottom: 4px;
 }
 .nav-tabs-book-combox li{
-	width: 155px;
-}
-.nav-tabs-book .thongtinbooking {
-    width: 121px;
-    padding-right: 0px;
+	width: calc(100% / 3);
+	width: -moz-calc(100% / 3);
+	width: -webkit-calc(100% / 3);
+	width: -o-calc(100% / 3);
 }
 .nav-tabs-book .xuathoadon {
 	width: 143px;
 }
 .nav-tabs-book .phuongthuca {
-	width: 161px;
+	
 }
 .nav-tabs-book  .dieukiensudung{
 	width: 139px;

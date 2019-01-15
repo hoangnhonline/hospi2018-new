@@ -181,12 +181,12 @@
                             <div class="form-group">
                                 <p class="title">Ngày đi</p>
                                 <div class="block-mySelectCalendar">
-                                    <input type="text" placeholder="Ngày đi" name="checkin" class="form-control mySelectCalendar dpd1 go-text-left" value="<?php echo date('d/m/Y') ?>" required >
+                                    <input type="text" placeholder="Ngày đi" name="checkin" class="form-control mySelectCalendar dpd11 go-text-left" autocomplete="off" value="<?php echo date('d/m/Y') ?>" required >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="checkbox-inline checkbox-style2">
-                                    <input type="checkbox" name="note" value="Mua trước đi sau">
+                                    <input type="checkbox" name="note" id="check_note" value="Mua trước đi sau">
                                     <span></span>
                                     Bạn mua trước đi sau
                                     <div class="block-question-info" style="display: inline-block;">
@@ -195,6 +195,7 @@
                                             <p>Nếu bạn chưa xác định được ngày đi. Bạn có thể mua trước đi sau ....</p>
                                         </div>
                                     </div>
+                                    <input type="hidden" name="di_sau" id="di_sau" value="0">
                                 </label>
                             </div>
                         </div>
@@ -305,5 +306,24 @@
         setTimeout(function () {
             $(".successMsg").fadeOut("slow");
         }, 7000);
+        var nowTemp = new Date();
+      var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+      var checkin11 = $('.dpd11').datepicker({
+          format: fmt,
+          language: 'vi',
+          onRender: function(date) {
+              return date.valueOf() < now.valueOf() ? 'disabled' : '';
+          }
+      }).on('changeDate', function(ev) {          
+          checkin11.hide();          
+      }).data('datepicker');
+      $('#check_note').click(function(){
+        if($(this).prop('checked') == true){
+            $('#di_sau').val(1);
+        }else{
+            $('#di_sau').val(0);
+        }
+      });
     });
+
 </script>  
