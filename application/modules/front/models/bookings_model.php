@@ -1390,7 +1390,7 @@ die;*/
             'booking_child' => $post_data['booking_child'],
             'booking_adults' => $post_data['booking_adults'],
             'booking_extra_beds_request' => $post_data['booking_extra_beds_request'],
-           'booking_checkin' => $checkin,
+            'booking_checkin' => $checkin,
             'booking_checkout' => $checkout,
            // 'booking_nights' => $this->input->post('nights'),
             //'booking_payment_type' => $paymethod,

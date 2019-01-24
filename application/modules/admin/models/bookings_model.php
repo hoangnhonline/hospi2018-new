@@ -289,7 +289,7 @@ class Bookings_model extends CI_Model
         } else {
             $query = $this->db->get('pt_bookings');
             $data = $query->num_rows();
-        }//echo $this->db->last_query();die;
+        }
 
         return $data;
     }
@@ -321,7 +321,7 @@ class Bookings_model extends CI_Model
         $mst = $this->input->post('mst');
         $companyadd = $this->input->post('companyadd');
         $itemid = $this->input->post('itemid');
-       // echo 'do_booking'.$itemid;die;
+       
         if ($paymethod == "cod") {
             $payinfo = $this->input->post('txtAddress');
         } elseif ($paymethod == "banktransfer") {
@@ -349,6 +349,7 @@ class Bookings_model extends CI_Model
         try {
             if ($bookingtype != 'offers') {
                 $subitemid = $this->input->post('subitemid');
+                
                 $checkin = $this->input->post('checkin');
                 $checkout = $this->input->post('checkout');
                 $roomscount = $this->input->post('roomscount');
@@ -359,8 +360,7 @@ class Bookings_model extends CI_Model
                 $phi_vat = $this->input->post('phi_vat');
 
                 $checkin = databaseDate($checkin);
-                $checkout = databaseDate($checkout);
-
+                $checkout = databaseDate($checkout);                
                 $data = array(
                     'booking_ref_no' => $refno,
                     'booking_type' => $bookingtype,
@@ -398,7 +398,9 @@ class Bookings_model extends CI_Model
                     'booking_curr_symbol' => 'vnd',
                     'booking_coupon_rate' => 0,
                     'booking_coupon' => $coupon_code,
-                    'booking_guest_info' => $passportInfo
+                    'booking_guest_info' => $passportInfo,
+                    //'total_extra_bed' => $this->input->post('so_giuong_phu')
+                    'booking_extra_beds_request' => $this->input->post('booking_extra_beds_request')
                 );
                 $this->db->insert('pt_bookings', $data);
                 $book_id = $this->db->insert_id();
@@ -416,7 +418,12 @@ class Bookings_model extends CI_Model
                             'booked_room_count' => $roomscounts[$room_id],
                             'booked_checkin' => $checkin,
                             'booked_checkout' => $checkout,
-                            'booked_booking_status' => 'unpaid'
+                            'booked_booking_status' => 'unpaid',
+                            'price' => $this->input->post('room_price'),
+                            'bed_price' => $this->input->post('bed_price'),
+                            'booked_extra_bed' => $this->input->post('so_giuong_phu'),
+                            'price_type' => $this->input->post('price_type'),
+                            'bank_id' => $this->input->post('bank_id'),
                         );
 
                         $this->db->insert('pt_booked_rooms', $rdata);
@@ -496,7 +503,7 @@ class Bookings_model extends CI_Model
                         'booked_room_id' => $id,
                         'booked_room_count' => $value,
                         'booked_checkin' => $checkin,
-                        'booking_checkout' => $checkin,
+                        'booked_checkin' => $checkout,
                         'booked_booking_status' => 'unpaid'
                     );
 
@@ -987,13 +994,12 @@ class Bookings_model extends CI_Model
             $thuphuId = $value['id'];
             $surcharge_list[$thuphuId] = $value['quantity'];
         }
-        /*echo "<pre>";
-        print_r($surcharge_list); echo "</pre>";die;*/
-         $checkin= $post_data['checkin'] ;
+        
+        $checkin= $post_data['checkin'] ;
         $checkin = databaseDate($checkin);
-         $checkout= $post_data['checkout'] ;
+        $checkout= $post_data['checkout'] ;
         $checkout = databaseDate($checkout);
-       // var_dump($post_data);die;
+       
         $data = array(
             'is_send' => $is_send,
             'is_unknown_date' => $post_data['is_unknown_date'],
@@ -1108,13 +1114,12 @@ class Bookings_model extends CI_Model
         $d = DateTime::createFromFormat('d/m/Y', $date);
         $booking_payment_date =  $d->getTimestamp();
 
-        /*echo $booking_payment_date;
-        die;*/
-         $app_settings = $this->settings_model->get_settings_data();
-         $expiry = $app_settings [0]->booking_expiry * 86400;
+        
+        $app_settings = $this->settings_model->get_settings_data();
+        $expiry = $app_settings [0]->booking_expiry * 86400;
 
-         //edit customer
-         $this->editCustomer($post_data) ;  //$this->session->userdata('pt_logged_customer');
+        //edit customer
+        $this->editCustomer($post_data) ;  //$this->session->userdata('pt_logged_customer');
 
         $coupon_code = "";
         if(isset($post_data['coupon_code'])){
@@ -1165,15 +1170,12 @@ class Bookings_model extends CI_Model
             $thuphuId = $value['id'];
             $surcharge_list[$thuphuId] = $value['quantity'];
         }
-        /*echo "<pre>";
-        print_r($surcharge_list); echo "</pre>";die;*/
-      //  echo $post_data['checkin'] ;
+        
         $checkin= $post_data['checkin'] ;
         $checkin = databaseDate($checkin);
         $checkout= $post_data['checkout'] ;
         $checkout = databaseDate($checkout);
-/*echo $checkin;
-die;*/
+
         $data = array(
             'is_send' => $is_send,
             'is_unknown_date' => $post_data['is_unknown_date'],
@@ -1225,11 +1227,7 @@ die;*/
             'booking_coupon_rate' => 0,
             'booking_coupon' => $coupon_code,
             //'booking_guest_info' => $passportInfo
-        );
-       // echo $timestamp = strptime($post_data['booking_payment_date'],'d/m/Y');
-        //die;
-       /* echo "<pre>";
-        print_r($data); echo "</pre>";die;*/
+        );       
         $book_id = $post_data['booking_id'];
         $this->db->where('booking_id', $book_id);
         $this->db->update('pt_bookings', $data);
@@ -1304,18 +1302,17 @@ die;*/
      public function insertHotelBooking($post_data){
        $this->load->model('admin/coupons_model');
      
-        $date= trim($post_data['booking_payment_date']);//echo $post_data['booking_payment_date'];die;
+        $date= trim($post_data['booking_payment_date']);//echo 
         $d = DateTime::createFromFormat('d/m/Y', $date);
 
-        $booking_payment_date =  $d->getTimestamp();//echo $booking_payment_date ;die;
+        $booking_payment_date =  $d->getTimestamp();
         //payment 
         $checkout_type = $this->input->post('checkout-type');
         if ($checkout_type == 3) { //cod
             $paymethod = "cod";
             $payinfo = $this->input->post('txtAddress');
         } elseif ($checkout_type == 1) {  //bank
-            $paymethod = "banktransfer";
-          //$bank = $this->input->post('bank');
+            $paymethod = "banktransfer";          
             $payinfo = $this->input->post('bank');
         } else {
             $paymethod = "payatoffice";
@@ -1332,7 +1329,7 @@ die;*/
             $is_other_company = 0;
         }else{
             $is_other_company = 1;
-        }//echo 5;die;
+        }
 
         $checkin= $post_data['checkin'] ;
         $checkout = $post_data['checkout'] ;
@@ -1369,8 +1366,7 @@ die;*/
         $rooms_id_array = array();
         foreach ($post_data['room_list'] as $key => $room) {
             $rooms_id_array[] =  $room['room_id'];
-        }
-        //var_dump($rooms_id_array );die;
+        }        
 
         $data = array(
             'is_send' => $is_send,
@@ -1484,8 +1480,7 @@ die;*/
             $paymethod = "payatoffice";
             $payinfo = "Địa chỉ: Lầu 1, Số 124 Khánh Hội, P.6, Quận 4, Tp. Hồ Chí Minh - Tel: 028 3826 8797 - Fax: (08) 3826 8798";
         }
-       /* echo "<pre>";
-        print_r($post_data); echo "</pre>";die;*/
+       
         if($post_data['is_send']!=1){
             $is_send =0;
         }else{
@@ -1532,8 +1527,7 @@ die;*/
         $rooms_id_array = array();
         foreach ($post_data['room_list'] as $key => $room) {
             $rooms_id_array[] =  $room['room_id'];
-        }
-        //var_dump($rooms_id_array );die;
+        }        
 
         $data = array(
             'is_send' => $is_send ,
@@ -1574,10 +1568,8 @@ die;*/
             'booking_payment_info' => $payinfo, 
             'is_other_company' => $is_other_company,
 
-        );
-          
-       /* echo "<pre>";
-        print_r($data); echo "</pre>";die;*/
+        );          
+       
         $book_id = $post_data['booking_id'];
         $this->db->where('booking_id', $book_id);
         $this->db->update('pt_bookings', $data);

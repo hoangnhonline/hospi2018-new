@@ -64,7 +64,8 @@ $this->session->set_userdata('checkout_total', $this->data['invoice'][0]->bookin
 								$bookingid = $this->session->userdata("BOOKING_ID");
 								$bookingref = $this->session->userdata("REF_NO");
 						}
-						$this->data['invoice'] = invoiceDetails($bookingid, $bookingref);						
+						$this->data['invoice'] = invoiceDetails($bookingid, $bookingref);		
+										
 						if (empty ($this->data['invoice']->id)) {
 								redirect(base_url());
 						}
@@ -153,14 +154,13 @@ $this->session->set_userdata('checkout_total', $this->data['invoice'][0]->bookin
 								$this->data['contactaddress'] = $contact[0]->contact_address;
 								$this->data['page_title'] = 'Invoice';
 
-								//echo "<pre>";print_r($this->data['invoice']);echo "</pre>";//die;
+							
 								$invoice = $this->data['invoice'] ;
 								$this->data['booking_subitem']  = json_decode(json_encode($invoice->booking_subitem),true);
-								// $this->data['booking_subitem']  = $x;
-	//echo "<pre>";print_r(  $this->data['booking_subitem']);echo "</pre>";die;
+							
 								if (isset($invoice->couponCode) && !empty($invoice->couponCode)) {
 									$this->load->model('admin/coupons_model');
-									$couponVo = $this->coupons_model->get_coupon_by_code($invoice->couponCode);//var_dump($couponVo);die;
+									$couponVo = $this->coupons_model->get_coupon_by_code($invoice->couponCode);
 									if(isset($couponVo)){
 										$this->data['has_coupon'] = true;
 										$this->data['coupon'] = array('code' => $couponVo->code,
@@ -200,8 +200,7 @@ $this->session->set_userdata('checkout_total', $this->data['invoice'][0]->bookin
 								}else{
 									$this->db->where('booked_booking_id', $invoice->id);
 						            $result = $this->db->get('pt_booked_rooms')->result();
-						            var_dump($result);die;
-						            //var_dump($result);die;
+						            $bookedList = $result[0];
 						            //
 						           /* $checkin =  strtotime($invoice->checkin);
 						            $checkin = date("d/m/Y",  strtotime($invoice->checkin) );
@@ -211,9 +210,10 @@ $this->session->set_userdata('checkout_total', $this->data['invoice'][0]->bookin
 					            	$hotelID = $invoice->itemid;
 					            	$total_extra_bed = 0;
 					            	$total_room = 0;
-
+					            	
 					            	foreach ($result as $k =>$v ) {
 					            		$roomID = $v->booked_room_id;
+
 			                             $roomsCount = $v->booked_room_count;
 			                             $extrabeds = $v->booked_extra_bed;
 			                             $total_room +=  $v->booked_room_count;
@@ -222,29 +222,21 @@ $this->session->set_userdata('checkout_total', $this->data['invoice'][0]->bookin
 
 			                             $checkout =  date("d/m/Y",  strtotime( $v->booked_checkout) ); 
 			                             if ($roomsCount > 0) {
-			                                  $bookInfo[$roomID] = $this->hotels_lib->getBookResultObject($hotelID, $roomID, $roomsCount, $extrabeds, $invoice->checkin,  $invoice->checkout);
-			                                 // echo "<pre>";print_r($bookInfo[$roomID]);echo "</pre>";//die;
+			                                  $bookInfo[$roomID] = $this->hotels_lib->getBookResultObject($hotelID, $roomID, $roomsCount, $extrabeds, $invoice->checkin,  $invoice->checkout);			                                 
 			                                  $nights =  count($bookInfo[$roomID]->Info['detail'] ) ;
 			                                $total_extra_bed += $bookInfo[$roomID]->extraBedsCount;
 
 			                             }
-			                       	} // foreach
+			                       	} // foreach			                       	
 			                        $this->data['bookInfo'] = $bookInfo;
+			                        $this->data['bookedList'] = $bookedList;
 			                        $this->data['total_extra_bed'] = $total_extra_bed;
 			                        $this->data['total_room'] = $total_room;
 
-					         //echo "<pre>";print_r($bookInfo);echo "</pre>";die;
-			                        /* $date1 = new \DateTime(date('Y-m-d', strtotime(str_replace("/", "-", $invoice->checkin))));
-			                          $date2 = new \DateTime(date('Y-m-d', strtotime(str_replace("/", "-", $invoice->checkout))));*/
-			                           // this calculates the diff between two dates, which is the number of nights
-			                        /* $start_date = date_create( $invoice->checkin);
-									$end_date = date_create( $invoice->checkout);
-									$nights = date_diff($start_date, $end_date);*///echo $nights ;die;
-			                         $this->data['nights'] = $nights ; //$date2->diff($date1)->format("%a");
+					       
+			                         $this->data['nights'] = $nights ; 
 									$this->theme->view('admin/modules/global/invoice_hotel', $this->data);
-								}
-								//$this->theme->view('admin/modules/global/invoice', $this->data);
-								//echo print_r($this->data['invoice']); exit;
+								}								
 							}
 						}
 				}
@@ -308,16 +300,13 @@ $this->session->set_userdata('checkout_total', $this->data['invoice'][0]->bookin
 		function getGatewaylink($bookingid,$bookingref){
 			$this->load->helper('invoice');
 
-			//if ($this->input->is_ajax_request()){
-				//var_dump($_REQUEST);die;
+		
 				$invoicdata = invoiceDetails($bookingid,$bookingref);
 				$this->load->model('admin/payments_model');
 				$gateway = $this->input->get('gateway');				
 				echo $this->payments_model->getGatewayMsg($gateway,$invoicdata);
 
 			
-
-			//}
 			
 		}
 

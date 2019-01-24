@@ -782,6 +782,7 @@ class Hotels extends MX_Controller
 
         // this calculates the diff between two dates, which is the number of nights
         $stay = $date2->diff($date1)->format("%a");
+        //var_dump($this->input->get('adults'));die;
         $adults = (int)$this->input->get('adults');
         $child = (int)$this->input->get('child');
         $room_quantity = $this->input->get('room_quantity');
@@ -805,8 +806,7 @@ class Hotels extends MX_Controller
             $this->data['error'] = "";
             $this->hotels_lib->set_hotelid($hotelname);
             $hotelID = $this->hotels_lib->get_id();
-            $detailHotel = $this->hotels_model->getDetail($hotelID);
-
+            $detailHotel = $this->hotels_model->getDetail($hotelID);            
             $roomIdArr = $this->input->get('room_id');
             $roomsCountArr = $this->input->get('room_quantity');
             $extrabeds = $this->input->get('extrabeds');
