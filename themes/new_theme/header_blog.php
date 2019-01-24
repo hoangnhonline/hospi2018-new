@@ -82,7 +82,7 @@
                   </div>
                    <div class="col-md-2 visible-xs">
                 <div class="navbar-header go-right logo-mobile">
-                       <a href="index.html" class="navbar-brand"><img src="<?php echo $theme_url;?>asset/img/logo-tintuc.png" alt="HOSPI - Đặt phòng khách sạn" class="logo"/></a>
+                       <a href="https://www.hospi.vn" class="navbar-brand"><img src="<?php echo $theme_url;?>asset/img/logo-tintuc.png" alt="HOSPI - Đặt phòng khách sạn" class="logo"/></a>
                   </div>
                   <div class="menu-section clearfix" id="menumobilemain">
                      <div class="slicknav_menu">

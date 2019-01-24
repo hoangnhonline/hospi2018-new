@@ -118,6 +118,30 @@
 	margin-left: 0;
 }
 
+.block-info-time-book.block-info-time-book-no-padding {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+@media (max-width: 767px) {
+	.block-info-time-book {
+		display: block;
+	}
+	.block-info-time-book .info-time-book {
+		width: 100%;
+		margin-right: 0;
+	}
+	.block-info-time-book .info-people {
+		margin-top: 10px;
+		margin-left: auto;
+		width: 100%;
+		margin-left: 0;
+	}
+	.block-info-time-book > .info-people div span:first-child {
+		width: 115px;
+	}
+}
+
 .cl-grey{
 	color: #a9a9a9;
 }

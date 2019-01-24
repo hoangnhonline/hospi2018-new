@@ -132,7 +132,10 @@
                                            // }
                                             ?>
                                         </ul> -->
-                                        <a  class="btn btn-combo2" href="<?php echo $module->relatedItems[0]->slug ?>">
+                                        <?php
+                                        $tmp = explode('/', $module->relatedItems[0]->slug);                                        
+                                        ?>
+                                        <a  class="btn btn-combo2" href="https://www.hospi.vn/hotels/<?php echo end($tmp); ?>">
                                             <?php echo $module->type == 2 ? 'Đặt combo' : 'Đặt ngay'; ?>
                                             </a>
                                     </div>

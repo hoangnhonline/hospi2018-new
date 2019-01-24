@@ -44,7 +44,7 @@
     <div class="clearfix block-rooms visible-xs">
         <div class="tabble-responsive">
             <form action="<?php echo base_url() . $appModule; ?>/book/<?php echo $module->bookingSlug; ?>" method="GET" class="ng-pristine ng-valid">
-                <input type="hidden" name="adults" value="<?php echo $modulelib->adults; ?>" />
+                <input type="hidden" name="adults" value="<?php echo $modulelib->adults > 1 ? $modulelib->adults : 2; ?>" />
                 <input type="hidden" name="child" value="<?php echo $modulelib->children; ?>" />
                 <input type="hidden" name="checkin" value="<?php echo $modulelib->checkin; ?>" />
                 <input type="hidden" name="checkout" value="<?php echo $modulelib->checkout; ?>" />
@@ -357,7 +357,7 @@
     <div class="clearfix block-rooms hidden-xs" id="rld">
         <div class="table-responsive">
             <form action="<?php echo base_url() . $appModule; ?>/book/<?php echo $module->bookingSlug; ?>" method="GET">
-                <input type="hidden" name="adults" value="<?php echo $modulelib->adults; ?>" />
+                <input type="hidden" name="adults" value="<?php echo $modulelib->adults > 1 ? $modulelib->adults : 2; ?>" />
                 <input type="hidden" name="child" value="<?php echo $modulelib->children; ?>" />
                 <input type="hidden" name="checkin" value="<?php echo $modulelib->checkin; ?>" />
                 <input type="hidden" name="checkout" value="<?php echo $modulelib->checkout; ?>" />

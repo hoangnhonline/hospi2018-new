@@ -158,7 +158,7 @@ if (strpos($currenturl, 'blog') !== false) {
 
                                 
                 <div class="visible-xs" style="width: 100%;clear: left;height: 25px"></div>
-                <a href="index.html" class="visible-xs" style="display: block;margin-bottom: 5px;margin-top: 5px;margin-left: 15px"><img src="https://www.hospi.vn/themes/default/assets/img/logo-ft.png" class="img-responsive logo"/></a>
+                <a href="https://www.hospi.vn" class="visible-xs" style="display: block;margin-bottom: 5px;margin-top: 5px;margin-left: 15px"><img src="https://www.hospi.vn/themes/default/assets/img/logo-ft.png" class="img-responsive logo"/></a>
                 <div class="col-md-4 go-right col-xs-12 visible-xs" id="contact">
                   <div class="footer-brand">
                     <div style="color: #fff;">HOSPI.vn: Đặt phòng khách sạn giá rẻ, combo khách sạn</div>

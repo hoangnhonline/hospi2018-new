@@ -128,7 +128,7 @@
               <div class="row">
                 <div class="col-sm-4 col-xs-12 go-right">
                   <div class="form-group margin-left-right-mobile-5">
-                    <input id="search" name="txtSearch" class="form-control form-control-small" placeholder="<?php echo trans('026');?>" autocomplete="off"/>
+                    <input onkeydown="convertCharacter();" id="search" name="txtSearch" class="form-control form-control-small" placeholder="<?php echo trans('026');?>" autocomplete="off"/>
                     <div id="autocomlete-container"></div>
                   </div>
                   <input type="hidden" id="slug-search" value="">
@@ -258,8 +258,13 @@
           for(category in tally){
               $('#autocomplete_'+category).html(tally[category]);
           };
-      }
-  
+      },
+      _renderItem: function (ul, item) {
+        return $('<li>')
+            .data("item.autocomplete", item)
+            .append('<a class="ui-corner-all" tabindex="-1">' + item.display + '</a>')
+            .appendTo(ul);
+      },
   });
   
   <?php 
@@ -293,22 +298,26 @@ function stripUnicode($str) {
   ?>
   var data = [
   
-              <?php $locationlistings = getLocations();
-             // var_dump("<pre>", $locationlistings);die;
+    <?php $locationlistings = getLocations();
+    
     foreach($locationlistings as $list){
-        echo '{ label: "'.($list->location).'", slug:"'.create_slug($list->location).'", category: "Bạn muốn đặt khách sạn ở đâu", modType: "location", id: "'.$list->id.'", desc: "Tỉnh thành", address: ""},';
+        echo '{ label:"'.stripUnicode($list->location).'", display: "'.($list->location).'", value: "'.($list->location).'", slug:"'.create_slug($list->location).'", category: "Bạn muốn đặt khách sạn ở đâu", modType: "location", id: "'.$list->id.'", desc: "Tỉnh thành", address: ""},';
     } ?>
               <?php $hotellistings = getHotels();
     foreach($hotellistings->locations as $hotel){
-    echo '{ label: "'.($hotel->hotel_title).'", slug:"'.create_slug($hotel->hotel_title).'", category: "Khách sạn", modType: "hotel", id: "'.$hotel->hotel_id.'", desc: "'.$hotel->city.'", address: "'.$hotel->address.' - '.$hotel->near.'"},';
+      echo '{ label:"'.stripUnicode($hotel->hotel_title).'", display: "'.($hotel->hotel_title).'", value: "'.($hotel->hotel_title).'", slug:"'.create_slug($hotel->hotel_title).'", category: "Khách sạn", modType: "hotel", id: "'.$hotel->hotel_id.'", desc: "'.$hotel->city.'", address: "'.$hotel->address.' - '.$hotel->near.'"},';
     } ?>
   ];
   
   $( "#search" ).catcomplete({
       source: data,
       appendTo: "#autocomlete-container",
+      focus: function( event, ui ) {
+$( "#search" ).val( ui.item.label );
+return false;
+},
       select: function(event, ui) {
-              $('#search').val(ui.item.label);
+                $('#search').val(ui.item.display);
               // and place the item.id into the hidden textfield called 'searching'.
               $('#searching').val(ui.item.id);
              $('#modType').val(ui.item.modType);

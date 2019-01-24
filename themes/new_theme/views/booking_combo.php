@@ -185,89 +185,90 @@
                                                 </label>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-12 col-xs-12 conten-visa-card" id="show-atm-select" style="display: none">
-                                        <div class="col-lg-12 col-xs-12 content-visa-item bank_1" style="display: none">
-                                            <div class="row">
-                                                <div class="col-sm-4 col-xs-12"></div>
-                                                <div class="col-sm-8 col-xs-12">
-                                                    <div class=""><span>Ngân hàng VCB (Vietcombank)</span></div>
-                                                    <div class=""><span>Chi nhánh: Bến Thành,Tp Hồ Chí Minh</span></div>
-                                                    <div class=""><span>Tên tài khoản: CÔNG TY TNHH HOSPI</span></div>
-                                                    <div class=""><span>Số tài khỏan: 0331000465230 </span></div>
-                                                </div>                                                    
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 col-xs-12 content-visa-item bank_2" style="display: none">
-                                            <div class="row">
-                                                <div class="col-sm-4 col-xs-12"></div>
-                                                <div class="col-sm-8 col-xs-12">
-                                                    <div class=""><span>Ngân hàng Á Châu (ACB)</span></div>
-                                                    <div class=""><span>Chi nhánh:  Bến Thành, Tp. Hồ Chí Minh</span></div>
-                                                    <div class=""><span>Tên tài khoản: Võ Đình Chi</span></div>
-                                                    <div class=""><span>Số tài khỏa: 227041599</span></div>
-                                                </div>                                                    
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 col-xs-12 content-visa-item bank_3" style="display: none">
-                                            <div class="row">
-                                                <div class="col-sm-4 col-xs-12"></div>
-                                                <div class="col-sm-8 col-xs-12">
-                                                    <div class=""><span>Ngân hàng Đông Á</span></div>
-                                                    <div class=""><span>Chi nhánh: Sài Gòn, Tp. Hồ Chí Minh</span></div>
-                                                    <div class=""><span>Tên tài khoản: Võ Đình Chi</span></div>
-                                                    <div class=""><span>Số tài khỏa: 0103812000</span></div>
-                                                </div>                                                    
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 col-xs-12 content-visa-item bank_4" style="display: none">
-                                            <div class="row">
-                                                <div class="col-sm-4 col-xs-12"></div>
-                                                <div class="col-sm-8 col-xs-12">
-                                                    <div class=""><span> Ngân hàng Quân Đội (MBBank)</span></div>
-                                                    <div class=""><span>Chi nhánh:  Bến Thành, Tp. Hồ Chí Minh</span></div>
-                                                    <div class=""><span>Tên tài khoản: Võ Đình Chi</span></div>
-                                                    <div class=""><span>Số tài khỏa: 1460103608001 </span></div>
-                                                </div>                                                    
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 col-xs-12 content-visa-item bank_5" style="display: none">
-                                            <div class="row">
-                                                <div class="col-sm-4 col-xs-12"></div>
-                                                <div class="col-sm-8 col-xs-12">
-                                                    <div class=""><span>Ngân hàng sacombank (ACB)</span></div>
-                                                    <div class=""><span>Chi nhánh: Bến Thành,Tp Hồ Chí Minh</span></div>
-                                                    <div class=""><span>Tên tài khoản: Võ Đình Chi</span></div>
-                                                    <div class=""><span>Số tài khỏa: </span></div>
-                                                </div>                                                    
-                                            </div>
-                                        </div>
                                         <div class="clearfix"></div>
-                                        <div class="col-lg-12 col-xs-12 no-padding info-hoa-don" id="nganhangxuathoadon">
-                                            <div class="col-lg-12 col-xs-12 no-padding clss-xuat"><span class="cl-tim">Quý khách xuất hóa đơn, chuyển vào tài khoản này.</span></div>
-                                            <div class="form-group checkbox">
-                                                <label class="no-padding-left">
-                                                <input type="checkbox" value="1" onchange="nganhangxuathoadon('vietcombank',1)">
-                                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                                Vietcombank
-                                                </label>
+                                        <div class="col-sm-12 col-xs-12 no-padding conten-visa-card" id="show-atm-select" style="display: none">
+                                            <div class="content-visa-item bank_1" style="display: none">
+                                                <div class="row">
+                                                    <div class="col-sm-4 col-xs-12"></div>
+                                                    <div class="col-sm-8 col-xs-12">
+                                                        <div class=""><span>Ngân hàng VCB (Vietcombank)</span></div>
+                                                        <div class=""><span>Chi nhánh: Bến Thành,Tp Hồ Chí Minh</span></div>
+                                                        <div class=""><span>Tên tài khoản: CÔNG TY TNHH HOSPI</span></div>
+                                                        <div class=""><span>Số tài khoản: 0331000465230 </span></div>
+                                                    </div>                                                    
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                        <div class="col-lg-12 col-xs-12 content-visa-item-xuat-hoa-don" id="ngan-hanh-xuat-hoadon" style="display: none;">
-                                            <div class="row">
-                                                <div class="col-sm-4">
+                                            <div class="content-visa-item bank_2" style="display: none">
+                                                <div class="row">
+                                                    <div class="col-sm-4 col-xs-12"></div>
+                                                    <div class="col-sm-8 col-xs-12">
+                                                        <div class=""><span>Ngân hàng Á Châu (ACB)</span></div>
+                                                        <div class=""><span>Chi nhánh:  Bến Thành, Tp. Hồ Chí Minh</span></div>
+                                                        <div class=""><span>Tên tài khoản: Võ Đình Chi</span></div>
+                                                        <div class=""><span>Số tài khoản: 227041599</span></div>
+                                                    </div>                                                    
+                                                </div>
+                                            </div>
+                                            <div class="content-visa-item bank_3" style="display: none">
+                                                <div class="row">
+                                                    <div class="col-sm-4 col-xs-12"></div>
+                                                    <div class="col-sm-8 col-xs-12">
+                                                        <div class=""><span>Ngân hàng Đông Á</span></div>
+                                                        <div class=""><span>Chi nhánh: Sài Gòn, Tp. Hồ Chí Minh</span></div>
+                                                        <div class=""><span>Tên tài khoản: Võ Đình Chi</span></div>
+                                                        <div class=""><span>Số tài khoản: 0103812000</span></div>
+                                                    </div>                                                    
+                                                </div>
+                                            </div>
+                                            <div class="content-visa-item bank_4" style="display: none">
+                                                <div class="row">
+                                                    <div class="col-sm-4 col-xs-12"></div>
+                                                    <div class="col-sm-8 col-xs-12">
+                                                        <div class=""><span> Ngân hàng Quân Đội (MBBank)</span></div>
+                                                        <div class=""><span>Chi nhánh:  Bến Thành, Tp. Hồ Chí Minh</span></div>
+                                                        <div class=""><span>Tên tài khoản: Võ Đình Chi</span></div>
+                                                        <div class=""><span>Số tài khoản: 1460103608001 </span></div>
+                                                    </div>                                                    
+                                                </div>
+                                            </div>
+                                            <div class="content-visa-item bank_5" style="display: none">
+                                                <div class="row">
+                                                    <div class="col-sm-4 col-xs-12"></div>
+                                                    <div class="col-sm-8 col-xs-12">
+                                                        <div class=""><span>Ngân hàng Sacombank (ACB)</span></div>
+                                                        <div class=""><span>Chi nhánh: Bến Thành,Tp Hồ Chí Minh</span></div>
+                                                        <div class=""><span>Tên tài khoản: Võ Đình Chi</span></div>
+                                                        <div class=""><span>Số tài khoản: </span></div>
+                                                    </div>                                                    
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div class="info-hoa-don" id="nganhangxuathoadon">
+                                                <div class="clss-xuat"><span class="cl-tim">Quý khách xuất hóa đơn, chuyển vào tài khoản này</span></div>
+                                                <div class="form-group checkbox">
+                                                    <label class="no-padding-left">
+                                                        <input checked="checked" type="checkbox" value="1" onchange="nganhangxuathoadon('vietcombank',1)">
+                                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                        Vietcombank
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div class="content-visa-item-xuat-hoa-don" id="ngan-hanh-xuat-hoadon" >
+                                                <div class="row">
+                                                    <div class="col-sm-4">
 
-                                                </div>
-                                                <div class="col-sm-8">
-                                                    <div class=""><span>Ngân hàng TMCP Ngoại Thương Việt Nam - Vietcombank</span></div>
-                                                    <div class=""><span>Chủ tài khoản: CÔNG TY TNHH DU LỊCH HOSPI</span></div>
-                                                    <div class=""><span>Số tài khỏan: 0331000465230</span></div>
-                                                    <div class=""><span>Chi nhánh: Sài Gòn, Tp.HCM</span></div>                                                        
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class=""><span>Ngân hàng TMCP Ngoại Thương Việt Nam - Vietcombank</span></div>
+                                                        <div class=""><span>Chủ tài khoản: CÔNG TY TNHH DU LỊCH HOSPI</span></div>
+                                                        <div class=""><span>Số tài khoản: 0331000465230</span></div>
+                                                        <div class=""><span>Chi nhánh: Sài Gòn, Tp.HCM</span></div>                                                        
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <div class="clearfix"></div>
                                         </div>
-                                        <div class="clearfix"></div>
                                     </div>
                                     <div class="col-lg-12 col-xs-12" id="showphuongthuc_2" style="display: none">
                                         <div class="conten-vanphong">
@@ -316,6 +317,9 @@
                                 <li class="text-center pading-top-5-mobile"><a data-toggle="tab" class="dieukienhuy andes" href="#dieukienhuy" aria-expanded="false">Điều kiện hủy</a></li>
                                 <li class="text-right pading-top-5-mobile margin-bottom-5-mobile"><a data-toggle="tab" class="dieukiensudung andes" href="#dieukiensudung" aria-expanded="false">Điều kiện sử dụng</a></li>
                             </ul>
+                            <?php 
+                            //var_dump("<pre>", $module);die;
+                            ?>
                             <div class="tab-content">
                                 <div id="donphongcuaban" class="tab-pane fade active in">
                                     <div class="col-lg-12 col-xs-12 no-padding">
@@ -346,7 +350,7 @@
                                         <div style="margin-bottom: 10px; clear: both"></div>
                                         <div class="clearfix block-info-time-book">
                                             <div class="content-checkout info-time-book hidden">
-                                                <?php if( $is_unknown_date != 1) { ?>
+                                                <?php if( $_GET['di_sau'] != 1) { ?>
                                                 <div class="col-lg-12 col-xs-12">
                                                     <div class="col-lg-7 col-xs-7 no-padding-left">Ngày nhận phòng:</div>
                                                     <div class="col-lg-5 col-xs-5 cl-tim no-padding-left"><?php echo $checkin ; ?></div>
@@ -357,7 +361,7 @@
                                                     </div> -->
                                                 <div class="col-lg-12 col-xs-12">
                                                     <div class="col-lg-7 col-xs-7 no-padding-left">Số đêm:</div>
-                                                    <div class="col-lg-5 col-xs-5 cl-tim no-padding-left">01</div>
+                                                    <div class="col-lg-5 col-xs-5 cl-tim no-padding-left"><?php echo $module->min_nights; ?></div>
                                                 </div>
                                                 <?php }else{ ?>
                                                 <div class="col-lg-12 col-xs-12">
@@ -367,7 +371,7 @@
                                                 <?php } ?>
                                             </div>
                                             <div class="info-people info-people-single">
-                                                <?php if( $is_unknown_date != 1) { ?>
+                                                <?php if( $_GET['di_sau'] != 1) { ?>
                                                 <div class="">
                                                     <span class="cl-black">Ngày nhận phòng</span>
                                                     <span>:</span>
@@ -381,7 +385,7 @@
                                                 <div class="">
                                                     <span class="cl-black">Số đêm</span>
                                                     <span>:</span>
-                                                    <span class="cl-tim cl-bold">01</span>
+                                                    <span class="cl-tim cl-bold"><?php echo $module->min_nights; ?></span>
                                                 </div>
                                                 <?php }else{ ?>
                                                 <div class="">
@@ -408,7 +412,7 @@
                                                 <div class="">
                                                     <span class="cl-black">Giường phụ</span>
                                                     <span>:</span>
-                                                    <span class="cl-tim cl-bold">01</span>
+                                                    <span class="cl-tim cl-bold">0</span>
                                                 </div>
                                             </div>
                                         </div>
