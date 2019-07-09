@@ -1,5 +1,5 @@
 <?php
-
+//die('<h1>Please contact : 0917.492.306!</h1>');
 /********************************************************************************
 // * PHPtravels - Travel Business Partner                                       *
 // * Copyright (c) phptravels.com. All Rights Reserved                          *

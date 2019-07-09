@@ -143,16 +143,16 @@
                                         <div class="col-md-3 col-sm-12 col-xs-12 go-right no-padding-left no-margin-top-mobile">
                                             <div class="form-group checkbox">
                                                 <label class="no-padding-left">
-                                                <input type="checkbox" value="1" onchange="changeatm('vietcombank',1)">
+                                                <input class="choose_bank"  type="checkbox" value="1" onchange="changeatm('viettinbank',1)">
                                                 <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                                Vietcombank
+                                                ViettinBank
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="col-md-2 col-sm-12 col-xs-12 go-right no-padding-left no-margin-top-mobile">
                                             <div class="form-group checkbox">
                                                 <label class="no-padding-left">
-                                                <input type="checkbox" value="2" onchange="changeatm('acb',2)">
+                                                <input  class="choose_bank" type="checkbox" value="2" onchange="changeatm('acb',2)">
                                                 <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                                 ACB
                                                 </label>
@@ -161,16 +161,16 @@
                                         <div class="col-md-3 col-sm-12 col-xs-12 go-right no-padding-left no-margin-top-mobile ">
                                             <div class="form-group checkbox">
                                                 <label class="no-padding-left">
-                                                <input type="checkbox" value="3" onchange="changeatm('dongabank',3)">
+                                                <input class="choose_bank"  type="checkbox" value="3" onchange="changeatm('vietcombank',3)">
                                                 <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                                DongA Bank
+                                                Vietcombank
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="col-md-2 col-sm-12 col-xs-12 go-right no-padding-left no-margin-top-mobile ">
                                             <div class="form-group checkbox">
                                                 <label class="no-padding-left">
-                                                <input type="checkbox" value="4" onchange="changeatm('mbbank',4)">
+                                                <input  class="choose_bank" type="checkbox" value="4" onchange="changeatm('mbbank',4)">
                                                 <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                                 MBBank
                                                 </label>
@@ -179,7 +179,7 @@
                                         <div class="col-md-2 col-sm-12 col-xs-12 go-right no-padding no-margin-top-mobile">
                                             <div class="form-group checkbox">
                                                 <label class="no-padding-left">
-                                                <input type="checkbox" value="5" onchange="changeatm('sacombank',5)">
+                                                <input  class="choose_bank" type="checkbox" value="5" onchange="changeatm('sacombank',5)">
                                                 <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                                 Sacombank
                                                 </label>
@@ -188,6 +188,17 @@
                                         <div class="clearfix"></div>
                                         <div class="col-sm-12 col-xs-12 no-padding conten-visa-card" id="show-atm-select" style="display: none">
                                             <div class="content-visa-item bank_1" style="display: none">
+                                                    <div class="row">
+                                                        <div class="col-sm-4 col-xs-12"></div>
+                                                        <div class="col-sm-8 col-xs-12">
+                                                            <div class=""><span>TMCP Công Thương Việt Nam - Vietinbank</span></div>
+                                                            <div class=""><span>Chi nhánh: Quận 10, Tp.HCM</span></div>
+                                                            <div class=""><span>Tên tài khoản: CÔNG TY TNHH HOSPI</span></div>
+                                                            <div class=""><span>Số tài khoản: 111002667553 </span></div>
+                                                        </div>                                                    
+                                                    </div>
+                                                </div>
+                                            <div class="content-visa-item bank_1_bk" style="display: none">
                                                 <div class="row">
                                                     <div class="col-sm-4 col-xs-12"></div>
                                                     <div class="col-sm-8 col-xs-12">
@@ -210,6 +221,17 @@
                                                 </div>
                                             </div>
                                             <div class="content-visa-item bank_3" style="display: none">
+                                                    <div class="row">
+                                                        <div class="col-sm-4 col-xs-12"></div>
+                                                        <div class="col-sm-8 col-xs-12">
+                                                            <div class=""><span>TMCP Ngoại Thương Việt Nam - Vietcombank</span></div>
+                                                            <div class=""><span>Chi nhánh: Sài Gòn, Tp. HCM</span></div>
+                                                            <div class=""><span>Tên tài khoản: VÕ ĐÌNH CHI</span></div>
+                                                            <div class=""><span>Số tài khoản: 0331000443348</span></div>
+                                                        </div>                                                    
+                                                    </div>
+                                                </div>
+                                            <div class="content-visa-item bank_3_bk" style="display: none">
                                                 <div class="row">
                                                     <div class="col-sm-4 col-xs-12"></div>
                                                     <div class="col-sm-8 col-xs-12">
@@ -247,7 +269,7 @@
                                                 <div class="clss-xuat"><span class="cl-tim">Quý khách xuất hóa đơn, chuyển vào tài khoản này</span></div>
                                                 <div class="form-group checkbox">
                                                     <label class="no-padding-left">
-                                                        <input checked="checked" type="checkbox" value="1" onchange="nganhangxuathoadon('vietcombank',1)">
+                                                        <input  class="choose_bank" checked="checked" type="checkbox" value="1" onchange="nganhangxuathoadon('vietcombank',1)">
                                                         <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                                         Vietcombank
                                                     </label>
@@ -713,6 +735,18 @@
       }else{
         $("#sendto").hide();
       }
-    })
-    
+    });
+    $(function(){
+        $('input.choose_bank').click(function(){
+            var obj = $(this);
+            if(obj.prop('checked') == true){
+                    $('input.choose_bank').prop('checked', false);
+                    obj.prop('checked', true);
+                $('#bank_id').val(obj.val());
+            }else{
+                    $('input.choose_bank').prop('checked', false);
+                    $('#bank_id').val('');
+            }
+        });
+});
 </script>
